@@ -1,0 +1,37 @@
+body{
+    background-color:grey;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+.container {
+    background-color:rgb(69, 75, 82); 
+   
+
+}
+
+h1, h2, h3 {
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+
+img.profile {
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; 
+    width: 165px; 
+    height: 200px;
+}
+
+.footer{
+    font-size: large;
+    background-color:rgb(69, 75, 82) ;
+    flex :1;
+}
+
