@@ -1,15 +1,14 @@
 body{
-    background-color:grey;
+    background-color:rgb(246, 240, 240);
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh
 }
 .container {
-    background-color:rgb(69, 75, 82); 
+
     background-image: url(images/bg-new.jpg);
-     background-repeat: no-repeat;
-     background-size: cover;
+        width:100%;
 
 }
 
@@ -18,7 +17,7 @@ p {
 }
 
 
-img.profile {
+.profile {
     display: block;
     margin: 0 auto;
     border-radius: 50%; 
@@ -27,15 +26,16 @@ img.profile {
 }
 
 
-table, th, td {
+table , th, td {
     border: 1px solid black;
     border-collapse: collapse;
     border-style: dashed;
+
 }
 
 .footer{
     font-size: large;
-    background-color:rgb(69, 75, 82) ;
+    background-color:rgb(214, 200, 240) ;
     flex :1;
 }
 
