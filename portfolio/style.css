@@ -7,13 +7,10 @@ body{
 }
 .container {
     background-color:rgb(69, 75, 82); 
-   
+    background-image: url(images/bg-new.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
 
-}
-
-h1, h2, h3 {
-    letter-spacing: 1px;
-    line-height: 1.5;
 }
 
 p {
@@ -25,8 +22,15 @@ img.profile {
     display: block;
     margin: 0 auto;
     border-radius: 50%; 
-    width: 165px; 
+    width: 167px; 
     height: 200px;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-style: dashed;
 }
 
 .footer{
