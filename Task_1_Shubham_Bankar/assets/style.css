@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+body{
+    font-family: inter;
+    margin: 0%;
+    padding: 0%;
+    margin-top: 10px;
+}
+
+.main{
+    margin-left :289px;
+    margin-right: 289px;
+}
+
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.list {
+    text-decoration: none;
+    justify-content: space-between;
+
+}
+.list2{
+    color:black;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    display: inline-flex;
+    font-size: 20px;
+    justify-content: space-between;
+    text-decoration: none;
+    margin-left: 20px;
+
+}
+
+.btn{
+    border: none;
+    border-radius: 9px;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+}
+
+/* -------grid-------- */
+.container{
+    height:100%;
+    width: 100%;
+    background-color:#ffffff;
+    display: grid;
+    margin-top: 20px;
+
+    row-gap: 10px;
+    column-gap: 10px;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 60px;
+}
+
+.item{
+    font-size: x-large;
+    background-color: #F5C0AC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.section1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: #F5C0AC;
+}
+
+.section2{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background-color:#DBCFCF;
+
+}
+
+.section3{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color:#D9D9D9;
+}
+
+.section4{
+    background-color:#E2E2E2;
+    width: 543px;
+}
+
+.section5 {
+    background-color: #E2E2E2;
+}
+
+/* ----footer--- */
+
+.footer{
+    background-color:#363636;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-bottom: 0px;
+    justify-content: space-around;
+}
+
+.copyright{
+    float: left;
+}
+.copyright p{
+    margin-top: 20px;
+    font-size: 25px;
+    color: white;
+}
+
+.icons{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    float: right;
+    justify-content: center;
+}
+.icons ul{
+    display: flex;
+}
+.icons ul li{
+    list-style-type: none;
+}
+
+.icons ul li img{
+    height: 40px;
+    width: 40px;
+    font-weight: 500;
+    text-decoration: none;
+    justify-content: center;
+    margin-bottom: 15px;
+
+}
+
