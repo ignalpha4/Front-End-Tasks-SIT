@@ -163,6 +163,12 @@ body {
   background-repeat: no-repeat;
 }
 
+.notification i:hover{
+  color: #acf5c8;
+}
+.dropdown button:hover{
+  background-color: #acf5c8;
+}
 
   
   @media screen and (max-height: 450px) {
@@ -243,6 +249,9 @@ body {
 }
 .export button i{
   margin-right: 10px;
+}
+.export button:hover{
+  background-color: #acf5c8;
 }
 
 /* inside boxes */
