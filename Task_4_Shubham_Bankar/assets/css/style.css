@@ -62,11 +62,50 @@ body {
     
 }
 
-
 .items button:hover{
   background-color:#acf5c8;
 }
-  
+
+
+.banner{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 259px;
+  width: 238px;
+  margin-left: 30px;
+  margin-top: 80px;
+  border-radius: 20px;
+  background-image: url("/Task_4_Shubham_Bankar/assets/images/banner_bg.svg");
+}
+
+.banner_content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  width: 145px;
+  row-gap: 10px;
+}
+
+.banner_content button{
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px; 
+  background-color: white;
+  width: 136px;
+  height: 40px;
+  border: none;
+  color: #5D5FEF;
+
+}
+
+.banner_content button:hover{
+  background-color: #acf5c8;
+}
+
   .sidenav {
     height: 100%;
     width: 345px;
@@ -74,7 +113,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(254, 174, 174);
+    background-color: #ffffff;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -100,7 +139,10 @@ body {
     font-size: 36px;
     margin-left: 50px;
   }
+
   
+
+
 /*header*/
   #header {
     transition: margin-left .5s;
