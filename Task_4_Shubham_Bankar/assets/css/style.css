@@ -107,6 +107,21 @@ body {
     /* padding: 16px; */
     background-color: grey;
   }
+
+.right_nav form{
+  height: 60px;
+  position: relative;
+}
+
+.form-control {
+  padding-left: 60px; 
+  background-image: url('/Task_4_Shubham_Bankar/assets/images/search.svg'); /* Specify the path to your icon */
+  background-size: 32px; 
+  background-position: 20px center;
+  background-repeat: no-repeat;
+}
+
+
   
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
@@ -174,6 +189,19 @@ body {
   border-radius: 20px;
 }
 
+/* inside row 1 */
+
+.export button{
+  height: 40px;
+  width: 100px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.export button i{
+  margin-right: 10px;
+}
 
 /* inside boxes */
 
@@ -188,16 +216,28 @@ body {
 
 .b2{
   height: 184px;
-  background-color: #FFF4DE;
+  background-color:  #FFF4DE;
   border-radius: 16px;
 }
+.b2 img{
+  margin-bottom: 12px;
+}
+
 .b3{
   height: 184px;
   background-color: #DCFCE7;
   border-radius: 16px;
 }
+
+.b3 img{
+  margin-bottom: 12px;
+}
 .b4{
   height: 184px;
   background-color: #F3E8FF;
   border-radius: 16px;
+}
+
+.b4 img{
+  margin-bottom: 12px;
 }
