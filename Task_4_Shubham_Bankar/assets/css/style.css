@@ -170,7 +170,7 @@ body {
 
 .form-control {
   padding-left: 60px; 
-  background-image: url('/Task_4_Shubham_Bankar/assets/images/search.svg'); /* Specify the path to your icon */
+  background-image: url('../../assets/images/search.svg');
   background-size: 32px; 
   background-position: 20px center;
   background-repeat: no-repeat;
@@ -201,20 +201,17 @@ body {
 
 .r1c1{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 
 }
 
-.r1content{
-  display: flex;
-  justify-content: space-between;
-  margin-right: 30px;
-  margin-left: 30px;
-}
+
 
 .r1c2{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
@@ -222,43 +219,52 @@ body {
 
 .r2c1{
   min-height: 348px;
-  
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
 
 .r2c2{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
 
 .r3c1{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
 
 .r3c2{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
 
 .r3c3{
   min-height: 348px;
+  height: 100%;
   background-color: #F8F9FA;
   border-radius: 20px;
 }
 
 /* inside row 1 */
 
+
+.r1content{
+  display: flex;
+  justify-content: space-between;
+}
 .export button{
   height: 40px;
   width: 100px;
   color: black;
   background-color: white;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 8px;
 }
 .export button i{
@@ -271,16 +277,17 @@ body {
 /* inside boxes */
 
 .b1{
-  height: 184px;
+  min-height: 184px;
   background-color: #FFE2E5;
   border-radius: 16px;
+
 }
 .b1 img{
   margin-bottom: 12px;
 }
 
 .b2{
-  height: 184px;
+  min-height: 184px;
   background-color:  #FFF4DE;
   border-radius: 16px;
 }
@@ -289,7 +296,7 @@ body {
 }
 
 .b3{
-  height: 184px;
+  min-height: 184px;
   background-color: #DCFCE7;
   border-radius: 16px;
 }
@@ -298,7 +305,7 @@ body {
   margin-bottom: 12px;
 }
 .b4{
-  height: 184px;
+  min-height: 184px;
   background-color: #F3E8FF;
   border-radius: 16px;
 }
@@ -358,9 +365,8 @@ body {
   
 }
 
-.t_row{
-  height:61px;
-}
+
+
 
 
 
@@ -388,9 +394,6 @@ body {
   justify-content: center;
 }
 
-.product_info p{
-  
-}
 /* row3 col2 */
 
 .r3c2_content{
@@ -412,7 +415,7 @@ body {
 }
 
 .r3c2_map img{
-  height: 229px;
+  height: 200px;
   width:380px ;
 
 }
@@ -424,6 +427,7 @@ body {
   align-items: center;
   text-align: start;
   text-align: start;
+
 }
 
 
@@ -434,9 +438,9 @@ body {
   align-items: center;
   text-align: start;
   justify-content: center;
+
 }
 
 .r3c3_graph img{
-
-  max-width: 90%;
+  max-width: 95%;
 }
