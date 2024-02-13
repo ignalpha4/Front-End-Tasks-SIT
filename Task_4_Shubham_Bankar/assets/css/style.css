@@ -106,7 +106,7 @@ body {
   background-color: #acf5c8;
 }
 
-  .sidenav {
+.sidenav {
     height: 100%;
     width: 345px;
     position: fixed;
@@ -117,28 +117,28 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
+}
   
-  .sidenav a {
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
+}
   
-  .sidenav a:hover {
+.sidenav a:hover {
     color: #f1f1f1;
-  }
+}
   
-  .sidenav .closebtn {
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
+}
 
   
 
@@ -209,6 +209,7 @@ body {
 
 .r2c1{
   min-height: 348px;
+  
   background-color: #F8F9FA;
   border-radius: 20px;
 }
@@ -340,9 +341,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
-/* ro3 3 col 1 */
+.t_row{
+  height:61px;
+}
+
+
+
+/* row3 3 col 1 */
 
 .r3c1_content{
   display: flex;
@@ -364,3 +372,52 @@ body {
   align-items: baseline;
 }
 
+/* row3 col2 */
+
+.r3c2_content{
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  text-align: start;
+}
+
+
+
+.r3c2_map{
+
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.r3c2_map img{
+  height: 229px;
+  width:380px ;
+
+}
+
+/* row 3 col 3 */
+
+.r3c3_content{
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+  text-align: start;
+}
+
+
+
+.r3c3_graph{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: center;
+}
+
+.r3c3_graph img{
+
+  max-width: 90%;
+}
