@@ -9,11 +9,20 @@ body {
 /*--sidebar*/
 .logo ul{
     list-style: none;
+    margin-left: 10px;
 }
+
+
+.logo ul a:hover{
+  color: #acf5c8;
+}
+
+
 .logo ul img{
     margin-right: 30px;
     border: 2px;
 }
+
 
 .logo ul li {
     font-size: 30px;
@@ -21,35 +30,45 @@ body {
 }
 
 .items ul{
-
     list-style: none;
+    margin-left: 10px;
 }
 
 .items li{
     margin-top: 40px;
     font-size: 18px;
     font-weight: 400;
+
 }
-.items li i{
+
+.items ul li:hover{
+  color: #acf5c8;
+}
+
+.items li a i{
     margin-right:30px;
-    margin-left: 18px;
+    margin-left: 10px;
 }
 
 .items li button img{
     margin-right: 30px;
+    font-size: 18px;
+    font-weight:600 ;
 }
 
-/* .items li a {
-
-    text-decoration: none;
-    color: inherit;
-
-} */
-.items li:hover{
-  color: #acf5c8;
+.anchor {
+  text-decoration: none; 
+  color: inherit; 
 }
 
-.items button{
+.anchor:hover {
+  text-decoration: none; 
+  color: inherit; 
+}
+
+
+
+.items ul li a button{
     font-size: 18px;
     font-weight: 500;
     width: 252px;
@@ -62,9 +81,10 @@ body {
     
 }
 
-.items button:hover{
-  background-color:#acf5c8;
+.items ul li button:hover{
+  background-color: #acf5c8;
 }
+
 
 
 .banner{
@@ -75,6 +95,7 @@ body {
   width: 238px;
   margin-left: 30px;
   margin-top: 80px;
+  margin-bottom: 20px;
   border-radius: 20px;
   background-image: url("/Task_4_Shubham_Bankar/assets/images/banner_bg.svg");
 }
@@ -119,18 +140,8 @@ body {
     padding-top: 60px;
 }
   
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-  
-.sidenav a:hover {
-    color: #f1f1f1;
-}
+
+
   
 .sidenav .closebtn {
     position: absolute;
@@ -138,6 +149,8 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+    color: black;
+    text-decoration: none;
 }
 
   
@@ -309,8 +322,9 @@ body {
 }
 .accordion-button{
   background-color: #5D5FEF!important;
-  color:white;
+  color: white !important;
 }
+
 
 
 
@@ -370,8 +384,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: baseline;
+  font-size: 16px;
+  justify-content: center;
 }
 
+.product_info p{
+  
+}
 /* row3 col2 */
 
 .r3c2_content{

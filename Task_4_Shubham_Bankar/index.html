@@ -8,32 +8,32 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
-
 </head>
 
 <body>
 
   <!--sidebar-->
 
-  <div id="mySidenav" class="sidenav">
+  <div id="mySidenav" class="sidenav" style="width: 0;">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
     <div class="logo">
       <ul>
-        <li><img src="assets/images/logo.svg"> Dabang</li>
+        <li><a href="#" class="anchor"><img src="assets/images/logo.svg"> Dabang</a></li>
+      </ul>
     </div>
 
     <div class="items">
 
       <ul>
-        <li><button><img src="assets/images/button.svg">Dashboard </button></a></li>
-        <li><i class="fa-solid fa-arrow-trend-up fa-xl"></i>Leaderboard</a></li>
-        <li><i class="fa-solid fa-cart-shopping fa-xl"></i>Order</li>
-        <li><i class="fa-solid fa-bag-shopping fa-xl"></i>Products</li>
-        <li><i class="fa-solid fa-chart-line fa-xl"></i>Sales Report</li>
-        <li><i class="fa-regular fa-message fa-xl"></i>Messages</li>
-        <li><i class="fa-solid fa-gear fa-xl"></i>Settings</li>
-        <li><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>Sign Out</li>
+        <li><a href="#" class="anchor"><button><img src="assets/images/button.svg">Dashboard</button></a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-arrow-trend-up fa-xl"></i>Leaderboard</a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-cart-shopping fa-xl"></i>Order</a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-bag-shopping fa-xl"></i>Products</a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-chart-line fa-xl"></i>Sales Report</a></li>
+        <li><a href="#" class="anchor"><i class="fa-regular fa-message fa-xl"></i>Messages</a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-gear fa-xl"></i>Settings</a></li>
+        <li><a href="#" class="anchor"><i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>Sign Out</a></li>
       </ul>
 
     </div>
@@ -44,7 +44,7 @@
         <img src="assets/images/banner_logo.svg">
         <span style="font-size:20px;font-weight:600;">Dabang Pro</span>
         <span style="font-size:12px;font-weight:500;">Get Access to all features on tetumbas</span>
-        <button>Get Pro</button>
+        <a href="#" class="anchor"><button>Get Pro</button></a>
 
       </div>
     </div>
@@ -213,7 +213,7 @@
               <!--accordion-->
 
               <div class="accordion" id="accordionExample">
-                <div class="accordion-item ">
+                <div class="accordion-item">
                   <h2 class="accordion-header " id="headingOne">
                     <button class="accordion-button " type="button" data-bs-toggle="collapse"
                       data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -261,261 +261,274 @@
         </div>
       </div>
 
-    
 
 
-    <!-- row 2 -->
 
-    <div class="row">
+      <!-- row 2 -->
 
-      <!-- row2 col1 -->
+      <div class="row">
 
-      <div class="col-lg-5 mt-3 ">
+        <!-- row2 col1 -->
 
-        <div class="r2c1 p-3">
-          <div class="r2c1_content">
-            <p style="font-size: 20px;font-weight: 600;">Visitor List</p>
+        <div class="col-lg-5 mt-3 ">
 
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Join Date</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">01</th>
-                    <td>Stephen P.Osborn</td>
-                    <td>17 Jan,2023</td>
-                    <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can" style="color: #b45555;"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">02</th>
-                    <td>Odessa G.Mettler</td>
-                    <td>13 Feb,2023</td>
-                    <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can" style="color: #b45555;"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">03</th>
-                    <td>Judith H.Richards</td>
-                    <td>13 Feb,2023</td>
-                    <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can" style="color: #b45555;"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">04</th>
-                    <td>Jack B.Perez</td>
-                    <td>10 Feb,2023</td>
-                    <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can" style="color: #b45555;"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">05</th>
-                    <td>Chris B.Ryant</td>
-                    <td>10 Feb,2023</td>
-                    <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can" style="color: #b45555;"></i></td>
-                  </tr>
-  
-                </tbody>
-              </table>
+          <div class="r2c1 p-3">
+            <div class="r2c1_content">
+              <p style="font-size: 20px;font-weight: 600;">Visitor List</p>
 
-              <p style="font-size:14;font-weight:400;color:#5D5FEF;text-align: center;"><a href="#">Read More</a></p>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Join Date</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">01</th>
+                      <td>Stephen P.Osborn</td>
+                      <td>17 Jan,2023</td>
+                      <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can"
+                          style="color: #b45555;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">02</th>
+                      <td>Odessa G.Mettler</td>
+                      <td>13 Feb,2023</td>
+                      <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can"
+                          style="color: #b45555;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">03</th>
+                      <td>Judith H.Richards</td>
+                      <td>13 Feb,2023</td>
+                      <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can"
+                          style="color: #b45555;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">04</th>
+                      <td>Jack B.Perez</td>
+                      <td>10 Feb,2023</td>
+                      <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can"
+                          style="color: #b45555;"></i></td>
+                    </tr>
+                    <tr>
+                      <th scope="row">05</th>
+                      <td>Chris B.Ryant</td>
+                      <td>10 Feb,2023</td>
+                      <td><i class="fa-solid fa-pen-to-square"></i><i class="fa-solid fa-trash-can"
+                          style="color: #b45555;"></i></td>
+                    </tr>
 
-            </div>
-            
-          </div>
-        </div>
+                  </tbody>
+                </table>
 
-      </div>
-
-
-      <!-- row2 col2 -->
-      <div class="col-lg-7 mt-3">
-        <div class="r2c2 p-3">
-          <div class="r2c2_content">
-            <p style="font-size: 20px;font-weight: 600;">Top Products</p>
-
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                   <th>#</th>
-                   <th>Name</th>
-                   <th>Popularity</th>
-                   <th>Sales</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr class="t_row">
-                    <td>01</td>
-                    <td>Home Decore Range</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width:45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge  bg-primary">45%</span></td>
-                  </tr>
-
-                  <tr class="t_row">
-                    <td>02</td>
-                    <td>Disney Princess Pink Nah 18'</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width:29%" aria-valuenow="29" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge  bg-info">29%</span></td>
-                  </tr>
-
-                  <tr class="t_row">
-                    <td>03</td>
-                    <td>Bathroom Essentials</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width:45%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge  bg-success">45%</span></td>
-                  </tr>
-
-                  <tr class="t_row">
-                    <td>04</td>
-                    <td>Apple Smartwatches</td>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width:25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </td>
-                    <td><span class="badge  bg-warning">25%</span></td>
-                  </tr>
-
-
-                </tbody>
-
-              </table>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- row 3 col1 -->
-    <div class="row">
-      <div class="col-lg-5 mt-3 mb-3">
-        <div class="r3c1 p-3">
-          <div class="r3c1_content">
-            <p style="font-size: 20px;font-weight: 600;">Main Products</p>
-
-            <div class="products">
-              <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" data-bs-toggle="tab" href="#product1">Product 1</a>
-                </li>
-
-                <li>
-                  <a class="nav-link" data-bs-toggle="tab" href="#product2">Product 2</a>
-                </li>
-              </ul>
-
-
-              <!-- tab content -->
-
-              <div class="tab-content">
-                <!-- product 1 -->
-                <div id="product1" class="container tab-pane active"><br>
-                  <div class="product_details">
-
-                    <div class="product_img">
-                      <img src="assets/images/image_template.svg">
-                    </div>
-                   
-                    <div class="product_info">
-                      <h1>what is a Product 1??</h1>
-                      <p>
-                        This is Product 1 info  of passages of Lorem Ipsum available, 
-                        but the majority have suffered alteration in some form, by injected humour, 
-                        or randomised words which don't look even slightly believable. If you are going to 
-                        use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing 
-                        hidden in the middle of text.    
-                      </p>
-
-                    </div>
-                  </div>
-                  
-
-                </div>
-                <!-- product 2 -->
-                <div id="product2" class="container tab-pane fade"><br>
-                  <div class="product_details">
-
-                    <div class="product_img">
-                      <img src="assets/images/image_template.svg">
-                    </div>
-                   
-                    <div class="product_info">
-                      <h1>what is a Product 2??</h1>
-                      <p>
-                        This is Product 2 info of Lorem Ipsum available, 
-                        but the majority have suffered alteration in some form, by injected humour, 
-                        or randomised words which don't look even slightly believable. If you are going to 
-                        use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing 
-                        hidden in the middle of text.    
-                      </p>
-
-                    </div>
-                  </div>
-                  
-
-                </div>
+                <p style="font-size:14;font-weight:400;color:#5D5FEF;text-align: center;"><a href="#">Read More</a></p>
 
               </div>
-            </div>
 
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- row2 col2 -->
+        <div class="col-lg-7 mt-3">
+          <div class="r2c2 p-3">
+            <div class="r2c2_content">
+              <p style="font-size: 20px;font-weight: 600;">Top Products</p>
+
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Popularity</th>
+                      <th>Sales</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr class="t_row">
+                      <td>01</td>
+                      <td>Home Decore Range</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar" role="progressbar" style="width:45%" aria-valuenow="45"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge  bg-primary">45%</span></td>
+                    </tr>
+
+                    <tr class="t_row">
+                      <td>02</td>
+                      <td>Disney Princess Pink Nah 18'</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar bg-info" role="progressbar" style="width:29%" aria-valuenow="29"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge  bg-info">29%</span></td>
+                    </tr>
+
+                    <tr class="t_row">
+                      <td>03</td>
+                      <td>Bathroom Essentials</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar bg-success" role="progressbar" style="width:45%" aria-valuenow="45"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge  bg-success">45%</span></td>
+                    </tr>
+
+                    <tr class="t_row">
+                      <td>04</td>
+                      <td>Apple Smartwatches</td>
+                      <td>
+                        <div class="progress">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width:25%" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </td>
+                      <td><span class="badge  bg-warning">25%</span></td>
+                    </tr>
+
+
+                  </tbody>
+
+                </table>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
 
- <!-- row 3 col 2 -->
-      <div class="col-lg-4 mt-3">
-        <div class="r3c2 p-3">
-          <div class="r3c2_content">
 
-            <div class="r3c2_heading">
-              <span style="font-size:20px ;font-weight:600;">Sales Mapping by Country</span>
+      <!-- row 3 col1 -->
+      <div class="row">
+        <div class="col-lg-5 mt-3 mb-3">
+          <div class="r3c1 p-3">
+            <div class="r3c1_content">
+              <p style="font-size: 20px;font-weight: 600;">Main Products</p>
+
+              <div class="products">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#product1">Product 1</a>
+                  </li>
+
+                  <li>
+                    <a class="nav-link" data-bs-toggle="tab" href="#product2">Product 2</a>
+                  </li>
+                </ul>
+
+
+                <!-- tab content -->
+
+                <div class="tab-content">
+                  <!-- product 1 -->
+                  <div id="product1" class="container tab-pane active"><br>
+                    <div class="product_details">
+
+                      <div class="product_img">
+                        <img src="assets/images/image_template.svg">
+                      </div>
+
+                      <div class="product_info">
+                        <h4>What is a Product 1??</h4>
+                        <p>
+                          This is Product 1    info of passages of Lorem Ipsum available,
+                          but the majority have suffered alteration in some form, by injected humour,
+                          or randomised words which don't look even slightly believable. If you are going to
+                          use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+                          hidden in the middle of text.
+                        </p>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                  <!-- product 2 -->
+                  <div id="product2" class="container tab-pane fade"><br>
+                    <div class="product_details">
+
+                      <div class="product_img">
+                        <img src="assets/images/image_template.svg">
+                      </div>
+
+                      <div class="product_info">
+                        <h4>What is a Product 2??</h4>
+                        <p>
+                          This is Product 2 info of Lorem Ipsum available,
+                          but the majority have suffered alteration in some form, by injected humour,
+                          or randomised words which don't look even slightly believable. If you are going to
+                          use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing
+                          hidden in the middle of text.
+                        </p>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
+
             </div>
-              
+          </div>
+        </div>
+
+        <!-- row 3 col 2 -->
+        <div class="col-lg-4 mt-3">
+          <div class="r3c2 p-3">
+            <div class="r3c2_content">
+
+              <div class="r3c2_heading">
+                <span style="font-size:20px ;font-weight:600;">Sales Mapping by Country</span>
+              </div>
+
               <div class="r3c2_map">
                 <img src="assets/images/map.svg" class="img-fluid">
               </div>
-              
+
+            </div>
+          </div>
+        </div>
+
+        <!-- row 3 col 2 -->
+
+        <div class="col-lg-3 mt-3">
+          <div class="r3c3 p-3">
+            <div class="r3c3_content">
+
+              <div class="r3c3_heading">
+                <span style="font-size:20px ;font-weight:600;">Volume vs Service Level</span>
+              </div>
+
+              <div class="r3c3_graph">
+                <img src="assets/images/graph.svg ">
+              </div>
+
+
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- row 3 col 2 -->
-
-      <div class="col-lg-3 mt-3">
-        <div class="r3c3 p-3">
-          <div class="r3c3_content">
-
-            <div class="r3c3_heading">
-              <span style="font-size:20px ;font-weight:600;">Volume vs Service Level</span>
-            </div>
-
-            <div class="r3c3_graph">
-              <img src="assets/images/graph.svg ">
-            </div>
 
 
-          </div>
-        </div>
-      </div>
     </div>
 
 
@@ -524,17 +537,12 @@
 
 
 
-  </div>
-
-  </div>
 
 
 
-
-
-
-  <script src="assets/javascript/myscript.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/javascript/myscript.js"></script>
+
 
 </body>
 
