@@ -159,7 +159,6 @@ body {
 /*header*/
   #header {
     transition: margin-left .5s;
-    /* padding: 16px; */
     background-color: grey;
   }
 
@@ -179,20 +178,31 @@ body {
 .notification i:hover{
   color: #acf5c8;
 }
-.dropdown button:hover{
-  background-color: #acf5c8;
+.dropdown .btn-primary{
+  background-color: #fff;
+  color: black;
+  border:none
+}
+.whole_profile{
+  display: flex;
+  flex-direction: row;
 }
 
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
+.profile_name{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 50px;
+}
 
-  .role{
-    font-size: 14px;
-    font-weight: 400;
-  }
+
+
+  
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 /*--main container*/
 
 .main{
