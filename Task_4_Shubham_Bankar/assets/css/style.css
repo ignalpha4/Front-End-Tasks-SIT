@@ -97,7 +97,7 @@ body {
   margin-top: 80px;
   margin-bottom: 20px;
   border-radius: 20px;
-  background-image: url("/Task_4_Shubham_Bankar/assets/images/banner_bg.svg");
+  background-image: url("../images/banner_bg.svg");
 }
 
 .banner_content{
@@ -514,4 +514,19 @@ body {
 
 .accordion-button::after {
   filter: invert(100%)!important;
+}
+
+
+
+/* Override Bootstrap styles for accordion buttons */
+.accordion-button {
+  transition: none; /* Remove any transition effects */
+  outline: none; /* Remove outline when focused */
+  box-shadow: none !important; /* Remove any box shadow */
+}
+
+/* Optionally, if you want to remove the active color change */
+.accordion-button:active {
+  background-color: inherit; /* Use the background color of the parent element */
+  color: inherit; /* Use the text color of the parent element */
 }
