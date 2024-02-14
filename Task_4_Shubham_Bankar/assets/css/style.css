@@ -375,7 +375,6 @@ body {
 .r3c1_content{
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .product_details{
@@ -384,9 +383,12 @@ body {
  
 }
 
+.product_img{
+  display: flex;
+  justify-content: center;
+}
 
 .product_info{
-  margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -397,50 +399,48 @@ body {
 /* row3 col2 */
 
 .r3c2_content{
-  justify-content: center;
-  align-items: center;
-  text-align: start;
-  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 
 
 .r3c2_map{
-
-  margin-top: 30px;
+  height: 100%;
+  width: 100%;
   display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
 }
 
 .r3c2_map img{
-  height: 200px;
-  width:380px ;
-
+  margin-top: 5%;
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
 /* row 3 col 3 */
 
 .r3c3_content{
-  justify-content: center;
-  align-items: center;
-  text-align: start;
-  text-align: start;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
 
 
 .r3c3_graph{
-  margin-top: 30px;
+  height: 100%;
+  width: 100%;
+
   display: flex;
-  align-items: center;
-  text-align: start;
-  justify-content: center;
 
 }
 
 .r3c3_graph img{
-  max-width: 95%;
+  height: 100%;
+  width: 100%;
+  margin-top: 5%;
 }
