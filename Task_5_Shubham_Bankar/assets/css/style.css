@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.anchor{
+    text-decoration: none;
+    color: black;
+}
+.anchor:hover{
+    text-decoration: none; 
+    color: inherit;    
+}
+
+.main_nav{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_list ul li{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.login ul li{
+    padding-right: 15px;
+}
+
+.navbar-nav{
+    padding:10px;
+}
