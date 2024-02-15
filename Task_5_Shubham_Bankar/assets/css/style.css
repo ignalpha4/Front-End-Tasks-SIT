@@ -60,7 +60,7 @@ body{
 /* ----------layout ------------------------------------------*/
 
 
-/* container 1 */
+/* -----------container 1--------------- */
 
 /* col 1 */
 
@@ -68,7 +68,7 @@ body{
     background-color: #F5F7FA!important;
 }
 
-.r1c1_content{
+.c1c1_content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,7 +91,7 @@ body{
 }
 
 /* col2 */
-.r1c2_content{
+.c1c2_content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,6 +115,35 @@ body{
   .carousel-control-prev, .carousel-control-next {
     display: none;
   }
+
+/* -----------------container 9--------------------- */
+
+.c9{
+    background-color: #d7dbe3!important;
+}
+
+.c9c1_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    text-align: center;
+    align-items: center;
+}
+
+.c9_button{
+    margin-top: 15px;
+    background-color: #4CAF4F!important;
+    color: white;
+    font-size:16px;
+    font-weight:500;
+    width:178px;
+    height:52px;
+    border: none;
+    border-radius: 4px;
+}
+
 /* --------------footer container -------------*/
 
 .cf{
