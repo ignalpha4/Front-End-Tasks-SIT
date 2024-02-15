@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 body{
     margin: 0;
     padding: 0;
+    font-family: inter;
 }
 
 .anchor{
     text-decoration: none;
-    color: black;
+    color: black!important;
 }
 .anchor:hover{
     text-decoration: none; 
@@ -15,6 +18,30 @@ body{
 .main_nav{
     justify-content: space-between;
     align-items: center;
+}
+
+.nav_list{
+    font-size:16px ;
+    font-weight:500 ;
+}
+
+.b1{
+    padding:10px;
+    width: 91px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+    color: green!important;
+}
+.b2{
+    padding: 10px;
+    width: 91px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+    color: white!important;
 }
 
 .nav_list ul li{
@@ -28,4 +55,112 @@ body{
 
 .navbar-nav{
     padding:10px;
+}
+
+/* ----------layout ------------------------------------------*/
+
+
+/* container 1 */
+
+/* col 1 */
+
+.c1{
+    background-color: slategrey!important;
+}
+
+.r1c1_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    max-height: 100%;
+}
+
+.r1c1_content button{
+    max-width:150px;
+    max-height: 80px;
+}
+
+
+/* col2 */
+.r1c2_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 500px;
+    max-height: 100%;
+}
+
+.pc_img{
+    display: flex;
+    justify-content: center;
+
+}
+
+.pc_img img{
+    max-height: 400px;
+}
+
+
+
+/* --------------footer container -------------*/
+
+.cf{
+    background-color:rgb(31, 29, 29);
+    color: white;
+}
+
+.cfc1_content{
+    min-height: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.cfc2_content{
+    min-height: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cfc2_content ul{
+
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+.af{
+    text-decoration: none;
+    color: white;
+}
+
+
+.cfc3_content{
+    min-height: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cfc3_content ul{
+
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+/* col 4 */
+
+.cfc4_content{
+    min-height: 550px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
