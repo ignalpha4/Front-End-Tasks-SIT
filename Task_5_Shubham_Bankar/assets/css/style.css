@@ -105,7 +105,16 @@ body{
 }
 
 
+.carousel-indicators button {
+    width: 10px!important;
+    height: 10px!important;
+    border-radius: 50%!important;
+    background-color: #4CAF4F!important;
+  }
 
+  .carousel-control-prev, .carousel-control-next {
+    display: none;
+  }
 /* --------------footer container -------------*/
 
 .cf{
