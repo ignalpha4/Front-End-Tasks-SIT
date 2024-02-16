@@ -36,6 +36,7 @@ body{
     font-size: 14px;
     font-weight: 500;
     margin-right: 10px;
+    border: none;
     color: green!important;
 }
 .b2{
@@ -53,12 +54,21 @@ body{
     padding-right: 15px;
 }
 
+.nav_list ul li a:hover{
+    color:#acf5c8!important;
+}
+
 .login ul li{
     padding-right: 15px;
 }
 
 .items_padding{
     padding:10px;
+}
+
+
+.b1:hover{
+    background-color: #acf5c8;
 }
 
 /* ----------layout ------------------------------------------*/
@@ -92,6 +102,10 @@ body{
     height:52px;
     border: none;
     border-radius: 4px;
+}
+
+.c1_button:hover{
+    background-color: #acf5c8!important;
 }
 
 /* col2 */
@@ -204,6 +218,9 @@ body{
     row-gap: 20px;
 }
 
+.c3r2_content:hover{
+    background-color: #acf5c8;
+}
 
 /* --------------------container 5------------------- */
 
@@ -242,6 +259,9 @@ body{
     border-radius: 4px;
 }
 
+.c5c2_btn:hover{
+    background-color: #acf5c8!important;
+}
 
 /* ------------container 6---------------------- */
 
@@ -328,6 +348,10 @@ body{
     border-radius: 4px;
 }
 
+.c7c2_btn:hover{
+    background-color: #acf5c8!important;
+}
+
 /* -------------container 8--------------------- */
 .c8{
     background-color: #e4edff!important;
@@ -366,6 +390,10 @@ body{
     width: 240px;
     height: 50px;
     align-items: center;
+}
+
+.tesla-btn:hover{
+    background-color: #acf5c8!important;
 }
 
 .swiper2{
@@ -417,6 +445,9 @@ body{
     height: 50px;
     align-items: center;
 }
+.c9_btn:hover{
+    background-color: #acf5c8!important;
+}
 
 /* -----------------container 10--------------------- */
 
@@ -446,6 +477,10 @@ body{
     border-radius: 4px;
 }
 
+
+.c10_button:hover{
+    background-color: #acf5c8!important;
+}
 /* --------------footer container -------------*/
 
 .cf{
@@ -477,6 +512,10 @@ body{
 }
 
 
+.cfc2_content li a:hover {
+    color: #acf5c8!important;
+}
+
 .af{
     text-decoration: none;
     color: white;
@@ -502,6 +541,10 @@ body{
 .cfc3_content li{
     font-size:14px;
     font-weight:400;
+}
+
+.cfc3_content li a:hover {
+    color: #acf5c8!important;
 }
 /* col 4 */
 
@@ -535,6 +578,10 @@ body{
     justify-content: flex-start;
 }
 
+.icons i:hover{
+    color:#acf5c8;
+}
+
 .email_bar{
     border-radius: 8px;
     min-height: 40px;
@@ -544,7 +591,9 @@ body{
     color: white;
     padding-right: 40px;
 }
-
+.email_bar:hover{
+    background-color: #acf5c8;
+}
 .input-icons {
     position: relative;
 }
