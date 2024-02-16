@@ -255,22 +255,22 @@ body{
     justify-content: center;
     height: 100%;
     min-height: 288px;
-    align-items: center;
-    text-align: center;
+
+
   
 }
 
 .counter{
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
 }
 
 .title{
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
 }
 
@@ -285,7 +285,7 @@ body{
 
 .icons{
    display: flex;
-   justify-content: center;
+   justify-content: end;
    align-items: center;
    margin-top: 5px;
    text-align: center;
@@ -328,17 +328,103 @@ body{
     border-radius: 4px;
 }
 
-
-
-
-
-/* -----------------container 9--------------------- */
-
-.c9{
+/* -------------container 8--------------------- */
+.c8{
     background-color: #e4edff!important;
 }
 
-.c9c1_content{
+.c8c1_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 450px;
+    text-align: center;
+    align-items: center;
+}
+
+.c8c2_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 450px;
+    row-gap: 10px;
+    
+}
+
+.button_tesla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.tesla-btn{
+    color: #4CAF4F!important;
+    font-size: 20px;
+    font-weight: 400;
+    width: 240px;
+    height: 50px;
+    align-items: center;
+}
+
+.swiper2{
+    height: 50px;
+}
+
+/* -------------------container 9------------------- */
+.c9{
+    background-color: white!important;
+}
+
+.c9r1_content{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 124px;
+    text-align: center;
+    align-items: center;
+}
+
+.c9_img{
+    display: flex;
+    text-align: center;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    min-width: 368px;
+    min-height: 366px;
+    height: 100%;
+}
+
+.img_h{
+    position: absolute;
+    padding:20px;
+    background-color: #F5F7FA;
+    min-height: 176px;
+    width: 317px;
+    z-index:1000;
+    top:180px;
+    border-radius: 8px;
+}
+.c9_btn{
+    color: #4CAF4F!important;
+    font-size: 20px;
+    font-weight: 00;
+    width: 240px;
+    height: 50px;
+    align-items: center;
+}
+
+/* -----------------container 10--------------------- */
+
+.c10{
+    background-color:#F5F7FA!important;
+}
+
+.c10c1_content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -348,7 +434,7 @@ body{
     align-items: center;
 }
 
-.c9_button{
+.c10_button{
     margin-top: 15px;
     background-color: #4CAF4F!important;
     color: white;
