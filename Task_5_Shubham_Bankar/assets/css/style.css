@@ -453,21 +453,16 @@ body{
     color: white;
 }
 
-.cfc1_content{
-    min-height: 550px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 
 .cfc2_content{
-    min-height: 550px;
+    min-height: 328px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    row-gap: 20px;
 }
 
 .cfc2_content ul{
@@ -476,6 +471,11 @@ body{
     padding:0;
     margin:0;
 }
+.cfc2_content li{
+    font-size:14px;
+    font-weight:400;
+}
+
 
 .af{
     text-decoration: none;
@@ -484,11 +484,12 @@ body{
 
 
 .cfc3_content{
-    min-height: 550px;
+    min-height: 328px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    row-gap: 20px;
 }
 
 .cfc3_content ul{
@@ -498,12 +499,67 @@ body{
     margin:0;
 }
 
+.cfc3_content li{
+    font-size:14px;
+    font-weight:400;
+}
 /* col 4 */
 
 .cfc4_content{
-    min-height: 550px;
+    min-height: 328px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 85px;
+}
+
+.cfc1_content{
+    min-height: 328px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 40px;
+}
+
+.logo2{
+    height:26px;
+    width: 138px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: flex-start;
+}
+
+.email_bar{
+    border-radius: 8px;
+    min-height: 40px;
+    min-width: 255px;
+    background-color: #888888;
+    border: none;
+    color: white;
+    padding-right: 40px;
+}
+
+.input-icons {
+    position: relative;
+}
+
+.input-icons .icon {
+    position: absolute;
+    right: 10px; 
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: white;
+}
+
+.input-field {
+    background-color: #888888;
+    width: 100%;
+    padding: 10px;
 }
