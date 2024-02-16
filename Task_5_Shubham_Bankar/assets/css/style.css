@@ -243,6 +243,54 @@ body{
 }
 
 
+/* ------------container 6---------------------- */
+
+.c6{
+    background-color: white!important;
+}
+
+.c6c1_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 288px;
+    align-items: center;
+    text-align: center;
+  
+}
+
+.counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.c6c2_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 288px;
+  
+}
+
+.icons{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 5px;
+   text-align: center;
+}
+
 /* --------------------container 7----------------- */
 
 .c7{
