@@ -186,7 +186,7 @@ body{
   }
 
   .swiper-wrapper{
-    left:150px;
+    left:140px;
   }
 /* ---------container 3------------------ */
 .c3{
@@ -365,6 +365,7 @@ body{
     min-height: 450px;
     text-align: center;
     align-items: center;
+    margin-left: -20px;
 }
 
 .c8c2_content{
@@ -400,6 +401,13 @@ body{
     height: 50px;
 }
 
+.swiper2 .swiper-wrapper .swiper-slide {
+    background-position:right;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 18px 0px 18px;
+   }
+
 /* -------------------container 9------------------- */
 .c9{
     background-color: white!important;
@@ -422,25 +430,26 @@ body{
     align-items: flex-start;
     justify-content: center;
     position: relative;
-    min-width: 368px;
     min-height: 366px;
     height: 100%;
 }
 
 .img_h{
     position: absolute;
-    padding:20px;
+    padding:15px;
     background-color: #F5F7FA;
     min-height: 176px;
-    width: 317px;
+    max-width: 300px;
     z-index:1000;
     top:180px;
     border-radius: 8px;
 }
+
+
 .c9_btn{
     color: #4CAF4F!important;
     font-size: 20px;
-    font-weight: 00;
+    font-weight: 500;
     width: 240px;
     height: 50px;
     align-items: center;
@@ -585,7 +594,7 @@ body{
 .email_bar{
     border-radius: 8px;
     min-height: 40px;
-    min-width: 255px;
+    min-width: 200px;
     background-color: #888888;
     border: none;
     color: white;
