@@ -22,12 +22,18 @@ body{
 .main_nav{
     justify-content: space-between;
     align-items: center;
+
 }
 
 .nav_list{
     font-size:16px ;
     font-weight:500 ;
+
 }
+
+
+
+
 
 .b1{
     padding:10px;
@@ -49,12 +55,12 @@ body{
     color: white!important;
 }
 
-.nav_list ul li{
+.nav_list  li{
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.nav_list ul li a:hover{
+.nav_list  li a:hover{
     color:#acf5c8!important;
 }
 
@@ -438,7 +444,7 @@ body{
     position: absolute;
     padding:15px;
     background-color: #F5F7FA;
-    min-height: 176px;
+    min-height: 180px;
     max-width: 300px;
     z-index:1000;
     top:180px;

@@ -1,349 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task 4</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <!--swiper external library-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--swiper external library included-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
 
 <body>
 
 
-<!-- Navbar -->
+    <!-- Navbar -->
 
-<nav class="navbar navbar-expand-lg  bg-light navbar-light">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light">
+        <div class="container">
 
-    <div class="container ">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+            <a class="navbar-brand" href="#"><img src="assets/images/logo.svg" class="img-fluid"></a>
 
 
-        <div class="collapse navbar-collapse  main_nav" id="collapsibleNavbar">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            <div class="brand">
-                <a href="#"><img src="assets/images/logo.svg" class="img-fluid"></a>
+            <div class="collapse navbar-collapse main_nav justify-content-between" id="collapsibleNavbar">
 
-            </div>
-    
-            <div class="nav_list">
-                <ul class="navbar-nav items_padding">
-                    <li class="nav-item"> 
+                <div></div>
+
+
+                <ul class="navbar-nav nav_list">
+                    <li class="nav-item">
                         <a class="nav-link anchor" href="#"> Home</a>
                     </li>
-        
                     <li class="nav-item">
                         <a class="nav-link anchor" href="#">Service</a>
                     </li>
-        
                     <li class="nav-item">
                         <a class="nav-link anchor" href="#">Feature</a>
                     </li>
-        
                     <li class="nav-item">
                         <a class="nav-link anchor" href="#">Product</a>
                     </li>
-        
                     <li class="nav-item">
                         <a class="nav-link anchor" href="#">Testimonial</a>
                     </li>
-        
                     <li class="nav-item">
                         <a class="nav-link anchor" href="#">FAQ</a>
                     </li>
                 </ul>
-            </div>
-           
-            <div class="login">
-                <ul class="navbar-nav">
-    
-                    <!-- <li>
-                        <a class="nav-link" href="#">Login</a>
-                    </li> -->
 
-                    <button type="button" class="btn  b1">
-                        Login
-                    </button>
-                    <button  type="button" class="btn btn-success  b2">
-                        Signup
-                    </button>
-        
-                </ul>
+                <div class="login">
+                    <ul class="navbar-nav">
+                        <li>
+                            <button type="button" class="btn b1">Login</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-success b2">Signup</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </nav>
+
+
+    <!--layout-->
+
+
+    <!-- container 1 -->
+    <div class="container-fluid c1">
+
+
+        <div class="container">
+
+
+            <!-- carousal -->
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+
+                            <!-- col 1 -->
+                            <div class="col-lg-8">
+                                <div class="c1c1_content">
+                                    <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
+                                    <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 8 years</span>
+                                    <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your
+                                        business as a photographer: site or social media?</span>
+                                    <button type="button " class="btn btn-success c1_button">Register</button>
+                                </div>
+                            </div>
+
+                            <!-- col 2 -->
+                            <div class="col-lg-4">
+                                <div class="c1c2_content">
+                                    <div class="pc_img">
+                                        <img src="assets/images/pc.svg" class="img-fluid">
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <!-- col 1 -->
+                            <div class="col-lg-8">
+                                <div class="c1c1_content">
+                                    <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
+                                    <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 7 years</span>
+                                    <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your
+                                        business as a photographer: site or social media?</span>
+                                    <button type="button " class="btn btn-success c1_button">Register</button>
+                                </div>
+                            </div>
+
+                            <!-- col 2 -->
+                            <div class="col-lg-4">
+                                <div class="c1c2_content">
+                                    <div class="pc_img">
+                                        <img src="assets/images/pc.svg" class="img-fluid">
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <!-- col 1 -->
+                            <div class="col-lg-8">
+                                <div class="c1c1_content">
+                                    <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
+                                    <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 6 years</span>
+                                    <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your
+                                        business as a photographer: site or social media?</span>
+                                    <button type="button " class="btn btn-success c1_button">Register</button>
+                                </div>
+                            </div>
+
+                            <!-- col 2 -->
+                            <div class="col-lg-4">
+                                <div class="c1c2_content">
+                                    <div class="pc_img">
+                                        <img src="assets/images/pc.svg" class="img-fluid">
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+
 
 
         </div>
 
-        
-       
-          
-
-    </div>
-   
-
-
-</nav>
-
-<!--layout-->
-
-
-<!-- container 1 -->
-<div class="container-fluid c1">
-
-
-    <div class="container"> 
-
-
-        <!-- carousal -->
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row">
-
-                    <!-- col 1 -->
-                    <div class="col-lg-8">
-                        <div class="c1c1_content">
-                            <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
-                            <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 8 years</span>
-                            <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your business as a photographer: site or social media?</span>
-                            <button type="button " class="btn btn-success c1_button">Register</button>
-                        </div>
-                    </div>
-        
-                    <!-- col 2 -->
-                    <div class="col-lg-4">
-                        <div class="c1c2_content">
-                            <div class="pc_img">
-                                <img src="assets/images/pc.svg" class="img-fluid">
-                            </div>
-                              
-                            
-                        </div>  
-                    </div>
-        
-        
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-
-                    <!-- col 1 -->
-                    <div class="col-lg-8">
-                        <div class="c1c1_content">
-                            <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
-                            <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 7 years</span>
-                            <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your business as a photographer: site or social media?</span>
-                            <button type="button " class="btn btn-success c1_button">Register</button>
-                        </div>
-                    </div>
-        
-                    <!-- col 2 -->
-                    <div class="col-lg-4">
-                        <div class="c1c2_content">
-                            <div class="pc_img">
-                                <img src="assets/images/pc.svg" class="img-fluid">
-                            </div>
-                              
-                            
-                        </div>  
-                    </div>
-        
-        
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-
-                    <!-- col 1 -->
-                    <div class="col-lg-8">
-                        <div class="c1c1_content">
-                            <span style="font-size:64px;font-weight:600;">Lessons and insights</span>
-                            <span style="font-size:64px;font-weight:600;color:#4CAF4F;">from 6 years</span>
-                            <span style="font-size:16px;font-weight:400;color: #717171;">Where to grow your business as a photographer: site or social media?</span>
-                            <button type="button " class="btn btn-success c1_button">Register</button>
-                        </div>
-                    </div>
-        
-                    <!-- col 2 -->
-                    <div class="col-lg-4">
-                        <div class="c1c2_content">
-                            <div class="pc_img">
-                                <img src="assets/images/pc.svg" class="img-fluid">
-                            </div>
-                              
-                            
-                        </div>  
-                    </div>
-        
-        
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          
-
-        
 
     </div>
 
+    <!-- container 2 -->
+    <div class="container-fluid c2">
+        <div class="container">
+            <!-- row 1 -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="c2r1_content">
+                        <span style="font-size:36px;font-weight:600;">Our Clients</span>
+                        <span style="font-size:16px;font-weight:400;letter-spacing:2px;">We have been working with some
+                            Fortune 500+ clients</span>
+                    </div>
 
-</div>
-
-<!-- container 2 -->
-<div class="container-fluid c2">
-    <div class="container">
-        <!-- row 1 -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="c2r1_content">
-                    <span style="font-size:36px;font-weight:600;">Our Clients</span>
-                    <span style="font-size:16px;font-weight:400;letter-spacing:2px;">We have been working with some Fortune 500+ clients</span>
                 </div>
-
             </div>
-        </div>
 
-        <!-- row 2 -->
-        <div class="row">
-            <div class="col-lg-12">
-        
+            <!-- row 2 -->
+            <div class="row">
+                <div class="col-lg-12">
+
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
-                          <div class="swiper-slide"><img src="assets/images/clients/c1.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c2.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c3.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c4.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c5.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c6.svg" class="img-fluid"></div>
-                          <div class="swiper-slide"><img src="assets/images/clients/c7.svg" class="img-fluid"></div>
-    
+                            <div class="swiper-slide"><img src="assets/images/clients/c1.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c2.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c3.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c4.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c5.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c6.svg" class="img-fluid"></div>
+                            <div class="swiper-slide"><img src="assets/images/clients/c7.svg" class="img-fluid"></div>
+
                         </div>
-                        
+
                     </div>
 
-                </div>    
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- container 3 and 4 done in one-->
-<div class="container-fluid c3">
-    <div class="container">
+    <!-- container 3 and 4 done in one-->
+    <div class="container-fluid c3">
+        <div class="container">
 
-        <!-- row 1 -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="c3r1_content">
-                    <span style="font-size:36px;font-weight:600;">Manage your entire community <br>in a single system</span>
-                    <span style="font-size:16px;font-weight:400;">Who is Nextcent suitable for? </span>
-                </div>
-            </div>
-        </div>
-
-        <!-- row 2 -->
-
-        <div class="row">
-
-            <!-- col 1 -->
-            <div class="col-lg-4 px-5 mb-5 mt-3">
-                <div class="c3r2_content">
-                    <img src="assets/images/member.svg">
-                    <span style="font-size:28px;font-weight:700;">Membership Organisations</span>
-                    <span style="font-size:14px;font-weight:400;">Our membership management software provides full automation of membership renewals and payments</span>
+            <!-- row 1 -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="c3r1_content">
+                        <span style="font-size:36px;font-weight:600;">Manage your entire community <br>in a single
+                            system</span>
+                        <span style="font-size:16px;font-weight:400;">Who is Nextcent suitable for? </span>
+                    </div>
                 </div>
             </div>
 
-            <!-- col 2 -->
-            <div class="col-lg-4 px-5 mb-5 mt-3">
-                <div class="c3r2_content">
-                    <img src="assets/images/building.svg">
-                    <span style="font-size:28px;font-weight:700;">National Associations</span>
-                    <span style="font-size:14px;font-weight:400;">Our membership management software provides full automation of membership renewals and payments</span>
-                </div>
-            </div>
+            <!-- row 2 -->
 
-            <!-- col 3 -->
-            <div class="col-lg-4 px-5 mb-5 mt-3">
-                <div class="c3r2_content">
-                    <img src="assets/images/hands.svg">
-                    <span style="font-size:28px;font-weight:700;">Clubs And <br> Groups</span>
-                    <span style="font-size:14px;font-weight:400;">Our membership management software provides full automation of membership renewals and payments</span>
-                </div>
-            </div>
+            <div class="row">
 
-
-        </div>
-
-
-    </div>
-</div>
-
-
-<!-- container 5 -->
-<div class="container-fluid c5">
-    <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-            <!-- column 1 -->
-            <div class="col-lg-4">
-                <div class="c5c1_content">
-                    <img src="assets/images/android.svg" class="img-fluid">
-                </div>
-            </div>
-
-            <!-- column 2 -->
-            <div class="col-lg-8">
-                <div class="c5c2_content">
-                    <span style="font-size:36px;font-weight:600;">The unseen of spending three years at Pixelgrade</span>
-                    <span style="font-size:14px;font-weight:400;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.</span>
-                    <button  type="button" class="btn c5c2_btn">
-                       Learn More
-                    </button>
+                <!-- col 1 -->
+                <div class="col-lg-4 px-5 mb-5 mt-3">
+                    <div class="c3r2_content">
+                        <img src="assets/images/member.svg">
+                        <span style="font-size:28px;font-weight:700;">Membership Organisations</span>
+                        <span style="font-size:14px;font-weight:400;">Our membership management software provides full
+                            automation of membership renewals and payments</span>
+                    </div>
                 </div>
 
+                <!-- col 2 -->
+                <div class="col-lg-4 px-5 mb-5 mt-3">
+                    <div class="c3r2_content">
+                        <img src="assets/images/building.svg">
+                        <span style="font-size:28px;font-weight:700;">National Associations</span>
+                        <span style="font-size:14px;font-weight:400;">Our membership management software provides full
+                            automation of membership renewals and payments</span>
+                    </div>
+                </div>
+
+                <!-- col 3 -->
+                <div class="col-lg-4 px-5 mb-5 mt-3">
+                    <div class="c3r2_content">
+                        <img src="assets/images/hands.svg">
+                        <span style="font-size:28px;font-weight:700;">Clubs And <br> Groups</span>
+                        <span style="font-size:14px;font-weight:400;">Our membership management software provides full
+                            automation of membership renewals and payments</span>
+                    </div>
+                </div>
+
+
             </div>
+
 
         </div>
     </div>
-</div>
 
-<!-- container 6 -->
 
-<div class="container-fluid c6">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="c6c1_content">
-                    <span style="font-size:36px;font-weight:600;">Helping a local</span>
-                    <span style="font-size:36px;font-weight:600;color: #4CAF4F;">business reinvent itself</span>
-                    <span style="font-size:16px;font-weight:400;">We reached here with our hard work and dedication</span>
+    <!-- container 5 -->
+    <div class="container-fluid c5">
+        <div class="container">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- column 1 -->
+                <div class="col-lg-4">
+                    <div class="c5c1_content">
+                        <img src="assets/images/android.svg" class="img-fluid">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
-                <div class="c6c2_content">
+                <!-- column 2 -->
+                <div class="col-lg-8">
+                    <div class="c5c2_content">
+                        <span style="font-size:36px;font-weight:600;">The unseen of spending three years at
+                            Pixelgrade</span>
+                        <span style="font-size:14px;font-weight:400;">Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque
+                            placerat vestibulum lorem sed porta. Nullam mattis tristique iaculis. Nullam pulvinar sit
+                            amet risus pretium auctor. Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec
+                            elementum pulvinar odio.</span>
+                        <button type="button" class="btn c5c2_btn">
+                            Learn More
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- container 6 -->
+
+    <div class="container-fluid c6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="c6c1_content">
+                        <span style="font-size:36px;font-weight:600;">Helping a local</span>
+                        <span style="font-size:36px;font-weight:600;color: #4CAF4F;">business reinvent itself</span>
+                        <span style="font-size:16px;font-weight:400;">We reached here with our hard work and
+                            dedication</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="c6c2_content">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="row">
@@ -412,7 +411,8 @@
                                         <div class="title">
                                             <span style="font-size:16px;font-weight:400;">Payments</span>
                                         </div>
-                                 </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -420,267 +420,296 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- container 7 -->
+    <!-- container 7 -->
 
-<div class="container-fluid c7">
-    <div class="container">
+    <div class="container-fluid c7">
+        <div class="container">
 
-        <!-- row -->
-        <div class="row">
+            <!-- row -->
+            <div class="row">
 
-            <!-- column 1 -->
-            <div class="col-lg-4">
-                <div class="c7c1_content">
-                    <img src="assets/images/iphone.svg" class="img-fluid">
-                </div>
-            </div>
-
-            <!-- column 2 -->
-            <div class="col-lg-8">
-                <div class="c7c2_content">
-                    <span style="font-size:36px;font-weight:600;">How to design your site footer like<br> we did</span>
-                    <span style="font-size:14px;font-weight:400;">Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida.</span>
-                    <button  type="button" class="btn c7c2_btn">
-                       Learn More
-                    </button>
+                <!-- column 1 -->
+                <div class="col-lg-4">
+                    <div class="c7c1_content">
+                        <img src="assets/images/iphone.svg" class="img-fluid">
+                    </div>
                 </div>
 
-            </div>
+                <!-- column 2 -->
+                <div class="col-lg-8">
+                    <div class="c7c2_content">
+                        <span style="font-size:36px;font-weight:600;">How to design your site footer like<br> we
+                            did</span>
+                        <span style="font-size:14px;font-weight:400;">Donec a eros justo. Fusce egestas tristique
+                            ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque
+                            elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea
+                            dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae
+                            nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus
+                            efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero.
+                            Donec consectetur faucibus ipsum id gravida.</span>
+                        <button type="button" class="btn c7c2_btn">
+                            Learn More
+                        </button>
+                    </div>
 
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 
-<!--container 8-->
+    <!--container 8-->
 
-<div class="container-fluid c8">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="c8c1_content">
-                    <img src="assets/images/tesla.svg" class="img-fluid">
+    <div class="container-fluid c8">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="c8c1_content">
+                        <img src="assets/images/tesla.svg" class="img-fluid">
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-8">
-                <div class="c8c2_content">
-                    <span style="font-size:16px;font-weight:400;color:#717171">Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</span>
-                    <span style="font-size:20px;font-weight:600;color:#4CAF4F">Tim Smith</span>
-                    <span style="font-size:16px;font-weight:400;color:#89939E">British Dragon Boat Racing Association</span>
+                <div class="col-lg-8">
+                    <div class="c8c2_content">
+                        <span style="font-size:16px;font-weight:400;color:#717171">Maecenas dignissim justo eget nulla
+                            rutrum molestie. Maecenas lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu
+                            enim metus. Vivamus sed libero ornare, tristique quam in, gravida enim. Nullam ut molestie
+                            arcu, at hendrerit elit. Morbi laoreet elit at ligula molestie, nec molestie mi blandit.
+                            Suspendisse cursus tellus sed augue ultrices, quis tristique nulla sodales. Suspendisse eget
+                            lorem eu turpis vestibulum pretium. Suspendisse potenti. Quisque malesuada enim sapien,
+                            vitae placerat ante feugiat eget. Quisque vulputate odio neque, eget efficitur libero
+                            condimentum id. Curabitur id nibh id sem dignissim finibus ac sit amet magna.</span>
+                        <span style="font-size:20px;font-weight:600;color:#4CAF4F">Tim Smith</span>
+                        <span style="font-size:16px;font-weight:400;color:#89939E">British Dragon Boat Racing
+                            Association</span>
 
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="swiper mySwiper swiper2">
-                                    <div class="swiper-wrapper">
-                                      <div class="swiper-slide "><img src="assets/images/clients/c1.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c2.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c3.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c4.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c5.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c6.svg" class="img-fluid"></div>
-                                      <div class="swiper-slide"><img src="assets/images/clients/c7.svg" class="img-fluid"></div>
-                
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="swiper mySwiper swiper2">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide "><img src="assets/images/clients/c1.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c2.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c3.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c4.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c5.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c6.svg"
+                                                    class="img-fluid"></div>
+                                            <div class="swiper-slide"><img src="assets/images/clients/c7.svg"
+                                                    class="img-fluid"></div>
+
+                                        </div>
+
                                     </div>
-                                    
+                                </div>
+                                <div class="col-lg-4 ">
+                                    <div class="button_tesla"></div>
+                                    <button type="button" class="btn tesla-btn">
+                                        Meet all customers <i class="fa-sharp fa-solid fa-arrow-right-long"
+                                            style="color: #75ea7d;"></i>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-lg-4 ">
-                                <div class="button_tesla"></div>
-                                <button type="button" class="btn tesla-btn">
-                                    Meet all customers <i class="fa-sharp fa-solid fa-arrow-right-long" style="color: #75ea7d;"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--container 9-->
+
+    <div class="container-fluid c9">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-12">
+                    <div class="c9r1_content">
+                        <span style="font-size:36px;font-weight:600;">Caring is the new marketing</span>
+                        <span style="font-size:16px;font-weight:400;color: #717171;">The Nexcent blog is the best place
+                            to read about the latest membership insights,<br> trends and more. See who's joining the
+                            community,read about how our community are increasing their membership income and lot's
+                            more.​</span>
+                    </div>
+                </div>
+
+                <div class="row mb-4 mt-4 mx-1">
+
+                    <div class="col-lg-4">
+                        <div class="c9_img">
+                            <img src="assets/images/caring1.svg" class="img-fluid">
+                            <div class="img_h">
+                                <span style="font-size:20px;font-weight:600;">
+                                    Creating Streamlined Safeguarding Processes with OneRen
+                                </span>
+                                <button type="button" class="btn c9_btn">
+                                    Readmore <i class="fa-sharp fa-solid fa-arrow-right-long"
+                                        style="color: #75ea7d;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="c9_img">
+                            <img src="assets/images/caring2.svg" class="img-fluid">
+                            <div class="img_h">
+                                <span style="font-size:20px;font-weight:600;">
+                                    What are your safeguarding responsibilities and how can you manage them?
+                                </span>
+                                <button type="button" class="btn c9_btn">
+                                    Readmore <i class="fa-sharp fa-solid fa-arrow-right-long"
+                                        style="color: #75ea7d;"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="c9_img">
+                            <img src="assets/images/caring3.svg" class="img-fluid">
+                            <div class="img_h">
+                                <span style="font-size:20px;font-weight:600;">
+                                    Revamping the Membership Model with Triathlon Australia
+                                </span>
+                                <button type="button" class="btn c9_btn">
+                                    Readmore <i class="fa-sharp fa-solid fa-arrow-right-long"
+                                        style="color: #75ea7d;"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
-
-
         </div>
     </div>
 
-</div>
 
 
-<!--container 9-->
+    <!--container 10-->
 
-<div class="container-fluid c9">
-    <div class="container">
-        <div class="row mt-4">
+    <div class="container-fluid c10">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-12">
-                    <div class="c9r1_content">
-                        <span style="font-size:36px;font-weight:600;">Caring is the new marketing</span>
-                        <span style="font-size:16px;font-weight:400;color: #717171;">The Nexcent blog is the best place to read about the latest membership insights,<br> trends and more. See who's joining the community,read about how our community are increasing their membership income and lot's more.​</span>
+                    <div class="c10c1_content">
+                        <span style="font-size:4.5vw ;font-weight:600;">Pellentesque suscipit </span>
+                        <span style="font-size:4.5vw ;font-weight:600;">fringilla libero eu.</span>
+                        <button type="button " class="btn btn-success c10_button">Get a demo <i
+                                class="fa-sharp fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
+
                     </div>
-                </div>
-
-        <div class="row mb-4 mt-4 mx-1"> 
-
-                <div class="col-lg-4">
-                    <div class="c9_img">
-                        <img src="assets/images/caring1.svg" class="img-fluid">
-                        <div class="img_h">
-                            <span style="font-size:20px;font-weight:600;">  
-                                Creating Streamlined Safeguarding Processes with OneRen
-                            </span>
-                            <button type="button" class="btn c9_btn">
-                                Readmore <i class="fa-sharp fa-solid fa-arrow-right-long" style="color: #75ea7d;"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-lg-4">
-                    <div class="c9_img">
-                        <img src="assets/images/caring2.svg" class="img-fluid">
-                        <div class="img_h">
-                            <span style="font-size:20px;font-weight:600;">  
-                                What are your safeguarding responsibilities and how can you manage them?
-                            </span>
-                            <button type="button" class="btn c9_btn">
-                                Readmore <i class="fa-sharp fa-solid fa-arrow-right-long" style="color: #75ea7d;"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="c9_img">
-                        <img src="assets/images/caring3.svg" class="img-fluid">
-                        <div class="img_h">
-                            <span style="font-size:20px;font-weight:600;">  
-                                Revamping the Membership Model with Triathlon Australia
-                            </span>
-                            <button type="button" class="btn c9_btn">
-                                Readmore <i class="fa-sharp fa-solid fa-arrow-right-long" style="color: #75ea7d;"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-       </div>
-    </div>
-</div>
-
-
-
-<!--container 10-->
-
-<div class="container-fluid c10">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="c10c1_content">
-                    <span style="font-size:4.5vw ;font-weight:600;">Pellentesque suscipit </span>
-                    <span style="font-size:4.5vw ;font-weight:600;">fringilla libero eu.</span>
-                    <button type="button " class="btn btn-success c10_button">Get a demo <i class="fa-sharp fa-solid fa-arrow-right" style="color: #ffffff;"></i></button>
-
                 </div>
             </div>
         </div>
+
     </div>
 
-</div>
 
+    <!-- container footer -->
 
-<!-- container footer -->
+    <div class="container-fluid cf">
 
-<div class="container-fluid cf">
+        <div class="container">
+            <div class="row">
 
-    <div class="container">
-        <div class="row">
+                <!-- col 1 -->
+                <div class="col-lg-5">
+                    <div class="cfc1_content">
+                        <div class="logo2">
+                            <img src="assets/images/logo2.svg">
+                        </div>
+                        <div>
+                            <span style="font-size:14px;font-weight:400;color:#F5F7FA;">Copyright © 2020 Nexcent
+                                ltd.</span><br>
+                            <span style="font-size:14px;font-weight:400;color: #F5F7FA;">All rights reserved</span>
 
-            <!-- col 1 -->
-            <div class="col-lg-5">
-                <div class="cfc1_content">
-                    <div class="logo2">
-                        <img src="assets/images/logo2.svg">
+                        </div>
+
+                        <div class="icons">
+                            <i class="fa-brands fa-instagram fa-xl"></i>
+                            <i class="fa-solid fa-basketball fa-xl"></i>
+                            <i class="fa-brands fa-twitter fa-xl"></i>
+                            <i class="fa-brands fa-youtube fa-xl"></i>
+                        </div>
+
                     </div>
-                    <div>
-                        <span style="font-size:14px;font-weight:400;color:#F5F7FA;">Copyright © 2020 Nexcent ltd.</span><br>
-                        <span style="font-size:14px;font-weight:400;color: #F5F7FA;">All rights reserved</span>
+                </div>
 
+                <!-- col 2 -->
+                <div class="col-lg-2">
+                    <div class="cfc2_content">
+                        <p style="font-size:20px;font-family:600;">Company</p>
+                        <ul>
+                            <li><a href="#" class="af"> About us</a></li>
+                            <li><a href="#" class="af"> Blog</a></li>
+                            <li><a href="#" class="af"> Contact us</a></li>
+                            <li><a href="#" class="af"> Pricing</a></li>
+                            <li><a href="#" class="af"> Testimonials</a></li>
+                        </ul>
                     </div>
-                    
-                    <div class="icons">
-                        <i class="fa-brands fa-instagram fa-xl"></i>
-                        <i class="fa-solid fa-basketball fa-xl"></i>
-                        <i class="fa-brands fa-twitter fa-xl"></i>
-                        <i class="fa-brands fa-youtube fa-xl"></i>
+                </div>
+
+                <!-- col 3 -->
+                <div class="col-lg-2">
+                    <div class="cfc3_content">
+                        <p style="font-size:20px;font-family:600;">Support</p>
+                        <ul>
+                            <li><a href="#" class="af"> Help center</a></li>
+                            <li><a href="#" class="af"> Terms of Service</a></li>
+                            <li><a href="#" class="af"> Legal</a></li>
+                            <li><a href="#" class="af"> Privacy Policy</a></li>
+                            <li><a href="#" class="af"> Status</a></li>
+                        </ul>
                     </div>
-                    
                 </div>
-            </div>
 
-            <!-- col 2 -->
-            <div class="col-lg-2">
-                <div class="cfc2_content">
-                    <p style="font-size:20px;font-family:600;">Company</p>
-                    <ul>
-                        <li><a href="#" class="af"> About us</a></li>
-                        <li><a href="#" class="af"> Blog</a></li>
-                        <li><a href="#" class="af"> Contact us</a></li>
-                        <li><a href="#" class="af" > Pricing</a></li>
-                        <li><a href="#" class="af"> Testimonials</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- col 3 -->
-            <div class="col-lg-2">
-                <div class="cfc3_content">
-                    <p style="font-size:20px;font-family:600;">Support</p>
-                    <ul>
-                        <li><a href="#" class="af"> Help center</a></li>
-                        <li><a href="#" class="af"> Terms of Service</a></li>
-                        <li><a href="#" class="af"> Legal</a></li>
-                        <li><a href="#" class="af" > Privacy Policy</a></li>
-                        <li><a href="#" class="af"> Status</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- col 4 -->
-            <!-- <div class="col-lg-3">
+                <!-- col 4 -->
+                <!-- <div class="col-lg-3">
                 <div class="cfc4_content">
                     
                     <input type="email" class="form-control email_bar" placeholder="Your email address" id="exampleInputEmail1" aria-describedby="emailHelp">
                     
                 </div>
             </div> -->
-            <div class="col-lg-3">
-                <div class="cfc4_content">
-                    <p style="font-size:20px;font-family:600;">Stay up to date</p>
-            
-                    <div class="input-icons">
-                        <input class="input-field email_bar" type="text" placeholder="Your email address">
-                        <i class="fas fa-paper-plane fa-lg icon"></i>
+                <div class="col-lg-3">
+                    <div class="cfc4_content">
+                        <p style="font-size:20px;font-family:600;">Stay up to date</p>
+
+                        <div class="input-icons">
+                            <input class="input-field email_bar" type="text" placeholder="Your email address">
+                            <i class="fas fa-paper-plane fa-lg icon"></i>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
+
     </div>
 
-</div>
-
-
-   
 
 
 
 
 
+    <!------------------->
 
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/script.js"></script>
 
 
 </body>
