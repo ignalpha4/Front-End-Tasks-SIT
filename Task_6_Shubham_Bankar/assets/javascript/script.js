@@ -1,6 +1,6 @@
 
 
-
+//-----------------row addtition-------------------------------
 function addrow() {
 
   let newRow = document.createElement('div');
@@ -9,27 +9,27 @@ function addrow() {
   <div class="row education_row">
     <div class="col-lg">
         <label for="degree">Degree/Board</label>
-        <input type="text" class="form-control degree" placeholder="Enter degree/board"  name="degree">
+        <input type="text" class="form-control degree" placeholder="Enter degree/board"  name="degree" required>
     </div>
     <div class="col-lg">
         <label for="college">School/College</label>
-        <input type="text" class="form-control college" placeholder="Enter your School/College Name"  name="college">
+        <input type="text" class="form-control college" placeholder="Enter your School/College Name"  name="college" required>
     </div>
     <div class="col-lg">
         <label for="start_date">Start Date</label>
-        <input type="month" class="form-control start_date" placeholder="Enter start date"  name="start_date" value="2000-01">
+        <input type="month" class="form-control start_date" placeholder="Enter start date"  name="start_date" value="2000-01" required>
     </div>
     <div class="col-lg">
         <label for="passout_date">Passout year</label>
-        <input type="month" class="form-control passout_date" placeholder="Enter passout date"  name="passout_date" value="2000-01">
+        <input type="month" class="form-control passout_date" placeholder="Enter passout date"  name="passout_date" value="2000-01" required>
     </div>
     <div class="col-lg">
         <label for="percentage">Percentage</label>
-        <input type="number" class="form-control percentage" placeholder="Dont'use % sign"  name="percentage">
+        <input type="number" class="form-control percentage" placeholder="Dont'use % sign"  name="percentage" required>
     </div>
     <div class="col-lg">
         <label for="backlog">backlogs</label>
-        <input type="number" class="form-control backlog" placeholder="If any"  name="backlog">
+        <input type="number" class="form-control backlog" placeholder="If any"  name="backlog" >
     </div>
     <div class="col-lg">
         <div class="sub_btn">
@@ -46,6 +46,8 @@ function addrow() {
 
 
 
+
+
 function delete_row(button) {
  
   let added_row = button.parentNode.parentNode.parentNode.parentNode;
@@ -56,15 +58,39 @@ function delete_row(button) {
 
 
 
-function submitForm(event) {
+
+//------------------form submission---------------------------------------------------------------------------
+
+function submit_data(event) {
+
     
 
     event.preventDefault();
    
 
-    let formData = {
-        firstName: document.getElementById('fname').value,
-        lastName: document.getElementById('lname').value,
+    // to validate
+    let isValid = true;
+
+   
+    document.querySelectorAll('input[required]').forEach(input => {
+        if (input.value.trim() === '') {
+            isValid = false;
+            input.classList.add('is-invalid'); 
+        } else {
+            input.classList.remove('is-invalid'); 
+        }
+    });
+
+
+    if (!isValid) {
+        return;
+    }
+
+
+    //saving the details n obj
+    let student_details = {
+        first_name: document.getElementById('fname').value,
+        last_name: document.getElementById('lname').value,
         dob: document.getElementById('dob').value,
         email: document.getElementById('email').value,
         address: document.getElementById('address').value,
@@ -72,10 +98,10 @@ function submitForm(event) {
         education: []
     };
 
-
+    //this is used for to add the education details into the education array 
     let education_row = document.querySelectorAll('.education_row'); 
     education_row.forEach(row => {
-        let educationData = {
+        let education_details = {
             degree: row.querySelector('.degree').value,
             college: row.querySelector('.college').value,
             start_date: row.querySelector('.start_date').value,
@@ -83,33 +109,34 @@ function submitForm(event) {
             percentage: row.querySelector('.percentage').value,
             backlog: row.querySelector('.backlog').value
         };
-        formData.education.push(educationData);
+        student_details.education.push(education_details);
 
 
-        let newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td class="t_degree">${educationData.degree}</td>
-            <td class="t_college">${educationData.college}</td>
-            <td class="t_start_date">${educationData.start_date}</td>
-            <td class="t_passout_date">${educationData.passout_date}</td>
-            <td class="t_percentage">${educationData.percentage}</td>
-            <td class="t_backlog">${educationData.backlog}</td>
+        // for table 2
+        //here table is also created and am adding the educations details as well
+        let add_table_row = document.createElement('tr');
+        add_table_row.innerHTML = `
+            <td class="t_degree">${education_details.degree}</td>
+            <td class="t_college">${education_details.college}</td>
+            <td class="t_start_date">${education_details.start_date}</td>
+            <td class="t_passout_date">${education_details.passout_date}</td>
+            <td class="t_percentage">${education_details.percentage}</td>
+            <td class="t_backlog">${education_details.backlog}</td>
         `;
-        document.querySelector('.t2 tbody').appendChild(newRow);
+        document.querySelector('.t2 tbody').appendChild(add_table_row);
     });
 
     
-    let jsonData = JSON.stringify(formData);
-
+    let jsonData = JSON.stringify(student_details,null,1);
    
     document.querySelector('.form_content').innerText = jsonData;
 
 
-    // for table
-    document.querySelector('.fn').innerText = formData.firstName;
-    document.querySelector('.ln').innerText = formData.lastName;
-    document.querySelector('.birthdate').innerHTML =formData.dob;
-    document.querySelector('.mail').innerHTML=formData.email;
-    document.querySelector('.add').innerText=formData.address;
-    document.querySelector('.gy').innerText=formData.graduationYear;
+    // for table 1
+    document.querySelector('.fn').innerText = student_details.first_name;
+    document.querySelector('.ln').innerText = student_details.last_name;
+    document.querySelector('.birthdate').innerHTML =student_details.dob;
+    document.querySelector('.mail').innerHTML=student_details.email;
+    document.querySelector('.add').innerText=student_details.address;
+    document.querySelector('.gy').innerText=student_details.graduationYear;
 }
