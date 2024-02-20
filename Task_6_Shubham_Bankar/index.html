@@ -21,7 +21,7 @@
 
     <div class="container">
 
-        <form>
+        <form >
 
 
             <!-- row 1 -->
@@ -58,7 +58,7 @@
                 <!-- DOB -->
                 <div class="col-lg-4">
                     <label for="g_year">Graduation Year</label>
-                    <input type="date" class="form-control" placeholder="Enter Graduation Year" id="g_year" name="g_year">
+                    <input type="month" class="form-control" placeholder="Enter Graduation Year" id="g_year" name="g_year" value="2000-01">
                 </div>
             </div>
             <hr>
@@ -77,37 +77,37 @@
 
 
             <!-- first row -->
-            <div class="row" id="education_row">
+            <div class="row education_row">
               
                 <div class="col-lg">
                     <label for="degree">Degree/Board</label>
-                    <input type="text" class="form-control" placeholder="Enter degree/board" id="degree" name="degree">
+                    <input type="text" class="form-control degree" placeholder="Enter degree/board"  name="degree">
                 </div>
                
                 <div class="col-lg">
                     <label for="college">School/College</label>
-                    <input type="text" class="form-control" placeholder="Enter your School/College Name" id="college" name="college">
+                    <input type="text" class="form-control college" placeholder="Enter your School/College Name"  name="college">
                 </div>
 
             
                 <div class="col-lg">
                     <label for="start_date">Start Date</label>
-                    <input type="date" class="form-control" placeholder="Enter" id="start_date" name="start_date">
+                    <input type="month" class="form-control start_date" placeholder="Enter" name="start_date" value="2000-01">
                 </div>
 
                 <div class="col-lg">
                     <label for="passout_date">Passout year</label>
-                    <input type="date" class="form-control" placeholder="Enter passout date" id="passout_date" name="passout_date">
+                    <input type="month" class="form-control passout_date" placeholder="Enter passout date"  name="passout_date" value="2000-01">
                 </div>
 
                 <div class="col-lg">
                     <label for="percentage">Percentage</label>
-                    <input type="number" class="form-control" placeholder="Dont use % sign" id="percentage" name="percentage">
+                    <input type="number" class="form-control percentage" placeholder="Dont use % sign"  name="percentage">
                 </div>
 
                 <div class="col-lg">
                     <label for="backlog">backlogs</label>
-                    <input type="number" class="form-control" placeholder="If any" id="backlog" name="backlog">
+                    <input type="number" class="form-control backlog" placeholder="If any"  name="backlog">
                 </div>
 
                 <div class="col-lg">
@@ -118,37 +118,37 @@
             </div>
             <hr>
             <!-- second row -->
-            <div class="row" id="education_row">
+            <div class="row education_row">
               
                 <div class="col-lg">
                     <label for="degree">Degree/Board</label>
-                    <input type="text" class="form-control" placeholder="Enter degree/board" id="degree" name="degree">
+                    <input type="text" class="form-control degree" placeholder="Enter degree/board"  name="degree">
                 </div>
                
                 <div class="col-lg">
                     <label for="college">School/College</label>
-                    <input type="text" class="form-control" placeholder="Enter your School/College Name" id="college" name="college">
+                    <input type="text" class="form-control college" placeholder="Enter your School/College Name"  name="college">
                 </div>
 
             
                 <div class="col-lg">
                     <label for="start_date">Start Date</label>
-                    <input type="date" class="form-control" placeholder="Enter start date" id="start_date" name="start_date">
+                    <input type="month" class="form-control start_date" placeholder="Enter" name="start_date" value="2000-01">
                 </div>
 
                 <div class="col-lg">
                     <label for="passout_date">Passout year</label>
-                    <input type="date" class="form-control" placeholder="Enter passout date" id="passout_date" name="passout_date">
+                    <input type="month" class="form-control passout_date" placeholder="Enter passout date"  name="passout_date" value="2000-01">
                 </div>
 
                 <div class="col-lg">
                     <label for="percentage">Percentage</label>
-                    <input type="number" class="form-control" placeholder="Dont use % sign" id="percentage" name="percentage">
+                    <input type="number" class="form-control percentage" placeholder="Dont use % sign"  name="percentage">
                 </div>
 
                 <div class="col-lg">
-                    <label for="backlog">backlogs</label>
-                    <input type="number" class="form-control" placeholder="If any" id="backlog" name="backlog">
+                    <label for="backlog">Backlogs</label>
+                    <input type="number" class="form-control backlog" placeholder="If any"  name="backlog">
                 </div>
 
                 <div class="col-lg">
@@ -167,12 +167,83 @@
 
             <div class="submit_btn">
 
-                <button type="submit">Submit</button>
+                <button type="submit" onclick="submitForm(event)">Submit</button>
 
             </div>
             
 
         </form>
+
+        <h1>Json:</h1>
+        <div class="form_content">
+
+
+        </div>
+
+        <h1>Table: </h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Graduation year</th>
+                    </tr>
+                </thead>
+                    
+                <tbody>
+                    <tr class="data">
+                        <td class="fn"></td>
+                        <td class="ln"></td>
+                        <td class="birthdate"></td>
+                        <td class="mail"></td>
+                        <td class="add"></td>
+                        <td class="gy"></td>
+                    </tr>
+    
+    
+                </tbody>
+                
+            </table>
+
+
+        </div>
+
+
+        <div class="table-responsive">
+            <table class="table t2">
+                <thead>
+                    <tr>
+                        <th>Degree/Board</th>
+                        <th>College/School</th>
+                        <th>Start Date</th>
+                        <th>Passout DAte</th>
+                        <th>Percentage</th>
+                        <th>backlogs</th>
+                    </tr>
+                </thead>
+                    
+                <tbody>
+                    <tr >
+                        <td class="t_degree"></td>
+                        <td class="t_college"></td>
+                        <td class="t_start_date"></td>
+                        <td class="t_passout_date"></td>
+                        <td class="t_percentage"></td>
+                        <td class="t_backlog"></td>
+                    </tr>
+    
+    
+                </tbody>
+                
+            </table>
+
+
+        </div>
+        
     
 
     </div>
