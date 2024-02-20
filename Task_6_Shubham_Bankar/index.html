@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+
+    <title>Task 6</title>
+
+</head>
+<body>
+
+
+
+
+    <h1 style="text-align: center;"> Student Form</h1>
+    <br>
+
+
+    <div class="container">
+
+        <form>
+
+
+            <!-- row 1 -->
+            <div class="row">
+                <!-- first name -->
+                <div class="col-lg-4">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter First Name" id="fname" name="fname">
+                </div>
+                <!-- last name -->
+                <div class="col-lg-4">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" id="lname" name="lname">
+                </div>
+                <!-- DOB -->
+                <div class="col-lg-4">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" placeholder="Enter Date of Birth" id="dob" name="dob">
+                </div>
+            </div>
+
+            <!-- row 2 -->
+            <div class="row pt-3 pb-3" >
+                <!-- first Email -->
+                <div class="col-lg-4">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" placeholder="Enter email address" id="email" name="email">
+                </div>
+                <!-- last name -->
+                <div class="col-lg-4">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" placeholder="Enter your address" id="address" name="address">
+                </div>
+                <!-- DOB -->
+                <div class="col-lg-4">
+                    <label for="g_year">Graduation Year</label>
+                    <input type="date" class="form-control" placeholder="Enter Graduation Year" id="g_year" name="g_year">
+                </div>
+            </div>
+            <hr>
+
+           <!-- ------------------------------------------------------row 3 ------------------------------------------------------->
+
+            <div class="education">
+                <div>
+                    <h1>Education:</h1>
+                </div>
+                <div>
+                    <button type="button" class="btn my_btn" onclick="addrow()"> + </button>
+                </div>
+            </div>
+
+
+
+            <!-- first row -->
+            <div class="row" id="education_row">
+              
+                <div class="col-lg">
+                    <label for="degree">Degree/Board</label>
+                    <input type="text" class="form-control" placeholder="Enter degree/board" id="degree" name="degree">
+                </div>
+               
+                <div class="col-lg">
+                    <label for="college">School/College</label>
+                    <input type="text" class="form-control" placeholder="Enter your School/College Name" id="college" name="college">
+                </div>
+
+            
+                <div class="col-lg">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" class="form-control" placeholder="Enter" id="start_date" name="start_date">
+                </div>
+
+                <div class="col-lg">
+                    <label for="passout_date">Passout year</label>
+                    <input type="date" class="form-control" placeholder="Enter passout date" id="passout_date" name="passout_date">
+                </div>
+
+                <div class="col-lg">
+                    <label for="percentage">Percentage</label>
+                    <input type="number" class="form-control" placeholder="Dont use % sign" id="percentage" name="percentage">
+                </div>
+
+                <div class="col-lg">
+                    <label for="backlog">backlogs</label>
+                    <input type="number" class="form-control" placeholder="If any" id="backlog" name="backlog">
+                </div>
+
+                <div class="col-lg">
+                    
+                  
+                </div>
+
+            </div>
+            <hr>
+            <!-- second row -->
+            <div class="row" id="education_row">
+              
+                <div class="col-lg">
+                    <label for="degree">Degree/Board</label>
+                    <input type="text" class="form-control" placeholder="Enter degree/board" id="degree" name="degree">
+                </div>
+               
+                <div class="col-lg">
+                    <label for="college">School/College</label>
+                    <input type="text" class="form-control" placeholder="Enter your School/College Name" id="college" name="college">
+                </div>
+
+            
+                <div class="col-lg">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" class="form-control" placeholder="Enter start date" id="start_date" name="start_date">
+                </div>
+
+                <div class="col-lg">
+                    <label for="passout_date">Passout year</label>
+                    <input type="date" class="form-control" placeholder="Enter passout date" id="passout_date" name="passout_date">
+                </div>
+
+                <div class="col-lg">
+                    <label for="percentage">Percentage</label>
+                    <input type="number" class="form-control" placeholder="Dont use % sign" id="percentage" name="percentage">
+                </div>
+
+                <div class="col-lg">
+                    <label for="backlog">backlogs</label>
+                    <input type="number" class="form-control" placeholder="If any" id="backlog" name="backlog">
+                </div>
+
+                <div class="col-lg">
+                    
+                  
+                </div>
+
+            </div>
+            <hr>
+
+            <!-- this is for adding the new row -->
+            <div class="for_addition">
+                
+                
+            </div>
+
+            <div class="submit_btn">
+
+                <button type="submit">Submit</button>
+
+            </div>
+            
+
+        </form>
+    
+
+    </div>
+
+    
+
+
+
+
+<script src="assets/javascript/script.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
