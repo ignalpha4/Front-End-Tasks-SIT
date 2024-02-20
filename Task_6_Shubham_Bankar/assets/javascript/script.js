@@ -66,25 +66,6 @@ function submit_data(event) {
     
 
     event.preventDefault();
-   
-
-    // to validate
-    let isValid = true;
-
-   
-    document.querySelectorAll('input[required]').forEach(input => {
-        if (input.value.trim() === '') {
-            isValid = false;
-            input.classList.add('is-invalid'); 
-        } else {
-            input.classList.remove('is-invalid'); 
-        }
-    });
-
-
-    if (!isValid) {
-        return;
-    }
 
 
     //saving the details n obj
