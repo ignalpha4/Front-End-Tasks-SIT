@@ -81,6 +81,8 @@ function submit_data(event) {
 
     //this is used for to add the education details into the education array 
     let education_row = document.querySelectorAll('.education_row'); 
+
+
     education_row.forEach(row => {
         let education_details = {
             degree: row.querySelector('.degree').value,

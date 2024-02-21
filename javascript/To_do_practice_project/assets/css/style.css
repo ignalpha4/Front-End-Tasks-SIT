@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+body{
+    font-family: "Kode Mono";
+    font-weight: 800;
+    background-image : linear-gradient(to right,#1d85df,#dba9fd);
+}
+
+.add_btn{
+    background-color: blanchedalmond;
+    color: black;
+    min-width: 150px;
+    min-height: 38px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: larger;
+
+}
+
+.remove_btn{
+    background-color: rgb(237, 99, 99);
+    color: black;
+    min-width: 150px;
+    min-height: 38px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+
+}
+
+#head{
+    font-size:xx-large;
+
+}
+
+.content{
+    font-size: x-large;
+    color: black;
+}
