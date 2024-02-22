@@ -15,7 +15,7 @@
 
 
         <div class="col-lg-11">
-            <input type="radio" id="radio"  value="task" onclick=task_completed(this)">
+            <input type="radio" id="radio"  value="task" onclick="task_completed(this)">
             <label for="radio" class="content">${input}</label><br>
         </div>
         <div class="col-lg-1">
@@ -44,8 +44,15 @@ function delete_task(button){
 
 }
 
-function task_completed(input) {
-    let label = input.parentNode.querySelector('label.content');
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+return new bootstrap.Toast(toastEl, option)
+})
+
+function task_completed(radio) {
+
+    let label = radio.parentNode.querySelector('label.content');
+
     if (radio.checked) {
         label.style.textDecoration = 'line-through';
     } else {

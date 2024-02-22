@@ -122,4 +122,7 @@ function submit_data(event) {
     document.querySelector('.mail').innerHTML=student_details.email;
     document.querySelector('.add').innerText=student_details.address;
     document.querySelector('.gy').innerText=student_details.graduationYear;
+
+    
+    document.querySelector('form').reset();
 }
