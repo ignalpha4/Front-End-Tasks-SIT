@@ -3,7 +3,7 @@
 body{
     font-family: "Kode Mono";
     font-weight: 800;
-    background-image : linear-gradient(to right,#7b47db,#ffffff);
+    background-image : linear-gradient(to right,#8150dc,#ffffff);
 }
 
 
@@ -17,7 +17,8 @@ body{
     align-items: center;
     justify-content: center;
     margin-top: 200px;
-    border: 1px solid black;
+    border: 10px solid #0a0a0a;
+    
 }
 
 
