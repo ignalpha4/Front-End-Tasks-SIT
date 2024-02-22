@@ -1,5 +1,4 @@
 
-
 let count;
 let minute;
 let hour;
@@ -9,10 +8,10 @@ let interval;
 
 function start_watch(){
 
-        count=0;
-        minute=0;
-        hour=0;
-       interval= setInterval(() => {
+    count=0;
+    minute=0;
+    hour=0;
+    interval= setInterval(() => {
 
         count=count+1;
 
@@ -31,13 +30,22 @@ function start_watch(){
                 {
                     clearInterval(interval);
                 }
-                document.querySelector("#hours").textContent=hour;
+
+                let h=hour < 10 ? "0" + hour : hour ;
+                document.querySelector("#hours").textContent=h;
             }
 
-            document.querySelector("#minutes").textContent=minute;
+            //same 
+            let m=minute<10 ? "0" +minute :minute;
+            document.querySelector("#minutes").textContent=m;
             
         }
-        document.querySelector("#seconds").textContent=count;
+
+        //so that the counter will not start with 1 it will start with 01
+        let s =count < 10 ? "0"+ count : count;
+
+
+        document.querySelector("#seconds").textContent=s;
 
 
         }, 1000);
