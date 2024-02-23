@@ -270,7 +270,9 @@ function submit_data(event) {
     
     let jsonData = JSON.stringify(student_details,null,1);
    
-    document.querySelector('.form_content').innerText = jsonData;
+    // document.querySelector('.form_content').innerText = jsonData;
+
+    console.log(jsonData);
 
 
     // for table 1

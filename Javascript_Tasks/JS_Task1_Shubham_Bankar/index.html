@@ -18,9 +18,20 @@
     <h1 style="text-align: center;"> Student Form</h1>
     <br>
 
+    <!-- Button trigger modal -->
 
-    <div class="container">
-
+  
+  <!-- Modal -->
+  <div class="modal fade " id="student_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl ">
+      <div class="modal-content p-3">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel" style="text-align: center;">Student Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <!------------------ form------------ -->
         <form onsubmit="submit_data(event)" >
 
 
@@ -79,7 +90,7 @@
 
             <div class="education">
                 <div>
-                    <h1>Education:</h1>
+                    <h2>Education:</h2>
                 </div>
                 <div>
                     <button type="button" class="btn my_btn" onclick="addrow()"> + </button>
@@ -209,23 +220,42 @@
                 
             </div>
 
-            <div class="submit_btn">
 
-                <button type="submit" id="re_submit" class="btn_submit" >Submit</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" id="re_submit" class="btn_submit btn btn-primary">Submit</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
 
-            </div>
-            
 
-        </form>
 
+    <div class="container">
+
+        <!-- 
         <h2>JSON:</h2>
         <div class="form_content">
             <p> Data in json format will be displayed here</p>
+        </div> -->
+
+ 
+        <div class="table_main">
+            <div>
+                <h2>Table: </h1>
+            </div>
+            <div>
+                <!-- modal buttton -->
+                <button type="button" class="add_btn" data-bs-toggle="modal" data-bs-target="#student_form">
+                   +
+                </button>
+            </div>
+
         </div>
+        
 
-        <br>
-
-        <h2>Table: </h1>
         <div class="table-responsive">
             <table class="table">
                 <thead>
