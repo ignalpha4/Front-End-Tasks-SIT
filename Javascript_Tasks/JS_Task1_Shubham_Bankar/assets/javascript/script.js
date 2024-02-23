@@ -10,10 +10,16 @@ function addrow() {
     <div class="col-lg">
         <label for="degree">Degree/Board</label>
         <input type="text" class="form-control degree" placeholder="Enter degree/board"  name="degree" required>
+        <div class="degree_v">
+                        
+        </div>
     </div>
     <div class="col-lg">
         <label for="college">School/College</label>
         <input type="text" class="form-control college" placeholder="Enter your School/College Name"  name="college" required>
+        <div class="college_v">
+
+        </div>
     </div>
     <div class="col-lg">
         <label for="start_date">Start Date</label>
@@ -22,7 +28,10 @@ function addrow() {
     <div class="col-lg">
         <label for="passout_date">Passout year</label>
         <input type="month" class="form-control passout_date" placeholder="Enter passout date"  name="passout_date" value="2000-01" required>
-    </div>
+        <div class="passout_v">
+                        
+        </div>
+        </div>
     <div class="col-lg">
         <label for="percentage">Percentage</label>
         <input type="number" class="form-control percentage" placeholder="Dont'use % sign"  name="percentage" required>
@@ -118,7 +127,43 @@ function submit_data(event) {
     }
 
 
+    //-----------------------------education validation
 
+    //degree
+
+    if(validate_degree()==false){
+        return false;
+    }
+
+    if(validate_degree()==true){
+        document.querySelector(".degree").classList.remove("is-invalid");
+        document.querySelector(".degree_v").innerHTML=`
+        <p></p>`
+    }
+
+    //college
+
+    if(validate_college()==false){
+        return false;
+    }
+
+    if(validate_college()==true){
+        document.querySelector(".college").classList.remove("is-invalid");
+        document.querySelector(".college_v").innerHTML=`
+        <p></p>`
+    }
+
+    //passout
+
+    if(validate_passout()==false){
+        return false;
+    }
+
+    if(validate_passout()==true){
+        document.querySelector(".passout_date").classList.remove("is-invalid");
+        document.querySelector(".passout_v").innerHTML=`
+        <p></p>`
+    }
 
     //saving the details n obj
     let student_details = {
@@ -187,7 +232,6 @@ function dob_validation(){
 
     const array = date.split("-");
 
-    console.log(array[0]);
     if(array[0] > 2006){
 
         document.querySelector("#dob").classList.add("is-invalid");
@@ -206,7 +250,7 @@ function dob_validation(){
 function validate_fname(){
     let fname=document.getElementById("fname").value;
 
-    let reg= /[a-zA-z]+/ ;
+    let reg = /^[a-zA-Z]+$/;
 
     if(!reg.test(fname)){
         
@@ -224,7 +268,7 @@ function validate_fname(){
 function validate_lname(){
     let lname=document.getElementById("lname").value;
 
-    let reg= /[a-zA-z]+/ ;
+    let reg = /^[a-zA-Z]+$/;
 
     if(!reg.test(lname)){
         
@@ -252,4 +296,62 @@ function validate_mail(){
     }
 
     return true;
+}
+
+//validate degree
+
+function validate_degree() {
+    let degree = document.querySelector(".degree").value;
+    let reg = /^[a-zA-Z]+$/;
+
+    if (!reg.test(degree)) {
+        document.querySelector(".degree").classList.add("is-invalid");
+        document.querySelector(".degree_v").innerHTML = `
+            <p style="color:red">Enter the correct Board/Degree</p>
+        `;
+        return false;
+    }
+
+    return true;
+}
+
+//college validation
+function validate_college(){
+    let college = document.querySelector(".college").value;
+    let reg = /^[a-zA-Z]+$/;
+
+    if (!reg.test(college)) {
+        document.querySelector(".college").classList.add("is-invalid");
+        document.querySelector(".college_v").innerHTML = `
+            <p style="color:red">Enter the correct School/College Name</p>
+        `;
+        return false;
+    }
+
+    return true;
+}
+
+// passout_date validation
+function validate_passout(){
+    let start_date=document.querySelector(".start_date").value;
+    let passout_date=document.querySelector(".passout_date").value;
+
+    console.log("start date all"+start_date);
+    console.log("passout date all"+passout_date);
+
+    const start=start_date.split("-");
+    const passout=passout_date.split("-")
+    console.log("after split");
+    console.log(start[0]);
+    console.log(passout[0]);
+    if(start[0]>passout[0]){
+        document.querySelector(".passout_date").classList.add("is-invalid");
+        document.querySelector(".passout_v").innerHTML = `
+            <p style="color:red">Passout year cannot be less than start date</p>
+        `;
+        return false;
+    }
+
+    return true;
+
 }
