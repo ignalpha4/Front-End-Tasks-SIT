@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 
 
-    <title>Task 6 </title>
+    <title>Task 1 JS</title>
 
 </head>
 <body>
@@ -30,32 +30,45 @@
                 <div class="col-lg-4">
                     <label for="fname">First Name</label>
                     <input type="text" class="form-control" placeholder="Enter First Name" id="fname" name="fname" required>
+                    <div id="fname_v">
+
+                    </div>
                 </div>
                 <!-- last name -->
                 <div class="col-lg-4">
                     <label for="lname">Last Name</label>
-                    <input type="text" class="form-control" placeholder="Enter Last Name" id="lname" name="lname" required>
+                    <input type="text" class="form-control" placeholder="Enter Last Name" id="lname" name="lname">
+                    <div id="lname_v">
+
+                    </div>
                 </div>
                 <!-- DOB -->
                 <div class="col-lg-4">
                     <label for="dob">Date of Birth</label>
-                    <input type="date" class="form-control" placeholder="Enter Date of Birth" id="dob" name="dob" required>
+                    <input type="date" class="form-control" placeholder="Enter Date of Birth" id="dob" name="dob" value="2000-01-01"required>
+                    <div id="dob_validate">
+
+                    </div>
                 </div>
             </div>
 
             <!-- row 2 -->
             <div class="row pt-3 pb-3" > 
-                <!-- first Email -->
+                <!-- Email -->
                 <div class="col-lg-4">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" placeholder="Enter email address" id="email" name="email" required>
+                    <div id="email_v">
+
+                    </div>
                 </div>
-                <!-- last name -->
+                <!-- address -->
                 <div class="col-lg-4">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control" placeholder="Enter your address" id="address" name="address" required>
+                    <label for="address">Address</label><br>
+                    <textarea  id="address" class="form-control" name="address" cols="30" rows="1" required>
+                    </textarea>
                 </div>
-                <!-- DOB -->
+                <!-- graduation year -->
                 <div class="col-lg-4">
                     <label for="g_year">Graduation Year</label>
                     <input type="month" class="form-control" placeholder="Enter Graduation Year" id="g_year" name="g_year" value="2000-01" required>

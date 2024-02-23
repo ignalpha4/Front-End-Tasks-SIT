@@ -68,6 +68,58 @@ function submit_data(event) {
     event.preventDefault();
 
 
+    //fname validation
+
+    if(validate_fname()==false){
+        return false;
+    }
+
+    if(validate_fname()==true){
+        document.querySelector("#fname").classList.remove("is-invalid");
+        document.querySelector("#fname_v").innerHTML=`
+        <p></p>`
+    }
+
+    //lname validation
+
+    if(validate_lname()==false){
+        return false;
+    }
+
+    if(validate_lname()==true){
+        document.querySelector("#lname").classList.remove("is-invalid");
+        document.querySelector("#lname_v").innerHTML=`
+        <p></p>`
+    }
+
+    //email
+
+    if(validate_mail()==false){
+        return false;
+    }
+
+    if(validate_mail()==true){
+        document.querySelector("#email").classList.remove("is-invalid");
+        document.querySelector("#email_v").innerHTML=`
+        <p></p>`
+    }
+
+    // dob validation
+
+    if(dob_validation()==false)
+    {
+        return false;
+    }
+   
+    if(dob_validation()==true){
+        document.querySelector("#dob").classList.remove("is-invalid");
+        document.querySelector("#dob_validate").innerHTML=`
+        <p></p>`
+    }
+
+
+
+
     //saving the details n obj
     let student_details = {
         first_name: document.getElementById('fname').value,
@@ -125,4 +177,79 @@ function submit_data(event) {
 
     
     document.querySelector('form').reset();
+}
+
+
+function dob_validation(){
+
+    //dob validation
+    let date=document.querySelector("#dob").value;
+
+    const array = date.split("-");
+
+    console.log(array[0]);
+    if(array[0] > 2006){
+
+        document.querySelector("#dob").classList.add("is-invalid");
+        document.querySelector("#dob_validate").innerHTML=
+
+        `<p style="color:red">Age cannot be less than 18</p>
+        `
+
+        return false;
+    }
+
+ return true;
+}
+
+//fname validation
+function validate_fname(){
+    let fname=document.getElementById("fname").value;
+
+    let reg= /[a-zA-z]+/ ;
+
+    if(!reg.test(fname)){
+        
+        document.querySelector("#fname").classList.add("is-invalid");
+        document.querySelector("#fname_v").innerHTML=`
+        <p style="color:red">Name should contain only alphabets</p>
+        `
+        return false;
+    }
+
+    return true;
+}
+
+//lname validation
+function validate_lname(){
+    let lname=document.getElementById("lname").value;
+
+    let reg= /[a-zA-z]+/ ;
+
+    if(!reg.test(lname)){
+        
+        document.querySelector("#lname").classList.add("is-invalid");
+        document.querySelector("#lname_v").innerHTML=`
+        <p style="color:red">Name should contain only alphabets</p>
+        `
+        return false;
+    }
+
+    return true;
+}
+
+
+function validate_mail(){
+    let mail=document.querySelector("#email").value;
+
+    let reg=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/ ;
+
+    if(!reg.test(mail)){
+        document.querySelector("#email").classList.add("is-invalid");
+        document.querySelector("#email_v").innerHTML=`
+        <p style="color:red">Please enter a valid email address</p>`
+        return false;
+    }
+
+    return true;
 }
