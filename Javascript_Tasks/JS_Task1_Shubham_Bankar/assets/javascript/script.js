@@ -35,11 +35,17 @@ function addrow() {
     <div class="col-lg">
         <label for="percentage">Percentage</label>
         <input type="number" class="form-control percentage" placeholder="Dont'use % sign"  name="percentage" required>
-    </div>
+        <div class="p_v">
+
+        </div>
+        </div>
     <div class="col-lg">
         <label for="backlog">backlogs</label>
         <input type="number" class="form-control backlog" placeholder="If any"  name="backlog" >
-    </div>
+        <div class="backlog_v">
+                        
+        </div>
+        </div>
     <div class="col-lg">
         <div class="sub_btn">
             <button type="button" class="my_btn" onclick="delete_row(this)"> - </button>
@@ -127,42 +133,97 @@ function submit_data(event) {
     }
 
 
-    //-----------------------------education validation
+    //-----------------------------education validation-------------------------
 
-    //degree
+    //degree +college 2 fields
 
-    if(validate_degree()==false){
+    let rows = document.querySelectorAll('.education_row');
+    let degree_clg_valid = true;
+
+    rows.forEach(row => {
+        if (!validate_degree(row) || !validate_college(row)) {
+            degree_clg_valid = false;
+        }
+        if(validate_degree(row)){
+            row.querySelector(".degree").classList.remove("is-invalid");
+            row.querySelector(".degree_v").innerHTML = "";
+        }
+
+        if(validate_college(row)){
+                   
+        row.querySelector(".college").classList.remove("is-invalid");
+        row.querySelector(".college_v").innerHTML = "";
+        }
+    });
+
+    
+    if (!degree_clg_valid) {
         return false;
     }
 
-    if(validate_degree()==true){
-        document.querySelector(".degree").classList.remove("is-invalid");
-        document.querySelector(".degree_v").innerHTML=`
-        <p></p>`
-    }
 
-    //college
 
-    if(validate_college()==false){
-        return false;
-    }
-
-    if(validate_college()==true){
-        document.querySelector(".college").classList.remove("is-invalid");
-        document.querySelector(".college_v").innerHTML=`
-        <p></p>`
-    }
 
     //passout
 
-    if(validate_passout()==false){
+    rows = document.querySelectorAll('.education_row');
+    let passout_valid = true;
+
+    rows.forEach(row => {
+        if (!validate_passout(row)) {
+            passout_valid = false;
+        }
+
+        if(validate_passout(row)){
+                  
+        row.querySelector(".passout_date").classList.remove("is-invalid");
+        row.querySelector(".passout_v").innerHTML = "";
+        }
+    });
+
+    
+    if (!passout_valid) {
         return false;
     }
 
-    if(validate_passout()==true){
-        document.querySelector(".passout_date").classList.remove("is-invalid");
-        document.querySelector(".passout_v").innerHTML=`
-        <p></p>`
+    //percentage
+
+    rows=document.querySelectorAll(".education_row");
+    let valid_pre=true;
+
+    rows.forEach(row=>{
+        if(!validate_percentage(row)){
+            valid_pre=false;
+        }
+
+        if(validate_percentage(row)){
+            row.querySelector(".percentage").classList.remove("is-invalid");
+            row.querySelector(".p_v").innerHTML = "";
+        }
+    })
+
+    if(!valid_pre){
+        return false;
+    }
+
+    //backlogs
+
+    rows=document.querySelectorAll(".education_row");
+    let valid_backlogs=true;
+
+    rows.forEach(row=>{
+        if(!validate_backlog(row)){
+            valid_backlogs=false;
+        }
+
+        if(validate_backlog(row)){
+            row.querySelector(".backlog").classList.remove("is-invalid");
+            row.querySelector(".backlog_v").innerHTML = "";
+        }
+    })
+
+    if(!valid_backlogs){
+        return false;
     }
 
     //saving the details n obj
@@ -222,6 +283,10 @@ function submit_data(event) {
 
     
     document.querySelector('form').reset();
+
+    document.querySelector('.btn_submit').setAttribute("disabled", "");
+
+
 }
 
 
@@ -298,60 +363,90 @@ function validate_mail(){
     return true;
 }
 
-//validate degree
 
-function validate_degree() {
-    let degree = document.querySelector(".degree").value;
-    let reg = /^[a-zA-Z]+$/;
+//--------------------education validation-----------------------------
+
+function validate_degree(row) {
+    let degree = row.querySelector(".degree").value;
+
+    let reg = /^[a-zA-Z\s]+$/;
 
     if (!reg.test(degree)) {
-        document.querySelector(".degree").classList.add("is-invalid");
-        document.querySelector(".degree_v").innerHTML = `
+        row.querySelector(".degree").classList.add("is-invalid");
+        row.querySelector(".degree_v").innerHTML = `
             <p style="color:red">Enter the correct Board/Degree</p>
         `;
         return false;
-    }
-
+    } 
     return true;
 }
 
-//college validation
-function validate_college(){
-    let college = document.querySelector(".college").value;
-    let reg = /^[a-zA-Z]+$/;
+
+function validate_college(row) {
+    let college = row.querySelector(".college").value;
+    let reg = /^[a-zA-Z\s]+$/;
 
     if (!reg.test(college)) {
-        document.querySelector(".college").classList.add("is-invalid");
-        document.querySelector(".college_v").innerHTML = `
+        row.querySelector(".college").classList.add("is-invalid");
+        row.querySelector(".college_v").innerHTML = `
             <p style="color:red">Enter the correct School/College Name</p>
         `;
         return false;
-    }
+    } 
 
     return true;
 }
 
-// passout_date validation
-function validate_passout(){
-    let start_date=document.querySelector(".start_date").value;
-    let passout_date=document.querySelector(".passout_date").value;
 
-    console.log("start date all"+start_date);
-    console.log("passout date all"+passout_date);
 
-    const start=start_date.split("-");
-    const passout=passout_date.split("-")
-    console.log("after split");
-    console.log(start[0]);
-    console.log(passout[0]);
-    if(start[0]>passout[0]){
-        document.querySelector(".passout_date").classList.add("is-invalid");
-        document.querySelector(".passout_v").innerHTML = `
+function validate_passout(row) {
+    let start_date = row.querySelector(".start_date").value;
+    let passout_date = row.querySelector(".passout_date").value;
+
+    let start = start_date.split("-");
+    let passout = passout_date.split("-");
+
+    if (start[0] > passout[0]) {
+        row.querySelector(".passout_date").classList.add("is-invalid");
+        row.querySelector(".passout_v").innerHTML = `
             <p style="color:red">Passout year cannot be less than start date</p>
         `;
         return false;
     }
+    return true;
+}
+
+
+//validate Percentage
+
+function validate_percentage(row){
+
+    let per=row.querySelector(".percentage").value;
+
+    if(per<0){
+        row.querySelector(".percentage").classList.add("is-invalid");
+        row.querySelector(".p_v").innerHTML = `
+            <p style="color:red">Please enter positive value for percentage</p>
+        `;
+        return false;
+    }
 
     return true;
+}
 
+// validate backlogs
+
+function validate_backlog(row){
+
+    let logs=row.querySelector(".backlog").value;
+
+    if((logs<0) || (logs>15)){
+        row.querySelector(".backlog").classList.add("is-invalid");
+        row.querySelector(".backlog_v").innerHTML = `
+            <p style="color:red">Backlogs must be between 0-15</p>
+        `;
+        return false;
+    }
+
+    return true;
 }

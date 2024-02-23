@@ -21,7 +21,7 @@
 
     <div class="container">
 
-        <form onsubmit="submit_data(event)">
+        <form onsubmit="submit_data(event)" >
 
 
             <!-- row 1 -->
@@ -65,8 +65,7 @@
                 <!-- address -->
                 <div class="col-lg-4">
                     <label for="address">Address</label><br>
-                    <textarea  id="address" class="form-control" name="address" cols="30" rows="1" required>
-                    </textarea>
+                    <textarea  id="address" class="form-control" placeholder="Enter Address" name="address" cols="30" rows="1" required></textarea>
                 </div>
                 <!-- graduation year -->
                 <div class="col-lg-4">
@@ -126,11 +125,17 @@
                 <div class="col-lg">
                     <label for="percentage">Percentage</label>
                     <input type="number" class="form-control percentage" placeholder="Dont use % sign"  name="percentage" required>
+                    <div class="p_v">
+                    
+                    </div>
                 </div>
 
                 <div class="col-lg">
                     <label for="backlog">Backlogs</label>
-                    <input type="number" class="form-control backlog" placeholder="If any" min="0" max="15"  name="backlog" >
+                    <input type="number" class="form-control backlog" placeholder="If any"  name="backlog" >
+                    <div class="backlog_v">
+
+                    </div>
                 </div>
 
                 <div class="col-lg">
@@ -176,11 +181,18 @@
                 <div class="col-lg">
                     <label for="percentage">Percentage</label>
                     <input type="number" class="form-control percentage" placeholder="Dont use % sign"  name="percentage" required>
+                    <div class="p_v">
+
+                    </div>
                 </div>
+          
 
                 <div class="col-lg">
                     <label for="backlog">Backlogs</label>
                     <input type="number" class="form-control backlog" placeholder="If any"  name="backlog" >
+                    <div class="backlog_v">
+                        
+                    </div>
                 </div>
 
                 <div class="col-lg">
@@ -199,7 +211,7 @@
 
             <div class="submit_btn">
 
-                <button type="submit">Submit</button>
+                <button type="submit" id="re_submit" class="btn_submit" >Submit</button>
 
             </div>
             
