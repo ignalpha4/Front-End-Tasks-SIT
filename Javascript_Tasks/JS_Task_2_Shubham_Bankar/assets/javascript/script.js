@@ -5,7 +5,7 @@ function addrow() {
 
   let newRow = document.createElement('div');
 
-  newRow.innerHTML = `<div>
+  newRow.innerHTML = `
   <div class="row education_row">
     <div class="col-lg">
         <label for="degree">Degree/Board</label>
@@ -40,7 +40,7 @@ function addrow() {
         </div>
         </div>
     <div class="col-lg">
-        <label for="backlog">backlogs</label>
+        <label for="backlog">Backlogs</label>
         <input type="number" class="form-control backlog" placeholder="If any"  name="backlog" >
         <div class="backlog_v">
                         
@@ -51,25 +51,17 @@ function addrow() {
             <button type="button" class="my_btn" onclick="delete_row(this)"> - </button>
         </div>
     </div>
+    <span style="margin-top:15px"></span>
+     <hr>
   </div> 
-  <hr>
-  </div>
+ 
+ 
   `;
   
   document.querySelector(".for_addition").append(newRow);
+
+
 }
-
-
-
-
-
-function delete_row(button) {
- 
-  let added_row = button.parentNode.parentNode.parentNode.parentNode;
-
-  added_row.remove();
-}
-
 
 
 
@@ -82,7 +74,9 @@ function submit_data(event) {
 
     event.preventDefault();
 
-
+    //clearing the data of the table first so that the issue of the data beign added one below the other doesnt occur
+    document.querySelector('.t2 tbody').innerHTML = '';
+   
     //fname validation
 
     if(validate_fname()==false){
@@ -283,18 +277,53 @@ function submit_data(event) {
     document.querySelector('.add').innerText=student_details.address;
     document.querySelector('.gy').innerText=student_details.graduationYear;
 
-    
+    document.querySelector('.action').innerHTML=`
+    <span class="edit-btn" onclick="editRow(this)"><i class="fa-sharp fa-solid fa-pen-to-square fa-lg" style="color: #ff0000;"></i></span>
+
+    <span class="delete" onclick="delete_user(this)"><i class="fa-sharp fa-solid fa-trash fa-lg" style="color: #ff0000;"></i></span>
+    `
     document.querySelector('form').reset();
 
-    document.querySelector('.btn_submit').setAttribute("disabled", "");
 
+    alert("Info added you can close the form");
 
 }
 
 
+function open_modal(modal) {
+    modal.classList.add("show");
+    modal.style.display = "block";
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-hidden", "false");
+}
+
+function close_modal() {
+    let modal = document.getElementById('student_form');
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-modal', 'false');
+    modal.setAttribute('aria-hidden', 'true');
+
+}
+
+
+
+//to delete the single row from the education column not the whole data
+function delete_row(button) {
+    let rowToDelete = button.closest(".education_row"); 
+    rowToDelete.parentNode.remove(); 
+}
+
+function delete_row2(button) {
+    let rowToDelete = button.closest(".education_row"); 
+    rowToDelete.remove(); 
+}
+
+
+//dob validation
 function dob_validation(){
 
-    //dob validation
+
     let date=document.querySelector("#dob").value;
 
     const array = date.split("-");
@@ -408,10 +437,10 @@ function validate_passout(row) {
     let start = start_date.split("-");
     let passout = passout_date.split("-");
 
-    if (start[0] > passout[0]) {
+    if (start[0] >= passout[0]) {
         row.querySelector(".passout_date").classList.add("is-invalid");
         row.querySelector(".passout_v").innerHTML = `
-            <p style="color:red">Passout year cannot be less than start date</p>
+            <p style="color:red">Passout year cannot be less or equal to start date</p>
         `;
         return false;
     }
@@ -425,10 +454,10 @@ function validate_percentage(row){
 
     let per=row.querySelector(".percentage").value;
 
-    if(per<0){
+    if(per<0 || per>100){
         row.querySelector(".percentage").classList.add("is-invalid");
         row.querySelector(".p_v").innerHTML = `
-            <p style="color:red">Please enter positive value for percentage</p>
+            <p style="color:red">Enter Percentage between 0 and 100</p>
         `;
         return false;
     }
@@ -451,4 +480,171 @@ function validate_backlog(row){
     }
 
     return true;
+}
+
+
+//when we click the edit button fetching data and opening modal
+function editRow(button) {
+    let row = button.closest("tr"); 
+    let cells = row.cells; 
+    let modal = document.getElementById("student_form");
+
+    // to fetcth the data from the table and add it in the form
+    document.getElementById("fname").value = cells[0].textContent;
+    document.getElementById("lname").value = cells[1].textContent;
+    document.getElementById("dob").value = cells[2].textContent;
+    document.getElementById("email").value = cells[3].textContent;
+    document.getElementById("address").value = cells[4].textContent;
+    document.getElementById("g_year").value = cells[5].textContent;
+
+    // to remove the previous education rows
+    let education_rows = document.querySelectorAll(".education_row");
+    education_rows.forEach(row => row.remove());
+
+    // to fetch and add data of educaation
+    let educationDataRows = document.querySelectorAll(".t2 tbody tr");
+    educationDataRows.forEach((row,index) => {
+        let educationRow = document.createElement("div");
+        educationRow.classList.add("row", "education_row");
+
+        let cells = row.cells;
+        let degree = cells[0].textContent;
+        let college = cells[1].textContent;
+        let startDate = cells[2].textContent;
+        let passoutDate = cells[3].textContent;
+        let percentage = cells[4].textContent;
+        let backlogs = cells[5].textContent;
+
+        console.log(index);
+
+        if(index<2){
+            educationRow.innerHTML = `
+
+            <div class="col-lg">
+                <label for="degree">Degree/Board</label>
+                <input type="text" class="form-control degree" value="${degree}" name="degree" required>
+                <div class="degree_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="college">School/College</label>
+                <input type="text" class="form-control college" value="${college}" name="college" required>
+                <div class="college_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="start_date">Start Date</label>
+                <input type="month" class="form-control start_date" value="${startDate}" name="start_date" required>
+            </div>
+            <div class="col-lg">
+                <label for="passout_date">Passout year</label>
+                <input type="month" class="form-control passout_date" value="${passoutDate}" name="passout_date" required>
+                <div class="passout_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="percentage">Percentage</label>
+                <input type="number" class="form-control percentage" value="${percentage}" name="percentage" required>
+                <div class="p_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="backlog">Backlogs</label>
+                <input type="number" class="form-control backlog" value="${backlogs}" name="backlog">
+                <div class="backlog_v"></div>
+            </div>
+                <div class="col-lg">
+                    
+                </div>
+                
+            </div>
+            <span style="margin-top:15px"></span>
+            <hr>
+        `;
+            document.querySelector(".for_addition").appendChild(educationRow);
+        }
+        else
+        {
+             educationRow.innerHTML = `
+
+            <div class="col-lg">
+                <label for="degree">Degree/Board</label>
+                <input type="text" class="form-control degree" value="${degree}" name="degree" required>
+                <div class="degree_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="college">School/College</label>
+                <input type="text" class="form-control college" value="${college}" name="college" required>
+                <div class="college_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="start_date">Start Date</label>
+                <input type="month" class="form-control start_date" value="${startDate}" name="start_date" required>
+            </div>
+            <div class="col-lg">
+                <label for="passout_date">Passout year</label>
+                <input type="month" class="form-control passout_date" value="${passoutDate}" name="passout_date" required>
+                <div class="passout_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="percentage">Percentage</label>
+                <input type="number" class="form-control percentage" value="${percentage}" name="percentage" required>
+                <div class="p_v"></div>
+            </div>
+            <div class="col-lg">
+                <label for="backlog">Backlogs</label>
+                <input type="number" class="form-control backlog" value="${backlogs}" name="backlog">
+                <div class="backlog_v"></div>
+            </div>
+                <div class="col-lg">
+                    <div class="sub_btn">
+                        <button type="button" class="my_btn" onclick="delete_row2(this)"> - </button>
+                    </div>
+                </div>
+                
+            </div>
+            <span style="margin-top:15px"></span>
+            <hr>
+        `;
+            document.querySelector(".for_addition").appendChild(educationRow);
+        }
+        
+
+        
+    });
+
+    //after adding the data the modal will be opened
+    open_modal(modal);
+
+}
+
+
+
+
+
+
+//for the cross symbol
+document.querySelector('.btn-close').addEventListener('click', close_modal);
+
+//when we click the close button in the footer then the modal should be closed
+
+
+document.querySelector('.modal-footer .btn-secondary').addEventListener('click', close_modal);
+
+
+//for clearing the tab;e data
+
+function delete_user(){
+
+    alert("Info deleted");
+
+    //this to delete the personal details
+    //i cannot delete the whole tbody bcoz i need the td to inser the data next time
+    document.querySelector('.fn').innerHTML='';
+    document.querySelector('.ln').innerHTML='';
+    document.querySelector('.birthdate').innerHTML='';
+    document.querySelector('.mail').innerHTML='';
+    document.querySelector('.add').innerHTML='';
+    document.querySelector('.gy').innerHTML='';
+    document.querySelector('.action').innerHTML='';
+ 
+
+    //and this one to dekete the whole table data
+    document.querySelector('.t2 tbody').innerHTML = '';
 }
