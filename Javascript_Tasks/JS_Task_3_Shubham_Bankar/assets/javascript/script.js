@@ -1,12 +1,12 @@
-let studentData = []; 
+let student_data = []; 
 
 //-----------------row addition-------------------------------
-function addrow() {
+function add_row() {
     let new_row = document.createElement('div');
     new_row.classList.add('row', 'education_row');
 
-    // Determine if it's the initial row (first or second)
-    const isInitialRow = $('.education_row').length < 2;
+    // to check for first two rows.so that - button should be added to the 3rd onwards
+    const is_initial_row = $('.education_row').length < 2;
 
     new_row.innerHTML = `
         <div class="col-lg">
@@ -39,7 +39,7 @@ function addrow() {
             <div class="backlog_v"></div>
         </div>
         <div class="col-lg">
-            ${isInitialRow ? '' : `<div class="sub_btn"><button type="button" class="my_btn" onclick="delete_row(this)"> - </button></div>`}
+            ${is_initial_row ? '' : `<div class="sub_btn"><button type="button" class="my_btn" onclick="delete_row(this)"> - </button></div>`}
         </div>
         <span style="margin-top:15px"></span>
         <hr>
@@ -56,23 +56,23 @@ function delete_row(button){
 
 // Function to update the HTML tables with student data
 
-function updateTables() {
-    // Clear existing table data
+function update_tables() {
+    //clearing the data present in the table
     let t1 = $('.t1').DataTable();
     let t2 = $('.t2').DataTable();
     t1.clear().draw();
     t2.clear().draw();
 
-    // Loop through the studentData array and add rows to the tables
-    studentData.forEach(student => {
-        // Personal Info table
-        let personalInfoRow = [student.first_name, student.last_name, student.dob, student.email, student.address, student.graduationYear, '<button type="button" class="btn btn-primary btn-sm" onclick="editRow(' + studentData.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="deleteStudent(' + studentData.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'];
-        t1.row.add(personalInfoRow).draw();
+    // for rach student in array we are recreating the table
+    student_data.forEach(student => {
+        // personal info table
+        let personal_info_row = [student.first_name, student.last_name, student.dob, student.email, student.address, student.graduationYear, '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'];
+        t1.row.add(personal_info_row).draw();
 
-        // Educational Info table
+        // edu info table
         student.education.forEach(education => {
-            let educationalInfoRow = [education.degree, education.college, education.start_date, education.passout_date, education.percentage, education.backlog];
-            t2.row.add(educationalInfoRow).draw();
+            let educational_info_row = [education.degree, education.college, education.start_date, education.passout_date, education.percentage, education.backlog];
+            t2.row.add(educational_info_row).draw();
         });
     });
 }
@@ -83,11 +83,11 @@ function updateTables() {
 function submit_data(event) {
     event.preventDefault();
 
-    let editIndex = $('#edit_index').value;
+    let edit_index = document.getElementById('edit_index').value;
     
-    // If editIndex is -1, it means we are adding a new user
-    if (editIndex === '-1') {
-        // Adding a new user
+    // if index is set to -1 then add a new row/new user
+    if (edit_index === '-1') {
+        //if we use add info + button then we add a new user row
         let student_details = {
             first_name: document.getElementById('fname').value,
             last_name: document.getElementById('lname').value,
@@ -97,8 +97,8 @@ function submit_data(event) {
             graduationYear: document.getElementById('g_year').value,
             education: []
         };
-        let educationRows = document.querySelectorAll('.education_row');
-        educationRows.forEach(row => {
+        let education_rows = document.querySelectorAll('.education_row');
+        education_rows.forEach(row => {
             let education_details = {
                 degree: row.querySelector('.degree').value,
                 college: row.querySelector('.college').value,
@@ -110,10 +110,10 @@ function submit_data(event) {
             student_details.education.push(education_details);
         });
         
-        studentData.push(student_details);
+        student_data.push(student_details);
     } else {
-        // Editing an existing user
-        let student = studentData[editIndex];
+        // else we update that same row
+        let student = student_data[edit_index];
         student.first_name = document.getElementById('fname').value;
         student.last_name = document.getElementById('lname').value;
         student.dob = document.getElementById('dob').value;
@@ -121,9 +121,9 @@ function submit_data(event) {
         student.address = document.getElementById('address').value;
         student.graduationYear = document.getElementById('g_year').value;
 
-        let educationRows = document.querySelectorAll('.education_row');
+        let education_rows = document.querySelectorAll('.education_row');
         student.education = [];
-        educationRows.forEach(row => {
+        education_rows.forEach(row => {
             let education_details = {
                 degree: row.querySelector('.degree').value,
                 college: row.querySelector('.college').value,
@@ -136,16 +136,15 @@ function submit_data(event) {
         });
     }
 
-    // Update tables
-    updateTables();
+    // to reupdate the tables with new data
+    update_tables();
 
-    document.querySelector('form').reset();
+    document.querySelector('form').reset();  //to clear the form inputs
 
     alert("Info updated successfully");
 
     
 }
-
 //json datatables
 $(document).ready(function() {
     $('.t1').DataTable();
@@ -153,16 +152,19 @@ $(document).ready(function() {
 });
 
 
-// Function to delete a student
-function deleteStudent(index) {
-    studentData.splice(index, 1);
-    updateTables();
+// deleting whole row using index 
+function delete_student(index) {
+    student_data.splice(index, 1);
+    //here index tells us the position and 1 tells us number of positions after index to delete
+    update_tables();
+    //after deletion as well we need to update the tables to see the change
 }
 
-// Function to edit a student
-// Update the editRow function to use the correct property names
-function editRow(index) {
-    let student = studentData[index];
+// editing the specific student
+function edit_row(index) {
+    let student = student_data[index];
+
+    //fetching the values into the form from the table
     document.getElementById("fname").value = student.first_name;
     document.getElementById("lname").value = student.last_name;
     document.getElementById("dob").value = student.dob;
@@ -170,26 +172,26 @@ function editRow(index) {
     document.getElementById("address").value = student.address;
     document.getElementById("g_year").value = student.graduationYear;
 
-    // Clear existing education rows
-    let educationRows = document.querySelectorAll(".education_row");
-    educationRows.forEach(row => row.remove());
+    // clearing all rows
+    let education_rows = document.querySelectorAll(".education_row");
+    education_rows.forEach(row => row.remove());
 
-    // Add education rows from student data
-    student.education.forEach((education, rowIndex) => {
-        addEducationRowWithData(education, rowIndex);
+    // adding rows again which contain the data
+    student.education.forEach((education, row_index) => {
+        add_education_row_with_data(education, row_index);
     });
 
-    // Add extra education rows if there are less than 2 rows
-    for (let i = student.education.length; i < 2; i++) {
-        addrow();
-    }
+    // not needed uncomment if gets an error 
+    // for (let i = student.education.length; i < 2; i++) {
+    //     add_row();
+    // }
 
     let modal = document.getElementById("student_form");
     document.getElementById('edit_index').value = index; 
     open_modal(modal);
 }
-
-function addEducationRowWithData(education, rowIndex) {
+//this is for addind the rows again when click on edit button also the input data is fetched
+function add_education_row_with_data(education, row_index) {
     let new_row = document.createElement('div');
     new_row.innerHTML = `
     <div class="row education_row">
@@ -226,7 +228,7 @@ function addEducationRowWithData(education, rowIndex) {
             <span></span>
         </div>
         <div class="col-lg">
-            ${rowIndex >= 2 ? '<div class="sub_btn"><button type="button" class="my_btn" onclick="delete_row(this)"> - </button></div>' : '<div class="sub_btn"><span></span></div>'}
+            ${row_index >= 2 ? '<div class="sub_btn"><button type="button" class="my_btn" onclick="delete_row(this)"> - </button></div>' : '<div class="sub_btn"><span></span></div>'}
         </div>
         <span style="margin-top:15px"></span>
         <hr>
@@ -235,8 +237,8 @@ function addEducationRowWithData(education, rowIndex) {
 }
 
 
-
-function initializeForm() {
+//clearing the values adding blank 2 rows and opening the modal
+function initialize_form() {
     document.getElementById("fname").value = "";
     document.getElementById("lname").value = "";
     document.getElementById("dob").value = "2000-01-01";
@@ -245,13 +247,13 @@ function initializeForm() {
     document.getElementById("g_year").value = "2000-01";
     document.getElementById("edit_index").value = "-1";
 
-    // Clear existing education rows
-    let educationRows = document.querySelectorAll(".education_row");
-    educationRows.forEach(row => row.remove());
+    // clearing existing rows and adding 2 rows
+    let education_rows = document.querySelectorAll(".education_row");
+    education_rows.forEach(row => row.remove());
 
     // adding two blank rows at start
-    addrow();
-    addrow();
+    add_row();
+    add_row();
 
     let modal = document.getElementById("student_form");
     open_modal(modal);
