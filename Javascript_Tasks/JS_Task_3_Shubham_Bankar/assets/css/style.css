@@ -96,3 +96,8 @@ body{
 .edit-btn{
     margin-right: 10px;
 }
+
+.t1{
+    text-align: start;
+    align-items: start;
+}
