@@ -183,11 +183,11 @@ function submit_data(event) {
     //percentage
 
     rows=document.querySelectorAll(".education_row");
-    let valid_pre=true;
+    let valid_per=true;
 
     rows.forEach(row=>{
         if(!validate_percentage(row)){
-            valid_pre=false;
+            valid_per=false;
         }
 
         if(validate_percentage(row)){
@@ -196,7 +196,7 @@ function submit_data(event) {
         }
     })
 
-    if(!valid_pre){
+    if(!valid_per){
         return false;
     }
 
@@ -486,6 +486,7 @@ function validate_backlog(row){
 //when we click the edit button fetching data and opening modal
 function editRow(button) {
     let row = button.closest("tr"); 
+    console.log(row);
     let cells = row.cells; 
     let modal = document.getElementById("student_form");
 
