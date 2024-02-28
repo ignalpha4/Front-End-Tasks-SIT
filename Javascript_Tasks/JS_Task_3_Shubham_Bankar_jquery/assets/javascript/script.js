@@ -280,10 +280,10 @@ function submit_data(event) {
         });
     }
   
-    // to re-update the tables with new data
+    // to reupdate the tables with new data
     update_tables();
 
-    document.querySelector('form').reset();  //to clear the form inputs
+    $('form').trigger('reset');  //to clear the form inputs
 
     alert("Info updated successfully");
 
@@ -318,8 +318,7 @@ function edit_row(index) {
     document.getElementById("g_year").value = student.graduationYear;
 
     // clearing all rows
-    let education_rows = document.querySelectorAll(".education_row");
-    education_rows.forEach(row => row.remove());
+    $(".education_row").remove();
 
     // adding rows again which contain the data
     student.education.forEach((education, row_index) => {
@@ -331,9 +330,9 @@ function edit_row(index) {
     //     add_row();
     // }
 
-    let modal = document.getElementById("student_form");
-    document.getElementById('edit_index').value = index; 
-    open_modal(modal);
+    let modal = $("#student_form");
+    $("#edit_index").val(index);
+    open_modal(modal[0]);
 }
 //this is for addind the rows again when click on edit button also the input data is fetched
 function add_education_row_with_data(education, row_index) {
@@ -393,8 +392,7 @@ function initialize_form() {
     $("#edit_index").val("-1");
 
     // clearing existing rows and adding 2 rows
-    let education_rows = document.querySelectorAll(".education_row");
-    education_rows.forEach(row => row.remove());
+    $(".education_row").remove();
 
     // adding two blank rows at start
     add_row();
@@ -409,14 +407,11 @@ function initialize_form() {
 //for opening the modal
 
 function open_modal(modal) {
-    modal.classList.add("show");
-    modal.style.display = "block";
-    modal.setAttribute("aria-modal", "true");
-    modal.setAttribute("aria-hidden", "false");
+    $(modal).addClass("show");
+    $(modal).css("display", "block");
+    $(modal).attr("aria-modal", "true");
+    $(modal).attr("aria-hidden", "false");
 }
-
-
-
 
 
 //for closing the modals
@@ -425,16 +420,16 @@ document.querySelector('.btn-close').addEventListener('click', close_modal);
 document.querySelector('.modal-footer .btn-secondary').addEventListener('click', close_modal);
 
 function close_modal() {
-    let modal = document.getElementById('student_form');
-    modal.classList.remove('show');
-    modal.style.display = 'none';
-    modal.setAttribute('aria-modal', 'false');
-    modal.setAttribute('aria-hidden', 'true');
+    let modal = $('#student_form')[0];
+    $(modal).removeClass('show');
+    $(modal).css("display","none");
+    $(modal).attr('aria-modal', 'false');
+    $(modal).attr('aria-hidden', 'true');
 
 }
 
 
-//-------------whole validation code using jquery syntax-----------------
+//-------------whole validation-----------------
 
 //fname validation 
 function validate_fname(){
