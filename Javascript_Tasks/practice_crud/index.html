@@ -10,60 +10,89 @@
 <body>
     
 <div class="container">
+ 
+    <div class="main_head">
+        <h1>Student Form</h1>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mymodal">
+            Add info
+        </button>
+    </div>
+    
+    <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="mymodal_label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="mymodal_label">Student Form</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="student_form" onsubmit="submit_form(event)">
+
+                        <div class="row mt-3">
+                    
+                    
+                            <div class="col-lg">
+                                <label for="fname">First Name</label>
+                                <input type="text" class="form-control" id="fname" required>
+                                <div class="fname_v"></div>
+                            </div>
+                            <div class="col-lg" >
+                                <label for="lname">Last Name</label>
+                                <input type="text" class="form-control" id="lname" required>
+                                <div class="lname_v"></div>
+                            </div>
+                    
+                            <div class="col-lg">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" required>
+                                <div class="email_v"></div>
+                            </div>
+                    
+                            <div class="col-lg">
+                                <label for="dob">Date Of Birth</label>
+                                <input type="date" class="form-control" id="dob" required>
+                                <div class="dob_v"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- //education details -->
+                        <br>
+                        <hr>
+                        <div class="edu_heading">
+                            <h3>Education Details</h3>
+                            <button type="button" class="add_btn btn btn-secondary" onclick="add_row()">ADD</button>
+                        </div>
+                        <hr>
+                        
+                        <div class="row addition">
+                    
+                        </div>
+                           
+                    
+                        <!-- <div class="row mt-3">
+                            <div class="col-lg">
+                                <button type="submit" id="submit_btn" >Submit</button>
+                            </div>
+                            
+                        </div> -->
+                    
+                    
+                 
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">close</button>
+                    <button type="submit" id="submit_btn"  class="btn btn-primary ">Submit</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+
+    </div>
     <!-- form -->
-
-    <form id="student_form" onsubmit="submit_form(event)">
-    <h1>Student Form</h1>
-    <div class="row mt-3">
-
-
-        <div class="col-lg">
-            <label for="fname">First Name</label>
-            <input type="text" class="form-control" id="fname" required>
-            <div class="fname_v"></div>
-        </div>
-        <div class="col-lg" >
-            <label for="lname">Last Name</label>
-            <input type="text" class="form-control" id="lname" required>
-            <div class="lname_v"></div>
-        </div>
-
-        <div class="col-lg">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" required>
-            <div class="email_v"></div>
-        </div>
-
-        <div class="col-lg">
-            <label for="dob">Date Of Birth</label>
-            <input type="date" class="form-control" id="dob" required>
-            <div class="dob_v"></div>
-        </div>
-    </div>
-    
-    <!-- //education details -->
-    <br>
-    <hr>
-    <div class="edu_heading">
-        <h3>Education Details</h3>
-        <button type="button" class="add_btn btn btn-secondary" onclick="add_row()">ADD</button>
-    </div>
-    <hr>
-    
-    <div class="row addition">
-
-    </div>
-       
-
-    <div class="row mt-3">
-        <div class="col-lg">
-            <button type="submit" id="submit_btn" >Submit</button>
-        </div>
-        
-    </div>
-
-
-</form>
+   
 
 </div>
 

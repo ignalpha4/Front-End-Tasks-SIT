@@ -61,7 +61,50 @@ function submit_form(event){
         return false;
     }
 
-    if(edit_index==-1){
+    if(edit_index>-1){
+
+        //if we are editing the previous user
+        student[edit_index].first_name = document.querySelector("#fname").value;
+        student[edit_index].last_name=document.querySelector("#lname").value;
+        student[edit_index].email=document.querySelector("#email").value;
+        student[edit_index].date_of_birth=document.querySelector("#dob").value;
+
+        let education_row=document.querySelectorAll(".education_row");
+
+       
+
+
+        education_row.forEach((row,index)=>{
+
+            //this additional check required bcoz if we add the new row while adding the user that row was not getting added
+            let student_education_length=student[edit_index].education.length;
+
+            if(index>=student_education_length)
+            {
+                let edu_details={
+                    board:row.querySelector(".board").value,
+                    school: row.querySelector(".school").value,
+                    start_date: row.querySelector(".start_date").value,
+                    end_date:row.querySelector(".end_date").value,
+                    percentage:row.querySelector(".percentage").value
+                };
+    
+                student[edit_index].education.push(edu_details);
+            }else{
+
+                student[edit_index].education[index].board=row.querySelector(".board").value;
+                student[edit_index].education[index].school=row.querySelector(".school").value;
+                student[edit_index].education[index].start_date=row.querySelector(".start_date").value;
+                student[edit_index].education[index].end_date=row.querySelector(".end_date").value;
+                student[edit_index].education[index].percentage=row.querySelector(".percentage").value;
+            }
+
+    
+        })
+    }else
+    {
+
+        // if we are adding the new user 
         let info={
             first_name : document.querySelector("#fname").value,
             last_name : document.querySelector("#lname").value,
@@ -84,22 +127,6 @@ function submit_form(event){
         });
 
         student.push(info);
-    }else
-    {
-        student[edit_index].first_name = document.querySelector("#fname").value;
-        student[edit_index].last_name=document.querySelector("#lname").value;
-        student[edit_index].email=document.querySelector("#email").value;
-        student[edit_index].date_of_birth=document.querySelector("#dob").value;
-
-        let education_row=document.querySelectorAll(".education_row");
-
-        education_row.forEach((row,index)=>{
-            student[edit_index].education[index].board=row.querySelector(".board").value;
-            student[edit_index].education[index].school=row.querySelector(".school").value;
-            student[edit_index].education[index].start_date=row.querySelector(".start_date").value;
-            student[edit_index].education[index].end_date=row.querySelector(".end_date").value;
-            student[edit_index].education[index].percentage=row.querySelector(".percentage").value;
-        })
     }
 
     print_table();
@@ -121,7 +148,7 @@ function print_table(){
         <td>${student.email}</td>
         <td>${student.date_of_birth}</td>
         <td>
-            <button type="button" onclick="edit(${index})">Edit</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#mymodal" onclick="edit(${index})">Edit</button>
             <button type="button" onclick="delete_user(${index})">Delete</button>
         </td>
         </tr>
@@ -169,6 +196,7 @@ function edit(index){
 function delete_user(index){
     student.splice(index,1);
     print_table();
+
 }
 
 
@@ -296,6 +324,9 @@ function add_row(){
 function delete_row(button){
     button.parentNode.parentNode.parentNode.remove();
     row_count-=1;
+
+
+    print_table();
 }
 
 window.addEventListener("load",function(){

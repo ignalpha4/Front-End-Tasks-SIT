@@ -16,3 +16,10 @@ label{
     justify-content: space-between;
 
 }
+
+
+.main_head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
