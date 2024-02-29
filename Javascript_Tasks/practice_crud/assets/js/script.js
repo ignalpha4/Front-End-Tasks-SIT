@@ -1,5 +1,6 @@
 let student=[];
-let edit_index=-1;
+let edit_index = -1;
+let row_count = 0;
 
 function submit_form(event){
     event.preventDefault();
@@ -66,7 +67,22 @@ function submit_form(event){
             last_name : document.querySelector("#lname").value,
             email : document.querySelector("#email").value,
             date_of_birth : document.querySelector("#dob").value,
+            education:[]
         }
+
+        let education_row=document.querySelectorAll(".education_row");
+        education_row.forEach(row=>{
+            let edu_details={
+                board:row.querySelector(".board").value,
+                school: row.querySelector(".school").value,
+                start_date: row.querySelector(".start_date").value,
+                end_date:row.querySelector(".end_date").value,
+                percentage:row.querySelector(".percentage").value
+            };
+
+            info.education.push(edu_details);
+        });
+
         student.push(info);
     }else
     {
@@ -74,11 +90,21 @@ function submit_form(event){
         student[edit_index].last_name=document.querySelector("#lname").value;
         student[edit_index].email=document.querySelector("#email").value;
         student[edit_index].date_of_birth=document.querySelector("#dob").value;
+
+        let education_row=document.querySelectorAll(".education_row");
+
+        education_row.forEach((row,index)=>{
+            student[edit_index].education[index].board=row.querySelector(".board").value;
+            student[edit_index].education[index].school=row.querySelector(".school").value;
+            student[edit_index].education[index].start_date=row.querySelector(".start_date").value;
+            student[edit_index].education[index].end_date=row.querySelector(".end_date").value;
+            student[edit_index].education[index].percentage=row.querySelector(".percentage").value;
+        })
     }
 
     print_table();
   
-    
+    console.log(student);
     document.querySelector("form").reset();
 
 }
@@ -95,11 +121,29 @@ function print_table(){
         <td>${student.email}</td>
         <td>${student.date_of_birth}</td>
         <td>
-        <button type="button" onclick="edit(${index})">Edit</button>
-        <button type="button" onclick="delete_user(${index})">Delete</button></td>
+            <button type="button" onclick="edit(${index})">Edit</button>
+            <button type="button" onclick="delete_user(${index})">Delete</button>
+        </td>
         </tr>
     `;
     });
+
+    let t2_body=document.querySelector("#t2_body");
+    t2_body.innerHTML='';
+
+    student.forEach((student)=>{
+        student.education.forEach(edu_details=>{
+            t2_body.innerHTML+=`
+            <tr>
+            <td>${edu_details.board}</td>
+            <td>${edu_details.school}</td>
+            <td>${edu_details.start_date}</td>
+            <td>${edu_details.end_date}</td>
+            <td>${edu_details.percentage}</td>
+            <tr>
+            `
+        })
+    })
 }
 
 function edit(index){
@@ -108,6 +152,16 @@ function edit(index){
     document.querySelector("#lname").value=student[index].last_name;
     document.querySelector("#email").value=student[index].email;
     document.querySelector("#dob").value=student[index].date_of_birth;
+
+    let edu_row=document.querySelectorAll(".education_row");
+
+    edu_row.forEach((row,edu_index)=>{
+        row.querySelector(".board").value=student[index].education[edu_index].board;
+        row.querySelector(".school").value=student[index].education[edu_index].school;
+        row.querySelector(".start_date").value=student[index].education[edu_index].start_date;
+        row.querySelector(".end_date").value=student[index].education[edu_index].end_date;
+        row.querySelector(".percentage").value=student[index].education[edu_index].percentage;
+    })
 
     edit_index=index;
 }
@@ -198,3 +252,53 @@ function dob_validation(){
     }
     return true;
 }
+
+function add_row(){
+
+    row_count++;
+
+    let row=document.createElement("div");
+
+    row.innerHTML=`
+
+    <div class="row mt-3 education_row ">
+    <div class="col-lg">
+    <label for="board">Board</label>
+    <input type="text" class="form-control board" required>
+    </div>  
+    <div class="col-lg">
+        <label for="school">School/College</label>
+        <input type="text" class="form-control school" required>
+    </div>
+    <div class="col-lg">
+        <label for="start_date">Start Date</label>
+        <input type="month" class="form-control start_date" value="2000-01">
+    </div>
+    <div class="col-lg">
+        <label for="end_date">Passout Date</label>
+        <input type="month" class="form-control end_date" value="2000-01">
+    </div>
+    <div class="col-lg">
+        <label for="percentage">percentage</label>
+        <input type="number" class="form-control percentage">
+    </div>
+
+    <div class="col-lg">
+        ${row_count<=2? " ": '<button type="button" class="btn btn-secondary" onclick="delete_row(this)">-</button>'}
+    </div>
+
+    </div>
+    <hr>
+    `;
+    document.querySelector(".addition").appendChild(row);
+}
+
+function delete_row(button){
+    button.parentNode.parentNode.parentNode.remove();
+    row_count-=1;
+}
+
+window.addEventListener("load",function(){
+    add_row();
+    add_row();
+})

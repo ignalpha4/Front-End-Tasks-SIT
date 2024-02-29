@@ -9,3 +9,10 @@ label{
 #submit_btn{
     max-width: 200px;
 }
+
+.edu_heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
