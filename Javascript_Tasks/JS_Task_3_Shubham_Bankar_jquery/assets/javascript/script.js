@@ -74,7 +74,7 @@ function update_tables() {
         // edu info table
         student.education.forEach(education => {
             let educational_info_row = [education.degree, education.college, education.start_date, education.passout_date, education.percentage, education.backlog];
-            t2.row.add(educational_info_row).draw();
+            t1.row.add(educational_info_row).draw();
         });
     });
 }
