@@ -58,26 +58,93 @@ function delete_row(button){
 
 // Function to update the HTML tables with student data
 
+// Function to update the HTML tables with student data
 function update_tables() {
-    //clearing the data present in the table
+    // Clearing the data present in the table
     let t1 = $('.t1').DataTable();
-    let t2 = $('.t2').DataTable();
     t1.clear().draw();
-    t2.clear().draw();
 
-    // for rach student in array we are recreating the table
-    student_data.forEach(student => {
-        // personal info table
-        let personal_info_row = [student.first_name, student.last_name, student.dob, student.email, student.address, student.graduationYear, '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'];
-        t1.row.add(personal_info_row).draw();
+    // For each student in the array, we are recreating the table
+    student_data.forEach((student, index) => {
+        // Personal info row
+        let personal_info_row = [
+            student.first_name,
+            student.last_name,
+            student.dob,
+            student.email,
+            student.address,
+            student.graduationYear,
+            `<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(${index})"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(${index})"><i class="fa-solid fa-trash"></i></button>`
+        ];
+        t1.row.add(personal_info_row);
 
-        // edu info table
-        student.education.forEach(education => {
-            let educational_info_row = [education.degree, education.college, education.start_date, education.passout_date, education.percentage, education.backlog];
-            t2.row.add(educational_info_row).draw();
-        });
+        // Dropdown container row
+        let dropdownContainer = ['<div class="dropdown-container" style="display: none;"><div class="dropdown-content"></div></div>', '', '', '', '', '', '']; // Added dropdown container
+        t1.row.add(dropdownContainer);
     });
+
+    t1.draw();
 }
+
+// Handle click event on a row in the personal info table
+// Function to update the HTML tables with student data
+function update_tables() {
+    // Clearing the data present in the table
+    let t1 = $('.t1').DataTable();
+    t1.clear().draw();
+
+    // For each student in the array, we are recreating the table
+    student_data.forEach((student, index) => {
+        // Personal info row
+        let personal_info_row = [
+            student.first_name,
+            student.last_name,
+            student.dob,
+            student.email,
+            student.address,
+            student.graduationYear,
+            `<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(${index})"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(${index})"><i class="fa-solid fa-trash"></i></button>`
+        ];
+        t1.row.add(personal_info_row);
+
+        // Dropdown container row
+        let dropdownContainer = ['<div class="dropdown-container" style="display: none;"><div class="dropdown-content"></div></div>', '', '', '', '', '', '']; // Added dropdown container
+        t1.row.add(dropdownContainer);
+    });
+
+    t1.draw();
+}
+
+// Handle click event on a row in the personal info table
+$('.t1 tbody').on('click', 'tr', function() {
+    let rowIndex = $('.t1').DataTable().row(this).index();
+
+    // Toggle visibility of dropdown container
+    let dropdownContainer = $('.dropdown-container').eq(rowIndex);
+    dropdownContainer.toggle();
+
+    // Populate the dropdown with the educational details of the clicked student
+    let dropdownContent = dropdownContainer.find('.dropdown-content');
+    dropdownContent.empty();
+    let student = student_data[rowIndex];
+    student.education.forEach(education => {
+        dropdownContent.append(`<div><strong>Degree/Board:</strong> ${education.degree}</div>`);
+        dropdownContent.append(`<div><strong>College/School:</strong> ${education.college}</div>`);
+        dropdownContent.append(`<div><strong>Start Date:</strong> ${education.start_date}</div>`);
+        dropdownContent.append(`<div><strong>Passout Date:</strong> ${education.passout_date}</div>`);
+        dropdownContent.append(`<div><strong>Percentage:</strong> ${education.percentage}</div>`);
+        dropdownContent.append(`<div><strong>Backlogs:</strong> ${education.backlog}</div>`);
+        dropdownContent.append('<hr>');
+    });
+});
+
+// Function to update the tables when the page loads
+$(document).ready(function() {
+    $('.t1').DataTable();
+    update_tables();
+});
+
+
 
 
 
@@ -289,12 +356,6 @@ function submit_data(event) {
 
     
 }
-
-//json datatables
-$(document).ready(function() {
-    $('.t1').DataTable();
-    $('.t2').DataTable();
-});
 
 
 // deleting whole row using index 
