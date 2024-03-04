@@ -60,48 +60,62 @@ function update_tables() {
     t1.clear().draw();
 
     student_data.forEach(student => {
-        // Add the student information row
-        let personal_info_row = [
-            student.first_name,
-            student.last_name,
-            student.dob,
-            student.email,
-            student.address,
-            student.graduationYear,
-            '<button type="button" class="btn btn-primary btn-sm toggle-btn" onclick="toggleEducationDetails(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-chevron-down"></i></button>',
-            '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>',
-            '<button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'
-        ];
-        t1.row.add(personal_info_row).draw();
+        // Create a personal_info_object and populate its properties
+        let personal_info_object = {
+            first_name: student.first_name,
+            last_name: student.last_name,
+            dob: student.dob,
+            email: student.email,
+            address: student.address,
+            graduationYear: student.graduationYear,
+            toggle_button: '<button type="button" class="btn btn-primary btn-sm toggle-btn" onclick="toggleEducationDetails(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-chevron-down"></i></button>',
+            edit_button: '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>',
+            delete_button: '<button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'
+        };
         
+        // Add the student information row
+        let personal_row = t1.row.add(Object.values(personal_info_object)).draw(true).node();
 
-        // Add education details rows immediately after the student information row
+        // Store the personal_info_object as a data attribute on the row for future reference
+        $(personal_row).data('student_info', personal_info_object);
+
+        // Create a nested table for education details
+        let educationTable = $('<table>').addClass('table table-bordered education-details-table').attr('data-student-index', student_data.indexOf(student));
+        let educationTableHead = $('<thead>').append('<tr><th>Degree/Board</th><th>School/College</th><th>Start Date</th><th>Passout Year</th><th>Percentage</th><th>Backlogs</th></tr>');
+        let educationTableBody = $('<tbody>');
+
         student.education.forEach(education => {
-            let educational_info_row = [
-                education.degree,
-                education.college,
-                education.start_date,
-                education.passout_date,
-                education.percentage,
-                education.backlog
-            ];
-            let row = t1.row.add(educational_info_row).draw();
-            $(row.node()).addClass('education-details').attr('data-student-index', student_data.indexOf(student)).hide(); // Hide the row initially and set the data-student-index attribute
+            let educationRow = $('<tr>');
+            educationRow.append($('<td>').text(education.degree));
+            educationRow.append($('<td>').text(education.college));
+            educationRow.append($('<td>').text(education.start_date));
+            educationRow.append($('<td>').text(education.passout_date));
+            educationRow.append($('<td>').text(education.percentage));
+            educationRow.append($('<td>').text(education.backlog));
+            educationTableBody.append(educationRow);
         });
+        
+        educationTable.append(educationTableHead);
+        educationTable.append(educationTableBody);
+
+        // Add a single row to the main table containing a single cell with the nested table
+        t1.row(personal_row).child(educationTable.prop('outerHTML')).show();
     });
 }
+
+
+
 
 
 
 function toggleEducationDetails(index) {
-
-    let educationRows = $('.t1 .education-details').filter(function() {
-        return $(this).data('student-index') === index;
-    });
-
-    // Toggle visibility
-    educationRows.toggle();
+    // Find the nested education details table for the student
+    let educationTable = $('.t1 .education-details-table[data-student-index="' + index + '"]');
+    
+    // Toggle visibility of the nested education details table
+    educationTable.toggle();
 }
+
 
 
 
@@ -318,7 +332,7 @@ function submit_data(event) {
 //json datatables
 $(document).ready(function() {
     $('.t1').DataTable();
-    $('.t2').DataTable();
+
 });
 
 
