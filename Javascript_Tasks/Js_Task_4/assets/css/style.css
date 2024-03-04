@@ -107,3 +107,25 @@ body{
 .education-details-table {
     display: none;
 }
+
+.toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.del_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edu_head{
+    background-color: rgb(214, 203, 185);
+}

@@ -60,28 +60,29 @@ function update_tables() {
     t1.clear().draw();
 
     student_data.forEach(student => {
-        // Create a personal_info_object and populate its properties
+
         let personal_info_object = {
+            toggle_button: '<div class="toggle"><button type="button" class="btn btn-primary btn-sm toggle-btn" onclick="toggleEducationDetails(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-chevron-down"></i></button></div>',
             first_name: student.first_name,
             last_name: student.last_name,
             dob: student.dob,
             email: student.email,
             address: student.address,
             graduationYear: student.graduationYear,
-            toggle_button: '<button type="button" class="btn btn-primary btn-sm toggle-btn" onclick="toggleEducationDetails(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-chevron-down"></i></button>',
-            edit_button: '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>',
-            delete_button: '<button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'
+            
+            edit_button: '<div class="edit_btn"><button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></div>',
+            delete_button: '<div class="del_btn"><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button></div>'
         };
         
-        // Add the student information row
+
         let personal_row = t1.row.add(Object.values(personal_info_object)).draw(true).node();
 
-        // Store the personal_info_object as a data attribute on the row for future reference
+   
         $(personal_row).data('student_info', personal_info_object);
 
-        // Create a nested table for education details
+
         let educationTable = $('<table>').addClass('table table-bordered education-details-table').attr('data-student-index', student_data.indexOf(student));
-        let educationTableHead = $('<thead>').append('<tr><th>Degree/Board</th><th>School/College</th><th>Start Date</th><th>Passout Year</th><th>Percentage</th><th>Backlogs</th></tr>');
+        let educationTableHead = $('<thead>').addClass("edu_head").append('<tr><th>Degree/Board</th><th>School/College</th><th>Start Date</th><th>Passout Year</th><th>Percentage</th><th>Backlogs</th></tr>');
         let educationTableBody = $('<tbody>');
 
         student.education.forEach(education => {
@@ -97,8 +98,7 @@ function update_tables() {
         
         educationTable.append(educationTableHead);
         educationTable.append(educationTableBody);
-
-        // Add a single row to the main table containing a single cell with the nested table
+      
         t1.row(personal_row).child(educationTable.prop('outerHTML')).show();
     });
 }
@@ -109,10 +109,10 @@ function update_tables() {
 
 
 function toggleEducationDetails(index) {
-    // Find the nested education details table for the student
+    
     let educationTable = $('.t1 .education-details-table[data-student-index="' + index + '"]');
     
-    // Toggle visibility of the nested education details table
+ 
     educationTable.toggle();
 }
 
