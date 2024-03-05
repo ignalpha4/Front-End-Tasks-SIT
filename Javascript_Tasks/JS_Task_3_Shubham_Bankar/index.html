@@ -13,7 +13,7 @@
     <title>Task 3 JS</title>
     <script src="assets/javascript/jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="assets/DataTables/css/dataTables.dataTables.css">
-  
+
     <script src="assets/DataTables/js/dataTables.min.js"></script>
 
 
@@ -22,10 +22,8 @@
 <body>
 
 
-    <h1 style="text-align: center;margin-top: 20px;"> Student Form</h1>
+    <h1 style="text-align: center;margin-top: 20px; background-color: rgb(204, 221, 236);"> STUDENT FORM</h1>
     <br>
-
-    <!-- Button trigger modal -->
 
 
     <!-- Modal -->
@@ -41,7 +39,7 @@
                     <!------------------ form------------ -->
                     <form onsubmit="submit_data(event)">
 
-                        <input type="hidden" id="edit_index" value="-1"> 
+                        <input type="hidden" id="edit_index" value="-1">
                         <!-- row 1 -->
                         <div class="row">
                             <!-- first name -->
@@ -117,11 +115,11 @@
 
 
                         </div>
-                        <hr>
+
                 </div>
-                
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary close_btn" data-bs-dismiss="modal" >Close</button>
+                    <button type="button" class="btn btn-secondary close_btn" data-bs-dismiss="modal">Close</button>
                     <button type="submit" id="re_submit" class="btn_submit btn btn-primary">Submit</button>
                 </div>
                 </form>
@@ -131,7 +129,7 @@
 
 
 
-    <div class="container">
+    <div class="container table-responsive">
 
         <div class="table_main">
             <div>
@@ -149,70 +147,35 @@
 
 
         <div class="table-responsive">
-            <table class="table t1">
-                <thead>
+            <table class="table t1 cell-border  stripe" style="border: 2px solid rgb(53, 38, 71);">
+                <thead style="background-color: rgb(173, 169, 231);">
                     <tr>
+                        <th >More Info</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Date Of Birth</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Graduation Year</th>
-                        <th>Action</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr class="data">
-                        <td class="fn"></td>
-                        <td class="ln"></td>
-                        <td class="birthdate"></td>
-                        <td class="mail"></td>
-                        <td class="add"></td>
-                        <td class="gy"></td>
-                        <td class="action">
-                            <!-- to add the edit and delete button -->
-                        </td>
-
-
-                    </tr>
+                <tbody class="table_body">
 
 
                 </tbody>
 
-            </table>
 
+
+
+            </table>
 
         </div>
         <br>
         <br>
-        <div>
-            <h2>Educational Info: </h1>
-        </div>
 
-        <div class="table-responsive">
-            <table class="table t2">
-                <thead>
-                    <tr>
-                        <th>Degree/Board</th>
-                        <th>College/School</th>
-                        <th>Start Date</th>
-                        <th>Passout Date</th>
-                        <th>Percentage</th>
-                        <th>Backlogs</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-
-
-                </tbody>
-
-            </table>
-
-
-        </div>
 
 
 

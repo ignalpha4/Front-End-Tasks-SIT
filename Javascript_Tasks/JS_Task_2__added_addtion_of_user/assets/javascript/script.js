@@ -55,68 +55,29 @@ function delete_row(button){
     let row=button.parentNode.parentNode.parentNode;
     row.remove();
 }
+
+// Function to update the HTML tables with student data
+
 function update_tables() {
+    //clearing the data present in the table
     let t1 = $('.t1').DataTable();
+    let t2 = $('.t2').DataTable();
     t1.clear().draw();
+    t2.clear().draw();
 
+    // for rach student in array we are recreating the table
     student_data.forEach(student => {
+        // personal info table
+        let personal_info_row = [student.first_name, student.last_name, student.dob, student.email, student.address, student.graduationYear, '<button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button>'];
+        t1.row.add(personal_info_row).draw();
 
-        let personal_info_object = {
-            toggle_button: '<div class="toggle"><button type="button" class="btn btn-primary btn-sm toggle-btn" onclick="toggleEducationDetails(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-chevron-down"></i></button></div>',
-            first_name: student.first_name,
-            last_name: student.last_name,
-            dob: student.dob,
-            email: student.email,
-            address: student.address,
-            graduationYear: student.graduationYear,
-            
-            edit_button: '<div class="edit_btn"><button type="button" class="btn btn-primary btn-sm" onclick="edit_row(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-pen-to-square fa-lg"></i></button></div>',
-            delete_button: '<div class="del_btn"><button type="button" class="btn btn-danger btn-sm" onclick="delete_student(' + student_data.indexOf(student) + ')"><i class="fa-solid fa-trash"></i></button></div>'
-        };
-        
-
-        let personal_row = t1.row.add(Object.values(personal_info_object)).draw(true).node();
-
-   
-        $(personal_row).data('student_info', personal_info_object);
-
-
-        let educationTable = $('<table>').addClass('table table-bordered education-details-table').attr('data-student-index', student_data.indexOf(student));
-        let educationTableHead = $('<thead>').addClass("edu_head").append('<tr><th>Degree/Board</th><th>School/College</th><th>Start Date</th><th>Passout Year</th><th>Percentage</th><th>Backlogs</th></tr>');
-        let educationTableBody = $('<tbody>');
-
+        // edu info table
         student.education.forEach(education => {
-            let educationRow = $('<tr>');
-            educationRow.append($('<td>').text(education.degree));
-            educationRow.append($('<td>').text(education.college));
-            educationRow.append($('<td>').text(education.start_date));
-            educationRow.append($('<td>').text(education.passout_date));
-            educationRow.append($('<td>').text(education.percentage));
-            educationRow.append($('<td>').text(education.backlog));
-            educationTableBody.append(educationRow);
+            let educational_info_row = [education.degree, education.college, education.start_date, education.passout_date, education.percentage, education.backlog];
+            t2.row.add(educational_info_row).draw();
         });
-        
-        educationTable.append(educationTableHead);
-        educationTable.append(educationTableBody);
-      
-        t1.row(personal_row).child(educationTable.prop('outerHTML')).show();
     });
 }
-
-
-
-
-
-
-function toggleEducationDetails(index) {
-    
-    let educationTable = $('.t1 .education-details-table[data-student-index="' + index + '"]');
-    
- 
-    educationTable.toggle();
-}
-
-
 
 
 
@@ -319,10 +280,10 @@ function submit_data(event) {
         });
     }
   
-    // to reupdate the tables with new data
+    // to re-update the tables with new data
     update_tables();
 
-    $('form').trigger('reset');  //to clear the form inputs
+    document.querySelector('form').reset();  //to clear the form inputs
 
     alert("Info updated successfully");
 
@@ -332,7 +293,7 @@ function submit_data(event) {
 //json datatables
 $(document).ready(function() {
     $('.t1').DataTable();
-
+    $('.t2').DataTable();
 });
 
 
@@ -357,7 +318,8 @@ function edit_row(index) {
     document.getElementById("g_year").value = student.graduationYear;
 
     // clearing all rows
-    $(".education_row").remove();
+    let education_rows = document.querySelectorAll(".education_row");
+    education_rows.forEach(row => row.remove());
 
     // adding rows again which contain the data
     student.education.forEach((education, row_index) => {
@@ -369,9 +331,9 @@ function edit_row(index) {
     //     add_row();
     // }
 
-    let modal = $("#student_form");
-    $("#edit_index").val(index);
-    open_modal(modal[0]);
+    let modal = document.getElementById("student_form");
+    document.getElementById('edit_index').value = index; 
+    open_modal(modal);
 }
 //this is for addind the rows again when click on edit button also the input data is fetched
 function add_education_row_with_data(education, row_index) {
@@ -431,7 +393,8 @@ function initialize_form() {
     $("#edit_index").val("-1");
 
     // clearing existing rows and adding 2 rows
-    $(".education_row").remove();
+    let education_rows = document.querySelectorAll(".education_row");
+    education_rows.forEach(row => row.remove());
 
     // adding two blank rows at start
     add_row();
@@ -446,11 +409,14 @@ function initialize_form() {
 //for opening the modal
 
 function open_modal(modal) {
-    $(modal).addClass("show");
-    $(modal).css("display", "block");
-    $(modal).attr("aria-modal", "true");
-    $(modal).attr("aria-hidden", "false");
+    modal.classList.add("show");
+    modal.style.display = "block";
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-hidden", "false");
 }
+
+
+
 
 
 //for closing the modals
@@ -459,16 +425,16 @@ document.querySelector('.btn-close').addEventListener('click', close_modal);
 document.querySelector('.modal-footer .btn-secondary').addEventListener('click', close_modal);
 
 function close_modal() {
-    let modal = $('#student_form')[0];
-    $(modal).removeClass('show');
-    $(modal).css("display","none");
-    $(modal).attr('aria-modal', 'false');
-    $(modal).attr('aria-hidden', 'true');
+    let modal = document.getElementById('student_form');
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-modal', 'false');
+    modal.setAttribute('aria-hidden', 'true');
 
 }
 
 
-//-------------whole validation-----------------
+//-------------whole validation code using jquery syntax-----------------
 
 //fname validation 
 function validate_fname(){
@@ -596,8 +562,7 @@ function validate_percentage(row){
         row.querySelector(".percentage").classList.add("is-invalid");
         row.querySelector(".p_v").innerHTML = `
             <p style="color:red">Enter Percentage between 0 and 100</p>
-        `
-        ;
+        `;
         return false;
     }
 
