@@ -3,6 +3,7 @@ create database assign_1_shubham_bankar
 
 use assign_1_shubham_bankar
 
+
 create table emp_details(
 EMP_IDNO INT Primary KEY,
 EMP_FNAME Varchar(30),
