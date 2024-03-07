@@ -1,7 +1,9 @@
 
-create database assign_1_shubham_bankar
+create database assign_1_shubham_bankar2
 
-use assign_1_shubham_bankar
+use assign_1_shubham_bankar2
+
+/*ALTER DATABASE assign_1_shubham_bankar2 SET MULTI_USER;*/
 
 
 create table emp_details(
@@ -313,7 +315,7 @@ SELECT count(salesman_id) AS total_cty_cnt FROM salesman WHERE city!=' ';
 their order date and ID registering orders for each day.*/
 SELECT * from orders;
 
-SELECT ord_date, salesman_id, COUNT(salesman_id) AS num_orders FROM orders
+SELECT ord_date, salesman_id, COUNT(salesman_id) AS num_salesman FROM orders
 GROUP BY ord_date, salesman_id;
 
 
