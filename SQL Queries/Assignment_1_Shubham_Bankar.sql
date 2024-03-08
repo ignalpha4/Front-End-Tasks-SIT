@@ -261,8 +261,8 @@ for only those customers who have a higher purchase amount in a day is within th
 SELECT * from orders;
 
 SELECT customer_id,ord_date,max(purch_amt) FROM orders
-WHERE purch_amt IN(2000,3000,5760,6000)
-GROUP BY customer_id,ord_date;
+GROUP BY customer_id,ord_date
+HAVING max(purch_amt) IN (2000,3000,5760,6000);
 
 /*(15) Write a SQL statement to find the highest purchase amount with their ID, 
 for only those customers whose ID is within the range 3002 and 3007.*/
@@ -279,8 +279,11 @@ whose IDs are within the range 3002 and 3007 and highest purchase amount is more
 
 SELECT * FROM orders;
 
-SELECT customer_id,purch_amt FROM orders
-WHERE (customer_id BETWEEN 3002 AND 3007) AND (purch_amt>1000); 
+SELECT customer_id,max(purch_amt) AS max_purch_amt FROM orders
+WHERE (customer_id BETWEEN 3002 AND 3007)
+GROUP BY customer_id
+HAVING max(purch_amt)>1000;
+
 
 
 /*(17) Write a SQL statement to find the highest purchase amount with their ID,
@@ -340,7 +343,7 @@ WHERE PRO_PRICE >= 350;
 
 SELECT * FROM item_mast;
 
-SELECT PRO_COM,avg(PRO_PRICE) FROM item_mast GROUP BY PRO_COM;
+SELECT PRO_COM,avg(PRO_PRICE) AS avg_price FROM item_mast GROUP BY PRO_COM;
 
 /*(24) Write a query in SQL to find the sum of the allotment amount of all departments. */
 

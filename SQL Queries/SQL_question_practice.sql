@@ -49,12 +49,20 @@ SELECT * FROM salesman;
 SELECT *  FROM salesman
 WHERE name BETWEEN 'A%'  AND 'L%';
 
-/*8.views/
+/*8.views*/
 
 CREATE VIEW [special salesman] AS
 SELECT * FROM salesman
 WHERE name NOT BETWEEN 'A%' AND 'L%';
 
 SELECT * FROM [special salesman];
+
+/*(13)Write a SQL statement to find the highest purchase amount with their ID and order date, 
+for those customers who have a higher purchase amount in a day is within the range 2000 and 6000*/
+
+
+SELECT customer_id,ord_date,max(purch_amt) from orders
+GROUP BY customer_id,ord_date
+HAVING max(purch_amt) BETWEEN 2000 AND 6000
 
 
