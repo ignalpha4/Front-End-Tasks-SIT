@@ -327,11 +327,27 @@ WHERE r.rev_stars>3;
 
 
 /*16. create a function to get worst director according to movie rating*/
+SELECT * FROM movie_direction;
+SELECT * FROM rating;
+SELECT * FROM director;
 
+SELECT TOP 1 d.dir_fname+' '+d.dir_lname AS director_name ,r.mov_id,r.rev_stars FROM  movie_direction AS md 
+INNER JOIN rating As r ON md.mov_id =r.mov_id
+INNER JOIN director As d ON d.dir_id=md.dir_id
+ORDER BY r.rev_stars ;
 
 
 
 /*17.  create a function to get worst actor according to movie rating*/
+
+SELECT * FROM movie_cast;
+SELECT * FROM rating;
+SELECT * FROM actor;
+
+SELECT TOP 1 a.act_fname+' '+a.act_lname AS actor_name FROM actor As a
+INNER JOIN movie_cast AS mc ON mc.act_id=a.act_id
+INNER JOIN rating AS r ON r.mov_id=mc.mov_id
+ORDER BY r.rev_stars;
 
 /*18. create a parameterized stored procedure which accept genre and give movie accordingly */
 
@@ -358,6 +374,14 @@ ORDER BY cast_count DESC;
 
 /*21.create a function to get reviewer that has rated highest number of movies*/
 
+SELECT * FROM rating;
+SELECT * FROM reviewer;
+
+SELECT TOP 1 rev.rev_name,count(r.rev_id) AS number_of_movies_rated FROM reviewer AS rev
+INNER JOIN rating AS r ON rev.rev_id=r.rev_id
+GROUP BY rev.rev_name
+ORDER BY number_of_movies_rated DESC;
+
 
 /*22. From the following tables, write a query in SQL to generate a report, which contain the fields movie title, 
 name of the female actor, year of the movie, role, movie genres, the director, date of release, and rating of that movie.*/
@@ -383,13 +407,13 @@ INNER JOIN director as d ON md.dir_id=d.dir_id
 WHERE a.act_gender='Female'
 
 
-/*23. From the following tables, write a SQL query to find the years when most of the ‘Mystery Movies’ produced.
+/*23. From the following tables, write a SQL query to find the years when most of the â€˜Mystery Moviesâ€™ produced.
 Count the number of generic title and compute their average rating. Group the result set on movie release year, generic title. 
 Return movie year, generic title, number of generic title and average rating.*/
 
 
 
-/*24.  From the following tables, write a SQL query to find the highest-rated ‘Action Movies’.
+/*24.  From the following tables, write a SQL query to find the highest-rated â€˜Action Moviesâ€™.
 Return the title, year, and rating*/
 
 
