@@ -1,10 +1,9 @@
  CREATE DATABASE assign_2_Shubham_Bankar;
 
 
--- ALTER DATABASE assign_2_Shubham_Bankar SET MULTI_USER;
+--ALTER DATABASE assign_2_Shubham_Bankar SET MULTI_USER;
+ 
  USE assign_2_Shubham_Bankar;
-
-
 
  CREATE TABLE Employees(
  EmployeeID INT PRIMARY KEY IDENTITY(1,1),
@@ -18,12 +17,6 @@
  );
 
 
-CREATE TABLE Orders(
-OrderID INT PRIMARY KEY IDENTITY(1,1),
-CustomerID INT,
-EmployeeID INT,
-OrderDate DATE
-)
 
 CREATE TABLE Customers(
 CustomerID INT PRIMARY KEY IDENTITY(1,1),
@@ -35,22 +28,20 @@ City VARCHAR(30),
 Country VARCHAR(50),
 )
 
+
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY IDENTITY(1,1),
+CustomerID INT FOREIGN KEY REFERENCES Customers(CustomerID),
+EmployeeID INT FOREIGN KEY REFERENCES Employees(EmployeeID),
+OrderDate DATE
+)
+
 INSERT INTO Employees VALUES
 ('Bankar','Shubham','Manager','2002-12-30','2010-01-01',NULL,'Pune, Maharashtra'),
 ('Jadhav','Prajwal','Team Lead','2002-06-06','2012-07-01',1,'Patas,Pune'),
 ('Gupta','Akash','Salesman','2004-05-01','2016-01-01',2,'Malegaon Baramati'),
 ('Kumar','Akshay','Salesman','2000-01-01','2018-01-05',2,'Mumbai Maharashtra'),
 ('Swift','Taylor','Salesman','1998-12-30','2020-09-11',1,'California USA');
-
-
-SELECT * FROM Employees
-
-INSERT INTO Orders VALUES
-(1,3,'2023-08-05'),
-(2,1,'2023-08-05'),
-(4,2,'2023-08-05'),
-(3,4,'2023-08-05'),
-(3,4,'2024-10-12');
 
 INSERT INTO Customers VALUES
 ('Shaligram_Infotech','Chirag','Trainee','Ahmedabad Gujarat','Gujarat','India'),
@@ -60,9 +51,17 @@ INSERT INTO Customers VALUES
 ('Wargaming','Jeff','Manager','Nicosia','Nicosia','Cyprus'),
 ('Lenskart','Piyush','Sales Head','Mumbai,Maharashtra','Mumbai','India');
 
+INSERT INTO Orders (CustomerID, EmployeeID, OrderDate) VALUES
+(1, 3, '2023-08-05'),
+(2, 1, '2023-08-05'),
+(5, 2, '2023-08-05'),
+(4, 4, '2023-08-05'),
+(6, 5, '2024-10-12');
+
 SELECT * FROM Customers
 SELECT * FROM Orders
 SELECT * FROM Employees
+
 
 /*1).Write a SQL query to retrieve the list of all orders made by customers in the "USA".*/
 
@@ -86,7 +85,7 @@ WHERE o.OrderID IS NOT NULL;
 SELECT * FROM Employees
 SELECT * FROM Orders
 
-SELECT e.EmployeeID, e.LastName,e.FirstName,o.OrderID
+SELECT e.EmployeeID, e.FirstName+' '+e.LastName AS emp_name,o.OrderID
 FROM Employees AS e LEFT JOIN Orders AS o
 ON
 e.EmployeeID=o.CustomerID
@@ -130,7 +129,7 @@ SELECT c.CustomerID,c.ContactName,o.OrderID
 FROM Customers AS c INNER JOIN Orders AS o
 ON
 c.CustomerID=o.CustomerID
-WHERE c.CustomerID=3;  --particualr customer
+WHERE c.CustomerID=2;  --particualr customer
 
 
 /*8)Write a SQL query to retrieve the list of all orders placed by a particular employee.*/
