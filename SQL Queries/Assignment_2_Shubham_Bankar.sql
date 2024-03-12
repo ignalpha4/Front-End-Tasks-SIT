@@ -153,7 +153,7 @@ SELECT c.CustomerID, c.ContactName, o.OrderId, o.OrderDate
 FROM Customers AS c INNER JOIN Orders o
 ON
 c.CustomerID= o.CustomerID
-WHERE c.CustomerID=3 AND o.OrderDate='2023-08-05';  --particular date ad customer
+WHERE c.CustomerID=4 AND o.OrderDate='2023-08-05';  --particular date ad customer
 
 /*10)Write a SQL query to retrieve the list of all customers who have not yet placed an order, sorted by their country.*/
 
