@@ -1,10 +1,10 @@
-CREATE DATABASE Assign_3_Shubham_Bankar;
+CREATE DATABASE assign_2_Shubham_Bankar;
 
-USE Assign_3_Shubham_Bankar;
+USE assign_2_Shubham_Bankar;
 
 
 
---ALTER DATABASE Assign_3_Shubham_Bankar SET MULTI_USER
+--ALTER DATABASE assign_2_Shubham_Bankar SET MULTI_USER
 
 CREATE TABLE actor(
 act_id INT PRIMARY KEY IDENTITY(1,1),
@@ -142,7 +142,6 @@ INSERT INTO reviewer(rev_name) VALUES
 ('Michael Davis'),
 ('Sophia Lee'),
 ('William Taylor');
-
 
 
 INSERT INTO rating (mov_id, rev_id, rev_stars, num_o_rating) VALUES
@@ -466,13 +465,14 @@ ORDER BY r.rev_stars DESC;
 
 /*25. create a function which accepts genre and suggests best movie according to ratings */
 
-SELECT TOP 1 m.mov_title, r.rev_stars AS max_rating
+SELECT TOP 3 m.mov_title, avg(r.rev_stars) AS avg_rating
 FROM movie AS m
 INNER JOIN movie_genres AS mg ON m.mov_id = mg.mov_id
 INNER JOIN genre AS g ON mg.gen_id = g.gen_id
 INNER JOIN rating AS r ON m.mov_id = r.mov_id
 WHERE g.gen_title = 'Action'
-ORDER BY r.rev_stars DESC
+GROUP BY m.mov_title
+ORDER BY avg(r.rev_stars) DESC
 
 /*26. create a function which accepts genre and suggests best director according to ratings. */
 
@@ -487,8 +487,9 @@ INNER JOIN movie_direction AS md On md.dir_id=d.dir_id
 INNER JOIN rating As r ON r.mov_id=md.mov_id
 INNER JOIN movie_genres AS mg ON mg.mov_id=r.mov_id
 INNER JOIN genre AS g ON g.gen_id=mg.gen_id
-WHERE g.gen_title='Thriller'
-ORDER BY r.rev_stars DESC
+WHERE g.gen_title='Action'
+GROUP BY d.dir_fname,d.dir_lname
+ORDER BY avg(r.rev_stars) DESC
 
 
 /*27. create a function that accepts a genre and give random movie according to genre*/
@@ -502,3 +503,11 @@ INNER JOIN movie_genres AS mg ON m.mov_id = mg.mov_id
 INNER JOIN genre AS g ON g.gen_id = mg.gen_id
 WHERE g.gen_title ='Action'
 ORDER BY NEWID(); 
+
+CREATE VIEW temp AS
+SELECT * FROM movie;
+
+DROP VIEW temp;
+
+SELECT * FROM temp        
+

@@ -17,14 +17,6 @@
  Address VARCHAR(100),
  );
 
-
-CREATE TABLE Orders(
-OrderID INT PRIMARY KEY IDENTITY(1,1),
-CustomerID INT,
-EmployeeID INT,
-OrderDate DATE
-)
-
 CREATE TABLE Customers(
 CustomerID INT PRIMARY KEY IDENTITY(1,1),
 CompanyName VARCHAR(50),
@@ -34,6 +26,15 @@ Address VARCHAR(100),
 City VARCHAR(30),
 Country VARCHAR(50),
 )
+ 
+CREATE TABLE Orders(
+OrderID INT PRIMARY KEY IDENTITY(1,1),
+CustomerID INT FOREIGN KEY REFERENCES Customers(CustomerID),
+EmployeeID INT FOREIGN KEY REFERENCES Employees(EmployeeID),
+OrderDate DATE
+)
+
+
 
 INSERT INTO Employees VALUES
 ('Bankar','Shubham','Manager','2002-12-30','2010-01-01',NULL,'Pune, Maharashtra'),
@@ -45,13 +46,6 @@ INSERT INTO Employees VALUES
 
 SELECT * FROM Employees
 
-INSERT INTO Orders VALUES
-(1,3,'2023-08-05'),
-(2,1,'2023-08-05'),
-(4,2,'2023-08-05'),
-(3,4,'2023-08-05'),
-(3,4,'2024-10-12');
-
 INSERT INTO Customers VALUES
 ('Shaligram_Infotech','Chirag','Trainee','Ahmedabad Gujarat','Gujarat','India'),
 ('OpenAI','Sam','CEO','San Francisco,California','San Francisco','USA'),
@@ -59,6 +53,15 @@ INSERT INTO Customers VALUES
 ('Stark_Industries','TONY','CEO','New York','New York','USA'),
 ('Wargaming','Jeff','Manager','Nicosia','Nicosia','Cyprus'),
 ('Lenskart','Piyush','Sales Head','Mumbai,Maharashtra','Mumbai','India');
+
+
+INSERT INTO Orders VALUES
+(1,3,'2023-08-05'),
+(2,1,'2023-08-05'),
+(4,2,'2022-09-12'),
+(3,4,'2023-08-05'),
+(3,4,'2024-10-12');
+
 
 SELECT * FROM Customers
 SELECT * FROM Orders
@@ -70,8 +73,7 @@ SELECT Orders.OrderID,Customers.CustomerID,Customers.Country
 FROM Orders INNER JOIN Customers  
 ON
 Customers.CustomerID=Orders.CustomerID
-WHERE Country='USA'
-;
+WHERE Country='USA';
 
 /*2).Write a SQL query to retrieve the list of all customers who have placed an order.*/
 
@@ -153,7 +155,7 @@ SELECT c.CustomerID, c.ContactName, o.OrderId, o.OrderDate
 FROM Customers AS c INNER JOIN Orders o
 ON
 c.CustomerID= o.CustomerID
-WHERE c.CustomerID=4 AND o.OrderDate='2023-08-05';  --particular date ad customer
+WHERE c.CustomerID=2 AND o.OrderDate='2023-08-05';  --particular date ad customer
 
 /*10)Write a SQL query to retrieve the list of all customers who have not yet placed an order, sorted by their country.*/
 
@@ -237,11 +239,12 @@ along with the employee who handled the order.*/
 
 SELECT * FROM Customers;
 SELECT * FROM Orders;
+SELECT * FROM Employees;
 
-SELECT c.CustomerID, o.OrderID ,o.EmployeeID
-FROM Customers As c INNER JOIN Orders AS o
-ON
-c.CustomerID=o.CustomerID;
+
+SELECT c.ContactName As customer_name ,e.FirstName+' '+e.LastName AS Employee_name, o.OrderID FROM Customers As c 
+INNER JOIN Orders AS o ON c.CustomerID=o.CustomerID
+INNER JOIN Employees AS e ON e.EmployeeID=o.EmployeeID;
 
 /*17)Write a SQL query to retrieve the list of all employees who have placed an order, 
 along with the customer who placed the order.*/
@@ -249,10 +252,9 @@ along with the customer who placed the order.*/
 SELECT * FROM Employees;
 SELECT * FROM Orders;
 
-SELECT e.EmployeeID , o.OrderID, o.CustomerID
-FROM Employees AS e INNER JOIN Orders AS o
-ON
-e.EmployeeID=o.EmployeeID;
+SELECT e.FirstName+' '+e.LastName AS Employee_name,c.ContactName As customer_name , o.OrderID FROM Customers As c 
+INNER JOIN Orders AS o ON c.CustomerID=o.CustomerID
+INNER JOIN Employees AS e ON e.EmployeeID=o.EmployeeID;
 
 /*18)Write a SQL query to retrieve the list of all orders placed by customers in a particular country, 
 along with the customer name and order date.*/
@@ -260,11 +262,11 @@ along with the customer name and order date.*/
 SELECT * FROM Customers;
 SELECT * FROM Orders;
 
-SELECT o.OrderID,o.CustomerID,c.Country, c.ContactName AS customer_name ,o.OrderDate
+SELECT o.OrderID,o.CustomerID, c.ContactName AS customer_name,c.Country ,o.OrderDate
 FROM Customers AS c INNER JOIN Orders AS o
 ON
 c.CustomerID=o.CustomerID
-WHERE c.Country='USA'; --specific countruy
+WHERE c.Country='USA'; --specific country
 
 /*19)Write a SQL query to retrieve the list of all orders placed by employees who were born in a particular year, 
 along with the employee name and order date.*/
@@ -273,7 +275,7 @@ along with the employee name and order date.*/
 SELECT * FROM Employees;
 SELECT * FROM Orders;
 
-SELECT o.OrderID,e.EmployeeID,e.FirstName,e.LastName,e.BirthDate,o.OrderDate
+SELECT o.OrderID,e.EmployeeID,e.FirstName+' '+e.LastName AS emp_name,e.BirthDate,o.OrderDate
 FROM Employees As e INNER JOIN ORders as o
 ON 
 e.EmployeeID=o.EmployeeID
@@ -284,21 +286,20 @@ order date, and employee who handled the order.*/
 
 SELECT * FROM Customers;
 SELECT * FROM ORders;
+SELECT * FROM Employees;
 
-SELECT c.CustomerID,c.ContactName,o.OrderDate,o.EmployeeID
-FROM Customers AS c INNER JOIN Orders AS o
-ON
-c.CustomerID=o.CustomerID;
+SELECT c.CustomerID,c.ContactName AS customer_name,o.OrderDate,e.FirstName+' '+e.LastName AS emp_name FROM Customers AS c 
+INNER JOIN Orders AS o ON c.CustomerID=o.CustomerID
+INNER JOIN Employees AS e ON e.EmployeeID=o.EmployeeID;
 
-/*
-21)Write a SQL query to retrieve the list of all orders placed by customers who have a particular contact title,
+/*21)Write a SQL query to retrieve the list of all orders placed by customers who have a particular contact title,
 along with the customer name and order date.*/
 
 SELECT * FROM Customers;
 SELECT * FROM Orders;
 
 
-SELECT o.OrderID,c.CustomerID , c.ContactTitle, c.ContactName AS [Customer Name], o.OrderDate
+SELECT o.OrderID,c.CustomerID , c.ContactTitle, c.ContactName AS Customer_name, o.OrderDate
 FROM Customers AS c INNER JOIN Orders AS o
 ON
 c.CustomerID=o.CustomerID
@@ -314,7 +315,7 @@ SELECT o.OrderID,e.title,e.EmployeeID,e.FirstName,e.LastName,o.OrderDate
 FROM Employees AS e INNER JOIN Orders AS o
 ON 
 e.EmployeeID=o.EmployeeID
-WHERE e.Title='Salesman'; --partiular job title
+WHERe e.Title='Salesman'; --particular job title
 
 
 /*23)Write a SQL query to retrieve the list of all customers who have placed an order on a particular date, 
