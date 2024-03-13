@@ -9,40 +9,40 @@ body{
     font-weight: 500;
 }
 .sidebar {
-    height: 747px;
+    min-height: 747px;
     background: #FFCCCC;
     font-size: 40px;
 }
 
 .section1{
-    height: 360px;
+    min-height: 360px;
     background-color: #FFD4C7;
     font-size: 40px;
 }
 .section2{
-    height: 370px;
+    min-height: 370px;
     background-color: #BAB9E2;
     font-size: 40px;
 }
 
 .section3{
-    height: 354px;
+    min-height: 354px;
     background-color: #D7BDBD;
     font-size: 40px;
 }
 .section4{
-    height: 354px;
+    min-height: 354px;
     background-color: #E1FFC3;
     font-size: 40px;
 }
 
 .section5{
-    height: 354px;
+    min-height: 354px;
     background-color: #77DFF5;
     font-size: 40px;
 }
 .section6{
-    height: 354px;
+    min-height: 354px;
     background-color: #D7D4BD;
     font-size: 40px;
 }
