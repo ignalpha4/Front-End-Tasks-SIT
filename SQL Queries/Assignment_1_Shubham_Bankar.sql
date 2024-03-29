@@ -1,7 +1,7 @@
 
-create database assign_1_shubham_bankar2
+create database assign_1_shubham_bankar
 
-use assign_1_shubham_bankar2
+use assign_1_shubham_bankar
 
 /*ALTER DATABASE assign_1_shubham_bankar2 SET MULTI_USER;*/
 
