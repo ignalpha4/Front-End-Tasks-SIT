@@ -139,7 +139,6 @@ SELECT * FROM orders;
 CREATE PROC get_order_details @order_id INT
 AS
 BEGIN 
-
 	SELECT product_id,quantity FROM orders
 	WHERE order_id= @order_id;
 END
