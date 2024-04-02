@@ -21,7 +21,7 @@ h1{
     display: flex;
     align-items: center;
     height: 50px;
-    background-color: rgb(191, 118, 248);
+    background-color: lightgray;
     border: 2px solid black;
 }
 
@@ -29,7 +29,7 @@ h1{
     display: flex;
     align-items: center;
     height: 50px;
-    background-color: rgb(191, 118, 248);
+    background-color: lightgray;
     border: 2px solid black;
 }
 
@@ -42,7 +42,7 @@ h1{
 }
 
 .heading_main{
-    background-color: aquamarine;
+    background-color: lightgray;
     margin-bottom: 50px;
     margin-top: 50px;
 }
@@ -52,7 +52,8 @@ h1{
 }
 
 .item_head{
-    background-color: rgb(182, 224, 224);
+    background-color: lightgray;
+
 }
 
 .t1{

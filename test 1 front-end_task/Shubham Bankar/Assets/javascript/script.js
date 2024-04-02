@@ -4,8 +4,29 @@ const food_details=[];
 
 $(document).ready(function () {
     $(".t1").DataTable();
+
+    update_active_val()
 });
 
+function update_active_val() {
+    const checkbox1 = $('#cat_active');
+    const checkbox2=$('#item_active');
+    const active_val1 = checkbox1.is(':checked') ? 'Yes' : 'No';
+    const active_val2 = checkbox2.is(':checked') ? 'Yes' : 'No';
+
+
+
+    checkbox1.val(active_val1);
+    checkbox2.val(active_val2)
+}
+$('#cat_active').change(function() {
+    update_active_val() ;
+});
+
+
+$('#item_active').change(function() {
+    update_active_val() ;
+});
 
 // to add row in form 
 function addrow(){
@@ -36,7 +57,8 @@ function addrow(){
             <label for="food_type" class="form-label">Food type</label>
             <select class="form-select form-select-lg food_type" name="food_type"  required value="veg">
                 <option value="veg" selected>Veg</option>
-                <option value="non-veg">Non-veg</option>
+                <option value="non_veg">Non-veg</option>
+                <option value="sea_food">Sea Food</option>
             </select>
         </div>
     </div>
@@ -61,14 +83,10 @@ function addrow(){
         </div>
     
         <div class="col-lg">
-            <label for="active2">Active</label>
+            <label for="item_active">Active</label>
             <div class="form-check">
-                <input class="form-check-input active2" type="checkbox" value="Yes" checked>
-                <label class="form-check-label" for="active2">Yes</label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input active2" type="checkbox" value="No">
-                <label class="form-check-label" for="active2">No</label>
+                <input class="form-check-input" type="checkbox" id="item_active" checked>
+                <label class="form-check-label" for="item_active">Yes</label>
             </div>
         </div>
 
@@ -189,20 +207,7 @@ function submit_data(event){
    
     /*-------------------------------------------------------*/
 
-    let active1 = ''; 
-
-    $('.cat_active').each(function() {
-        if ($(this).is(':checked')) {
-            active1 = $(this).val(); 
-        }
-    });
-
-    let active2='';
-    $('.active2').each(function() {
-        if ($(this).is(':checked')) {
-            active2 = $(this).val(); 
-        }
-    });
+    
 
 
     if(edit_index=="-1"){
@@ -210,7 +215,7 @@ function submit_data(event){
         let category_details = {
             category_name:$('#category_name').val(),
             category_desc:$('#category_desc').val(),
-            cat_active:active1,
+            cat_active:$("#cat_active").val(),
             date:$('#date').val(),
             item:[],
         };
@@ -227,7 +232,7 @@ function submit_data(event){
                 price: row.querySelector(".price").value,
                 discount: row.querySelector(".discount").value,
                 gst: row.querySelector(".gst").value,
-                active: row.querySelector(".active2:checked").value, 
+                active: row.querySelector("#item_active").value, 
             };
         
             category_details.item.push(item_details);
@@ -240,7 +245,7 @@ function submit_data(event){
 
         food.category_name= $('#category_name').val(),
         food.category_desc=$('#category_desc').val(),
-        food.cat_active=active1,
+        food.cat_active=$("#cat_active").val(),
         food.date=$('#date').val()
 
         let item_rows=document.querySelectorAll(".item_rows");
@@ -256,7 +261,7 @@ function submit_data(event){
                 price: row.querySelector(".price").value,
                 discount: row.querySelector(".discount").value,
                 gst: row.querySelector(".gst").value,
-                active: row.querySelector(".active2:checked").value, 
+                active: row.querySelector("#item_active").value, 
             };
         
             food.item.push(item_details);
@@ -267,9 +272,12 @@ function submit_data(event){
 
     update_table();
 
+
     document.querySelector(".product").reset();
 
     alert("info updated you can close the form");
+
+    $('#edit_index').val("-1");  //reseting index
 
 
 }   
@@ -381,6 +389,8 @@ function initialize_form() {
     addrow();
 
     open_modal(modal);
+
+    edit_index = "-1";
 }
 
 function edit_row(index) {
@@ -401,6 +411,7 @@ function edit_row(index) {
     open_modal(modal[0]);
 }
 
+//for adding the rows again in modal when we click edit
 function add_item_rows_data(food, r_index) {
     let row = document.createElement('div');
     row.classList.add('item_rows');
@@ -424,7 +435,8 @@ function add_item_rows_data(food, r_index) {
                 <label for="food_type" class="form-label">Food type</label>
                 <select class="form-select form-select-lg food_type" name="food_type" required>
                     <option value="veg" ${food.food_type === 'veg' ? 'selected' : ''}>Veg</option>
-                    <option value="non-veg" ${food.food_type === 'non-veg' ? 'selected' : ''}>Non-veg</option>
+                    <option value="non_veg" ${food.food_type === 'non_veg' ? 'selected' : ''}>Non-veg</option>
+                    <option value="sea_food" ${food.food_type === 'sea_food' ? 'selected' : ''}>Sea Food</option>
                 </select>
             </div>
         </div>
@@ -449,19 +461,17 @@ function add_item_rows_data(food, r_index) {
             </div>
         
             <div class="col-lg">
-                <label for="active2">Active</label>
+                <div class="col-lg">
+                <label for="item_active">Active</label>
                 <div class="form-check">
-                    <input class="form-check-input active2" type="checkbox" value="${food.active}" ${food.active === 'Yes' ? 'checked' : ''}>
-                    <label class="form-check-label" for="active2">Yes</label>
+                    <input class="form-check-input" type="checkbox" id="item_active" value="${food.active}" >
+                    <label class="form-check-label" for="item_active">Yes</label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input active2" type="checkbox" value="No" ${food.active === 'No' ? 'checked' : ''}>
-                    <label class="form-check-label" for="active2">No</label>
-                </div>
+        </div>
             </div>
 
             <div class="col-lg">
-                ${r_index >= 1 ? '<div class="sub_btn"><button type="button" class="my_btn btn btn-primary mt-4" onclick="remove_row(this)"> - </button></div>' : '<div class="sub_btn"><span></span></div>'}
+                ${r_index >= 1 ? '<div class="sub_btn"><button type="button" class="my_btn btn btn-primary mt-4" onclick="remove_row(this)"> Remove Item </button></div>' : '<div class="sub_btn"><span></span></div>'}
             </div>
         </div>
     `;
@@ -541,7 +551,6 @@ function validate_date(){
 
     return true;
 }
-
 
 
 function validate_iname(row){
