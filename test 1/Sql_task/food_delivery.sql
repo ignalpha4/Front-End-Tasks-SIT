@@ -54,17 +54,17 @@ CREATE PROC insert_data
 AS
 BEGIN
     INSERT INTO Category_Master VALUES
-    (1, 'Drinks', 'Contains variety of options including tea', 1, '2002-12-30'),
-    (2, 'Breakfast', 'Contains Indian breakfast options like poha, upma, idli', 1, '2010-10-22'),
+    (1, 'Drinks', 'contains variety of options including tea', 1, '2002-12-30'),
+    (2, 'Breakfast', 'Contains Indian breakfast options like poha upma idli', 1, '2010-10-22'),
     (3, 'Starters', 'Contains variety of options like Papad', 0, '2020-09-29'),
-    (4, 'Main Course', 'Contains variety of options like paneer, dal fry, thali', 1, '2005-05-06');
+    (4, 'Main Course', 'Contains variety of options like paneer dal fry thali', 1, '2005-05-06');
 
     INSERT INTO Item_Master VALUES
     (1, 1, 'Coke', 'Soft Drink', 50.0, 5.00, 1, '2009-04-04'),
     (2, 1, 'Red Bull', 'Energy Drink', 110.0, 10.00, 1, '2020-04-09'),
     (3, 2, 'Poha', 'Snacks', 20.0, 10.00, 1, '2011-04-10'),
     (4, 2, 'Idli', 'Rice Cake', 40.0, 10.00, 0, '2020-04-09'),
-    (5, 4, 'Dal Fry', 'Spicy Lentils', 200.0, 10.00, 1, '2006-07-08');
+    (5, 4, 'Dal Fry', 'Spicy ', 200.0, 10.00, 1, '2006-07-08');
 
     INSERT INTO Coupon_Master VALUES
     (1, '50 percent discount', 50.0, '2024-05-06'),
@@ -195,12 +195,9 @@ BEGIN
 
 	/*Q8*/
 
-	SELECT o.OrderId, o.Deliverycharge, o.CouponAmount, o.Subtotal, o.Total, o.Orderdate,
-           d.OrderDetailsId, d.ItemId, d.Quantity, d.Total 
-    FROM Order_Master o
-    INNER JOIN Order_Details d ON 
-	o.OrderId = d.OrderId
-    WHERE o.OrderId = @OrderId; 
+	SELECT * FROM Order_Master WHERE OrderId = @OrderId;
+
+	SELECT * FROM Order_Details d WHERE OrderId = @OrderId; 
 
 END;
 
@@ -210,9 +207,12 @@ SELECT * FROM Coupon_Master;
 
 
 /*output*/
-EXEC main @ItemId=4,@Quantity=10,@CouponID=3
+EXEC main @ItemId=3,@Quantity=10,@CouponID=4
 
 
+DELETE FROM Order_Details
+
+DELETE FROM Order_Master
 
 
 

@@ -4,7 +4,6 @@ const food_details=[];
 
 $(document).ready(function () {
     $(".t1").DataTable();
-
     update_active_val()
 });
 
@@ -14,26 +13,16 @@ function update_active_val() {
     const active_val1 = checkbox1.is(':checked') ? 'Yes' : 'No';
     const active_val2 = checkbox2.is(':checked') ? 'Yes' : 'No';
 
-
-
     checkbox1.val(active_val1);
     checkbox2.val(active_val2)
 }
-$('#cat_active').change(function() {
-    update_active_val() ;
-});
 
-
-$('#item_active').change(function() {
-    update_active_val() ;
-});
+$('#cat_active, #item_active').change(update_active_val);
 
 // to add row in form 
 function addrow(){
     let row = document.createElement('div'); 
     row.classList.add('item_rows');  
-
-    console.log("inside addrow")
 
     const base_rows = $('.item_rows').length < 1;
 
@@ -95,7 +84,7 @@ function addrow(){
         </div>
     
     </div>
-    </div>
+
     `
     $(".for_adding_row").append(row);
 }
@@ -113,8 +102,6 @@ function delete_row(index){
         food_details.splice(index, 1);
         update_table();
     }
-
-
 
 }
 
@@ -207,11 +194,6 @@ function submit_data(event){
    
     /*-------------------------------------------------------*/
 
-    
-
-
-    if(edit_index=="-1"){
-
         let category_details = {
             category_name:$('#category_name').val(),
             category_desc:$('#category_desc').val(),
@@ -226,51 +208,23 @@ function submit_data(event){
         item_rows.forEach(row=> {
          
             let item_details = {
-                item_name: row.querySelector(".item_name").value,
-                item_desc: row.querySelector(".item_desc").value,
-                food_type: row.querySelector(".food_type").value,
-                price: row.querySelector(".price").value,
-                discount: row.querySelector(".discount").value,
-                gst: row.querySelector(".gst").value,
-                active: row.querySelector("#item_active").value, 
+                item_name: $(row).find(".item_name").val(),
+                item_desc: $(row).find(".item_desc").val(),
+                food_type: $(row).find(".food_type").val(),
+                price: $(row).find(".price").val(),
+                discount: $(row).find(".discount").val(),
+                gst: $(row).find(".gst").val(),
+                active: $(row).find("#item_active").prop('checked') ? 'Yes' : 'No'
+ 
             };
         
             category_details.item.push(item_details);
         });
-        
-        food_details.push(category_details);
-    }else{
-        
-        let food=food_details[edit_index];
 
-        food.category_name= $('#category_name').val(),
-        food.category_desc=$('#category_desc').val(),
-        food.cat_active=$("#cat_active").val(),
-        food.date=$('#date').val()
-
-        let item_rows=document.querySelectorAll(".item_rows");
-
-        food.item=[];//cleared previous values
-
-        item_rows.forEach(row=> {
-         
-            let item_details = {
-                item_name: row.querySelector(".item_name").value,
-                item_desc: row.querySelector(".item_desc").value,
-                food_type: row.querySelector(".food_type").value,
-                price: row.querySelector(".price").value,
-                discount: row.querySelector(".discount").value,
-                gst: row.querySelector(".gst").value,
-                active: row.querySelector("#item_active").value, 
-            };
-        
-            food.item.push(item_details);
-        });
-
-
-    }
-
-    update_table();
+        if(edit_index==="-1") food_details.push(category_details);
+        else food_details[edit_index]=category_details;
+  
+        update_table(); 
 
 
     document.querySelector(".product").reset();
@@ -320,9 +274,7 @@ function update_table(){
         let total_discount=0;
 
         food.item.forEach(item=>{
-
-            console.log("item price:",item.price);
-            console.log("item discount:",item.discount);
+            //calculations
 
             let d_amt =(parseFloat(item.price) * item.discount) / 100;
             let d_price = parseFloat(item.price)- d_amt;
@@ -330,10 +282,7 @@ function update_table(){
             total_price+=parseFloat(item.price);
             total_discount+=d_price;
 
-            console.log("d_amt=",d_amt);
-            console.log("d_price=",d_price);
-            
-
+        
             let item_row=$('<tr>');
             
             item_row.append($('<td>').text(item.item_name));
@@ -366,31 +315,37 @@ function update_table(){
 }
 
 function toggle_items(index){
-    let item_t=$('.item_d_table[data-item-index="'+index+'"]')
-    item_t.toggle();
+  $('.item_d_table[data-item-index="'+index+'"]').toggle();
 }
 
 
 //for opening the modal
-
 function open_modal(modal) {
-    $(modal).addClass("show");
-    $(modal).css("display", "block");
-    $(modal).attr("aria-modal", "true");
-    $(modal).attr("aria-hidden", "false");
+    $(modal).addClass("show").css("display", "block").attr("aria-modal", "true").attr("aria-hidden", "false");
+}
+
+//for closing the modals
+document.querySelector('.btn-close').addEventListener('click', close_modal);
+document.querySelector('.modal-footer .btn-secondary').addEventListener('click', close_modal);
+
+function close_modal() {
+    let modal = $('#food_modal')[0];
+    $(modal).removeClass('show').css("display", "none").attr('aria-modal', 'false').attr('aria-hidden', 'true');
 }
 
 
+//when we click on additem then we reser and present the form
 function initialize_form() { 
 
     $(".item_rows").remove();
-    let modal = document.getElementById("food_modal");
+
+    document.querySelector(".product").reset(); 
 
     addrow();
 
-    open_modal(modal);
+    $('#edit_index').val("-1"); //setting to -1 so that we can add new row
 
-    edit_index = "-1";
+    open_modal($('#food_modal'));
 }
 
 function edit_row(index) {
@@ -406,10 +361,10 @@ function edit_row(index) {
         add_item_rows_data(item, r_index);
     });
 
-    let modal = $("#food_modal");
-    $("#edit_index").val(index);
-    open_modal(modal[0]);
-}
+    $("#edit_index").val(index);  //seting to index so that we can edit info of that row
+
+    open_modal($("#food_modal"));
+} 
 
 //for adding the rows again in modal when we click edit
 function add_item_rows_data(food, r_index) {
@@ -479,20 +434,6 @@ function add_item_rows_data(food, r_index) {
     $(".for_adding_row").append(row);
 }
 
-
-
-//for closing the modals
-document.querySelector('.btn-close').addEventListener('click', close_modal);
-document.querySelector('.modal-footer .btn-secondary').addEventListener('click', close_modal);
-
-function close_modal() {
-    let modal = $('#food_modal')[0];
-    $(modal).removeClass('show');
-    $(modal).css("display","none");
-    $(modal).attr('aria-modal', 'false');
-    $(modal).attr('aria-hidden', 'true');
-
-}
 
 /*validations */
 
