@@ -1,4 +1,3 @@
-
 const food_details=[];
 
 
@@ -8,13 +7,13 @@ $(document).ready(function () {
 });
 
 function update_active_val() {
-    const checkbox1 = $('#cat_active');
-    const checkbox2=$('#item_active');
-    const active_val1 = checkbox1.is(':checked') ? 'Yes' : 'No';
-    const active_val2 = checkbox2.is(':checked') ? 'Yes' : 'No';
+    let checkbox1 = $('#cat_active');
+    let checkbox2=$('#item_active');
+    let active_val1 = checkbox1.is(':checked') ? 'Yes' : 'No';
+    let active_val2 = checkbox2.is(':checked') ? 'Yes' : 'No';
 
     checkbox1.val(active_val1);
-    checkbox2.val(active_val2)
+    checkbox2.val(active_val2);
 }
 
 $('#cat_active, #item_active').change(update_active_val);
@@ -97,7 +96,7 @@ function remove_row(button){
 //for deleting whole category
 function delete_row(index){
 
-    if (window.confirm("Are you sure you want to delete this row?")) {
+    if (window.confirm("this info will be deleted ")) {
         alert('info deleted');
         food_details.splice(index, 1);
         update_table();
@@ -297,10 +296,9 @@ function update_table(){
 
             
         let total_row = $('<tr>');
-        total_row.append($('<td>').text('Total'));
-        total_row.append($('<td>').text(''));
-        total_row.append($('<td>').text(''));
-        total_row.append($('<td>').text(total_price));
+        total_row.append($("<td colspan='3'>").text('Total'));
+        
+        total_row.append($('<td >').text(total_price));
         total_row.append($('<td>').text(''));
         total_row.append($('<td>').text(total_discount)); 
 
@@ -355,84 +353,25 @@ function edit_row(index) {
     document.querySelector("#category_desc").value = food.category_desc;
     document.querySelector("#date").value = food.date;
 
-    $('.item_rows').remove();
 
-    food.item.forEach((item, r_index) => {
-        add_item_rows_data(item, r_index);
+    //here function(i) has two para i and this which is refering to 
+    //the current dom element
+    $(".item_rows").each(function(i) {
+        if (food.item[i]) {
+            $(this).find(".item_name").val(food.item[i].item_name);
+            $(this).find(".item_desc").val(food.item[i].item_desc);
+            $(this).find(".food_type").val(food.item[i].food_type);
+            $(this).find(".price").val(food.item[i].price);
+            $(this).find(".discount").val(food.item[i].discount);
+            $(this).find(".gst").val(food.item[i].gst);
+            $(this).find("#item_active").prop('checked', food.item[i].active === 'Yes');
+        }
     });
 
     $("#edit_index").val(index);  //seting to index so that we can edit info of that row
 
     open_modal($("#food_modal"));
 } 
-
-//for adding the rows again in modal when we click edit
-function add_item_rows_data(food, r_index) {
-    let row = document.createElement('div');
-    row.classList.add('item_rows');
-
-    row.innerHTML = `
-        <hr>
-        <div class="row">
-            <div class="col-lg">
-                <label for="item_name">Item Name</label>
-                <input type="text" class="form-control item_name" value="${food.item_name}" required>
-                <div class="iname_v"></div>
-            </div>
-        
-            <div class="col-lg">
-                <label for="item_desc">Item Description</label>
-                <input type="text" class="form-control item_desc" value="${food.item_desc}">
-                <div class="idesc_v"></div>
-            </div>
-        
-            <div class="col-lg">
-                <label for="food_type" class="form-label">Food type</label>
-                <select class="form-select form-select-lg food_type" name="food_type" required>
-                    <option value="veg" ${food.food_type === 'veg' ? 'selected' : ''}>Veg</option>
-                    <option value="non_veg" ${food.food_type === 'non_veg' ? 'selected' : ''}>Non-veg</option>
-                    <option value="sea_food" ${food.food_type === 'sea_food' ? 'selected' : ''}>Sea Food</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-lg">
-                <label for="price">Price</label>
-                <input type="number" class="form-control price" value="${food.price}" required>
-                <div class="price_v"></div>
-            </div>
-        
-            <div class="col-lg">
-                <label for="discount">Discount</label>
-                <input type="number" class="form-control discount" value="${food.discount}">
-                <div class="d_v"></div>
-            </div>
-        
-            <div class="col-lg">
-                <label for="gst">GST</label>
-                <input type="text" class="form-control gst" value="${food.gst}" required>
-                <div class="gst_v"></div>
-            </div>
-        
-            <div class="col-lg">
-                <div class="col-lg">
-                <label for="item_active">Active</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="item_active" value="${food.active}" >
-                    <label class="form-check-label" for="item_active">Yes</label>
-                </div>
-        </div>
-            </div>
-
-            <div class="col-lg">
-                ${r_index >= 1 ? '<div class="sub_btn"><button type="button" class="my_btn btn btn-primary mt-4" onclick="remove_row(this)"> Remove Item </button></div>' : '<div class="sub_btn"><span></span></div>'}
-            </div>
-        </div>
-    `;
-
-    $(".for_adding_row").append(row);
-}
 
 
 /*validations */
