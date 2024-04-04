@@ -341,6 +341,7 @@ function initialize_form() {
 
     addrow();
 
+
     $('#edit_index').val("-1"); //setting to -1 so that we can add new row
 
     open_modal($('#food_modal'));
