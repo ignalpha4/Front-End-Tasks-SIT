@@ -1,123 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task</title>
-    <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Assets/datatables/datatables.min.css" rel="stylesheet">
-    <link href="Assets/css/style.css" rel="stylesheet">
+    <link href="Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="Assets/datatables/datatables.min.css" rel="stylesheet" />
+    <link href="Assets/css/style.css" rel="stylesheet" />
 </head>
+
 <body>
-    
     <div class="heading_main">
         <h1>Food Store 2</h1>
     </div>
 
-        
-    
-    <div class="modal fade" id="food_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content p-3">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
+        Launch
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true"
+        data-bs-backdrop="static">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="exampleModalLabel" style="text-align: center;">Form</h1>
+                    <h5 class="modal-title" id="modalTitleId">Form title</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="submitData(event)" class="form product">
-                        <input type="hidden" id="edit_index" value="-1">
-                        <!-- category -->
-                        <div class="cat_head">
-                            <h3>Category</h3>
-                        </div>
-          
-                        <div class="row mt-5">
-                            <div class="col-lg-4">
-                                <label for="category_name">Category Name</label>
-                                <input type="text" class="form-control " id="category_name" required>
-                                <div class="cname_v"></div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="category_desc">Category Description</label>
-                                <textarea  class="form-control" id="category_desc" cols="30" rows="2"></textarea>
-                                <div class="c_desc_v"></div>
-                            </div>
-                            <div class="col-lg-2">
-                                    <label for="cat_active">Active</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="cat_active" checked>
-                                        <label class="form-check-label" for="cat_active">Yes</label>
+                    <div class="container-fluid">
+                        <div class="container">
+                            <form>
+                                <div class="mb-3 row">
+                                    <label for="cat_name" class="col-4 col-form-label">Name</label>
+                                    <div class="col-lg">
+                                        <input type="text" class="form-control " name="inputName" id="cat_name"
+                                            placeholder="Name" />
                                     </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <label for="date">Launch Date</label>
-                                <input type="date" class="form-control" id="date">
-                                <div class="date_v"></div>
-                            </div>
-                        </div>
-                        <!-- items -->
-                        <div class="row_head mt-5">
-                            <div class="">
-                                <h3>Items Info</h3>
-                            </div>
-                            <div class="">
-                                <button type="button" class="btn_add btn-primary mx-3" onclick="addRow()">Add item</button>
-                            </div>
-                        </div>
-                
-                      
-                        <div class="for_adding_row">
-                            <!-- For adding the row -->
-                        </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close_btn" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" id="re_submit" class="btn_submit btn btn-primary" >Submit</button>
+                                    <div class="col-lg">
+                                        <label for="cat_name" class="col-4 col-form-label">cat_name</label>
+                                        <input type="number" min="0" max="15" title="dfsgfd" class="form-control" name="inputName" id="cat_desc"
+                                            placeholder="Name" />
+                                    </div>
+                                    <div class="col-lg">
+                                                <label for="cat_desc" class="form-label"></label>
+                                                <textarea class="form-control" name="" id="cat_desc" rows="3"></textarea>
+                                            
+                   
+                                    </div>
+                                    <div class="col-lg">
+                                        <input type="text" class="form-control" name="inputName" id="inputName"
+                                            placeholder="Name" />
+                                    </div>
+                                </div>
+                                <fieldset class="mb-3 row">
+                                    <legend class="col-form-legend col-4">Group name</legend>
+                                    <div class="col-8">
+                                        you can use radio and checkboxes here
+                                    </div>
+                                </fieldset>
+                                <div class="mb-3 row">
+                                    <div class="offset-sm-4 col-sm-8">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
-              
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <!--table-->
+    <script>
+        var modalId = document.getElementById("modalId");
 
-        <div class="heading " >
-            <div class="name_head">
-                <h3>Food Categories And Items</h3>
-            </div>
-    
-            <div class="add_btn">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#food_modal" onclick="initializeForm()">
-                    Add Info
-                </button>
-            </div>
-        
-        </div>
+        modalId.addEventListener("show.bs.modal", function (event) {
+            // Button that triggered the modal
+            let button = event.relatedTarget;
+            // Extract info from data-bs-* attributes
+            let recipient = button.getAttribute("data-bs-whatever");
 
+            // Use above variables to manipulate the DOM
+        });
+    </script>
 
-        <div class="table-responsive">
-            <table class="table t1 cell-border ">
-                <thead style="background-color: lightgray">
-                    <tr>
-                        <th scope="col">Item Details</th>
-                        <th scope="col">Category Name</th>
-                        <th scope="col">Category Description</th>
-                        <th scope="col">Active</th>
-                        <th scope="col">Launch Date</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-
-<script src="Assets/javascript/jquery-3.7.1.min.js"></script>
-<script src="Assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="Assets/datatables/datatables.min.js"></script>
-<script src="Assets/javascript/script2.js"></script>
+    <script src="Assets/javascript/jquery-3.7.1.min.js"></script>
+    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Assets/datatables/datatables.min.js"></script>
+    <script src="Assets/javascript/script2.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,15 @@
     <link href="Assets/datatables/datatables.min.css" rel="stylesheet">
     <link href="Assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
-    
+
     <div class="heading_main">
         <h1>Food Store 1</h1>
     </div>
 
-        
-    
+
+
     <div class="modal fade" id="food_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content p-3">
@@ -24,14 +26,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
                     <form onsubmit="submit_data(event)" class="form product">
                         <input type="hidden" id="edit_index" value="-1">
                         <!-- category -->
                         <div class="cat_head">
                             <h3>Category</h3>
                         </div>
-          
+
                         <div class="row mt-5">
                             <div class="col-lg-4">
                                 <label for="category_name">Category Name</label>
@@ -40,15 +41,15 @@
                             </div>
                             <div class="col-lg-4">
                                 <label for="category_desc">Category Description</label>
-                                <textarea  class="form-control" id="category_desc" cols="30" rows="2"></textarea>
+                                <textarea class="form-control" id="category_desc" cols="30" rows="2"></textarea>
                                 <div class="c_desc_v"></div>
                             </div>
                             <div class="col-lg-2">
-                                    <label for="cat_active">Active</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="cat_active" checked>
-                                        <label class="form-check-label" for="cat_active">Yes</label>
-                                    </div>
+                                <label for="cat_active">Active</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cat_active" checked>
+                                    <label class="form-check-label" for="cat_active">Yes</label>
+                                </div>
                             </div>
                             <div class="col-lg-2">
                                 <label for="date">Launch Date</label>
@@ -62,22 +63,24 @@
                                 <h3>Items Info</h3>
                             </div>
                             <div class="">
-                                <button type="button" class="btn_add btn-primary mx-3" onclick="addrow()">Add item</button>
+                                <button type="button" class="btn_add btn-primary mx-3" onclick="addrow()">Add
+                                    item</button>
                             </div>
                         </div>
-                
-                      
+
+
                         <div class="for_adding_row">
                             <!-- For adding the row -->
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close_btn" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" id="re_submit" class="btn_submit btn btn-primary" >Submit</button>
+                            <button type="button" class="btn btn-secondary close_btn"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="submit" id="re_submit" class="btn_submit btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
-              
+
             </div>
         </div>
     </div>
@@ -85,17 +88,19 @@
     <div class="container">
         <!--table-->
 
-        <div class="heading " >
+        <div class="heading ">
             <div class="name_head">
                 <h3>Food Categories And Items</h3>
             </div>
-    
+
             <div class="add_btn">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#food_modal" onclick="initialize_form()">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#food_modal"
+                    onclick="initialize_form()">
                     Add Info
                 </button>
+
             </div>
-        
+
         </div>
 
 
@@ -116,9 +121,10 @@
         </div>
     </div>
 
-<script src="Assets/javascript/jquery-3.7.1.min.js"></script>
-<script src="Assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="Assets/datatables/datatables.min.js"></script>
-<script src="Assets/javascript/script.js"></script>
+    <script src="Assets/javascript/jquery-3.7.1.min.js"></script>
+    <script src="Assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Assets/datatables/datatables.min.js"></script>
+    <script src="Assets/javascript/script.js"></script>
 </body>
+
 </html>
