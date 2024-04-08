@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/DataTables/datatables.min.css">
+
+</head>
+
+<body>
+
+    <div class="container mt-5" style="display: flex; justify-content: space-between;">
+        <h1>FORM</h1>
+
+        <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId"
+            onclick="generate_form()">
+            Add items
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Form
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- content  -->
+                        <div class="container">
+
+                            <form class="food_form" onsubmit="submit_data(event)">
+
+                                <div class="mb-3 row">
+
+                                    <input type="hidden" id="row_index" value="-1">
+
+                                    <div class="col-lg">
+                                        <label for="cat_name" class="col-4 col-form-label">Cat name</label>
+                                        <input type="text" class="form-control" name="inputName" id="cat_name"
+                                            oninput="validate_text(this)" placeholder="Name" />
+                                        <p class="text-danger"></p>
+                                    </div>
+
+                                    <div class="col-lg">
+                                        <label for="cat_desc" class="col-4 col-form-label">cat_desc</label>
+                                        <textarea class="form-control" id="cat_desc" rows="2"
+                                            oninput="validate_text(this)"></textarea>
+                                        <p class="text-danger"></p>
+                                    </div>
+
+
+                                    <div class="col-lg">
+                                        <label for="cat_active"> Active</label>
+                                        <input class="form-check-input" type="checkbox" id="cat_active" checked />
+                                    </div>
+
+                                    <div class="col-lg">
+                                        <label for="cat_date" class="col-4 col-form-label">Lauch Date</label>
+                                        <input type="date" class="form-control" name="inputName" id="cat_date"
+                                            placeholder="Name" max="2024-04-10" />
+                                    </div>
+
+
+                                </div>
+                                <hr>
+                                <div class="item_heading" style="display: flex;justify-content: space-between;">
+                                    <h4>Item details</h4>
+                                    <button type="button" class="btn btn-primary" onclick="add_row()">
+                                        add row +
+                                    </button>
+
+                                </div>
+
+                                <div class="for_row_addition">
+
+                                </div>
+
+                                <div class="div">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit Data
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-primary table-bordered t1">
+                <thead>
+                    <tr>
+                        <th scope="col">toggle</th>
+                        <th scope="col">cat name</th>
+                        <th scope="col">cat desc</th>
+                        <th scope="col">cat active</th>
+                        <th scope="col">launch date</th>
+                        <th scope="col">edit btn</th>
+                        <th scope="col">delete btn</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="assets/javascript/jquery-3.7.1.min.js"></script>
+
+    <script src="assets/DataTables/datatables.min.js"></script>
+    <script src="assets/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+
+    <script src="assets/javascript/script.js"></script>
+
+</body>
+
+</html>
