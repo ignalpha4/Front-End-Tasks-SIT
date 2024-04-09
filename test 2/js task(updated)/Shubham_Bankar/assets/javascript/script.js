@@ -96,7 +96,7 @@ function submit_data(event) {
 
     let dept_data = {
         dept_name: $('#dept_name').val(),
-        dept_desc: $('#dept_desc').val(),
+        dept_desc: $('#dept_desc').val(), 
         dept_state: $('#dept_state').val(),
         dept_city: $('#dept_city').val(),
         emp: [],
@@ -272,7 +272,7 @@ function form_generate() {
 
     add_row();
 
-    $('#edit_index').val('-1');
+    $('#edit_index').val('-1');                     
 }
 
 function validate_name(name_row) {
@@ -294,7 +294,7 @@ function validate_name(name_row) {
 function validate_mail(mail_row) {
     let mail = $(mail_row);
 
-    let regex = /^[a-zA-z0-9-_\.]+@[a-zA-z]+\.[a-zA-z]{0,3}$/;
+    let regex = /^[a-zA-Z0-9-_.]+@[a-zA-Z0-9.-]+\.[a-zA-z]{2,4}$/;
 
     if (!regex.test(mail.val())) {
         mail.next().text('Enter valid email address');
@@ -313,7 +313,7 @@ function validate_dob(dob_row) {
     let dob = $(dob_row).val();
 
     let today_year = new Date().getFullYear();
-    console.log(today_year)
+    console.log(today_year);
 
     let dob_array = dob.split('-');
 
