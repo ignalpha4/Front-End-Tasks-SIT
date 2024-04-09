@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>form</h1>
+    <div class="container mt-5" style="display: flex;justify-content: space-between;">
+        <h1>Form </h1>
 
         <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalId" onclick="generate_form()">
             Launch
@@ -32,13 +32,9 @@
                             <form class="food_form" onsubmit="submit_data(event)">
 
                                 <div class="mb-3 row">
-
                                     <input type="hidden" id="edit_index" value="-1">
-
-
-
                                     <div class="col-lg">
-                                        <label for="cat_name" class="col-4 col-form-label">Cat name</label>
+                                        <label for="cat_name" class="form-label">Cat name</label>
                                         <input type="text" class="form-control" name="inputName" id="cat_name" oninput="validate_names(this) " required
                                             placeholder="Name" />
                                         <p class="text-danger"></p>
@@ -53,11 +49,13 @@
 
                                     <div class="col-lg">
                                         <label for="cat_active"> Active</label>
+                                        <br>
                                         <input class="form-check-input" type="checkbox" id="cat_active" checked />
+                                        <label for="cat_active">Yes</label>
                                     </div>
 
                                     <div class="col-lg">
-                                        <label for="cat_date" class="col-4 col-form-label">Launch Date</label>
+                                        <label for="cat_date" class="form-label">Launch Date</label>
                                         <input type="date" class="form-control" name="date" id="cat_date"  max="2024-04-05"
                                             placeholder="Name"  required/>
                                             <p class="text-danger"></p>
@@ -65,7 +63,7 @@
 
                                 </div>
 
-                                <div class="item_header">
+                                <div class="item_header" style="display: flex;justify-content: space-between;">
                                     <h4>Item details</h4>
                                     <button type="button" class="btn btn-primary sm" onclick="add_row()">Add
                                         rows</button>
@@ -76,17 +74,19 @@
                                     <!-- for adding data  -->
                                 </div>
 
-                                <button type="submit" class="btn btn-primary">
-                                    Submit Data
-                                </button>
+                                <hr>
+                                <div class="buttons " style="display: flex;justify-content: center;">
+                                    <button type="submit " class="btn btn-primary" style="margin-right: 10px;" >
+                                        Submit Data
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Close Modal
+                                    </button>
+                                </div>
+
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
                 </div>
             </div>
         </div>
@@ -94,7 +94,7 @@
 
     <div class="container">
         <div class="table-responsive">
-            <table class="table table-primary t1">
+            <table class="table table-primary table-bordered t1">
                 <thead>
                     <tr>
                         <th scope="col">toggle</th>

@@ -8,10 +8,10 @@ $(document).ready(function () {
 
 function add_row(){
 
-    let row=document.createElement("div");
-    row.classList.add("item_rows");
+    // let row=document.createElement("div");
+    // row.classList.add("item_rows");
 
-    row.innerHTML=
+    let row =$("<div>").addClass("item_rows").append(
     `   <hr>
     <br>
         <div class="row">
@@ -71,7 +71,7 @@ function add_row(){
 
     </div>
     
-    `;
+    `);
 
     $(".for_row_addition").append(row);
 }
@@ -125,11 +125,8 @@ function submit_data(event){
 
     $("#edit_index").val("-1");
 
-    alert("info added close modal");
-
-   
+    alert("info added close modal");  
 }
-
 function update_table(){
     let t1= $(".t1").DataTable();
     t1.clear().draw();
@@ -152,7 +149,7 @@ function create_cat_data(dataTable,food) {
         food.cat_active,
         food.cat_date,
         `  <button type="button" class="btn btn-primary toggle-btn" data-bs-toggle="modal" data-bs-target="#modalId" onclick="edit_details(${food_data.indexOf(food)})">Edit</button>`,
-        `   <button type="button" class="btn btn-primary" onclick="delete_data(this)">Delete</button>`
+        `  <button type="button" class="btn btn-primary" onclick="delete_data(this)">Delete</button>`
     ]).draw(true).node();
     
     return cat_row;
@@ -197,7 +194,7 @@ function create_item_table(food,index){
     let total_row=$("<tr>");
 
     total_row.append(
-        $('<td colspan="3">').text("total"),
+        $('<td colspan="4">').text("total"),
         $("<td>").text(total_price),
         $("<td>").text(" "),
         $("<td>").text(total_discount)
@@ -288,7 +285,6 @@ function validate_names(input){
     let reg=/^[a-zA-z\s]+$/;
 
     if(!reg.test(name.val())){
-
         name.next().text("Only alphabets allowed")
         name.addClass("is-invalid").removeClass("is-valid");
         valid_name=false;
