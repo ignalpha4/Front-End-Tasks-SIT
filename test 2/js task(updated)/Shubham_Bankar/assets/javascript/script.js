@@ -13,6 +13,7 @@ $(document).ready(function () {
     $('.t1').DataTable();
 });
 
+
 let row_cnt = 0;
 
 function add_row() {
@@ -41,9 +42,9 @@ function add_row() {
                                             <label for="emp_salary" class="form-label">Employee Salary</label>
                                             <input type="number" class="form-control emp_salary" min=1 required />
                                         </div>
-                                    </div>
+                                </div>
     
-                                    <div class="row">
+                                <div class="row">
                                         <div class="col-lg">
                                             <label for="emp_joining" class="form-label">Joining Date</label>
                                             <input type="Date" class="form-control emp_joining"  required  max="2024-08-04"/>
@@ -61,7 +62,7 @@ function add_row() {
                                         <div class="col-lg">
                                         ${row_cnt > 1 ? `<button class="btn btn-primary btn-sm" onclick="remove_row(this)">Remove row</button>` : ``}
                                         </div>
-                                    </div>
+                                </div>
         
         `;
     } else {
@@ -79,7 +80,7 @@ function remove_row(btn) {
 }
 
 function submit_data(event) {
-    event.preventDefault();
+    event.preventDefault();             
 
     if (!name_validation) {
         return false;
@@ -167,9 +168,8 @@ function create_dept_data(t1, info, index) {
 }
 
 function create_emp_data_table(info, index) {
-    let emp_table = $('<table>')
-        .addClass('table table-bordered emp_table')
-        .attr('emp_index', index);
+
+    let emp_table = $('<table>').addClass('table table-bordered emp_table').attr('emp_index', index);
 
     let thead = $('<thead>');
 
@@ -236,7 +236,7 @@ function toggle_emp(index) {
 }
 
 function delete_data(index) {
-    if (window.confirm('Do you wnat to delete teh dept details?')) {
+    if (window.confirm('Do you wnat to delete the dept details?')) {
         company_data.splice(index, 1);
         alert('info_deleted');
         update_tables();
@@ -245,11 +245,11 @@ function delete_data(index) {
 
 function edit_data(index) {
     let dept = company_data[index];
-
-    $('.dept_name').val(dept.dept_name);
-    $('.dept_desc').val(dept.dept_desc);
-    $('.dept_state').val(dept.dept_state);
-    $('.dept_city').val(dept.dept_city);
+    //change here
+    $('#dept_name').val(dept.dept_name);
+    $('#dept_desc').val(dept.dept_desc);
+    $('#dept_state').val(dept.dept_state);
+    $('#dept_city').val(dept.dept_city);
 
     $('.emp_rows').each(function (i) {
         if (dept.emp[i]) {
@@ -324,6 +324,7 @@ function validate_dob(dob_row) {
         row.next().text('age cannot be less than 18');
         row.addClass('is-invalid').removeClass('is-valid');
         dob_validation = false;
+        //change here
     } else {
         row.next().text('');
         row.addClass('is-valid').removeClass('is-invalid');
@@ -343,9 +344,8 @@ function show_cities(state_rows) {
         let option2 = $('<option>').val('Pune').text('Pune').addClass('city');
 
         $('#dept_city').empty().append(option1, option2);
-
+        //change here
     } else if ((state == 'gujarat')) {
-
         let option1 = $('<option>').val('ahmedabad').text('ahmedabad').addClass('city');
         let option2 = $('<option>').val('surat').text('surat').addClass('city');
 
